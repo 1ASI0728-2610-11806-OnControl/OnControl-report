@@ -49,14 +49,7 @@ El objetivo de esta sección es resumir las modificaciones relevantes que se rea
 
 # Project Report Collaboration Insights
 
-URL del repositorio para el reporte del proyecto: 
-
-**TB1**
-
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/1de75326-c8d6-448d-9c95-85009f775fc3" alt="insights">
-</div>
-
+URL del repositorio para el reporte del proyecto: https://github.com/1ASI0728-2610-11806-OnControl/OnControl-report
 
 **Github Collaboration Insights**
 
