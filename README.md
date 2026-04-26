@@ -160,11 +160,11 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <strong>NOMBRE</strong> <br>
       <strong>TB1:</strong> <p align="justify">Contenido </p><br>
       <strong>Ramos Mendoza, Juan Pablo</strong> <br>
-      <strong>TB1:</strong> <p align="justify">Contenido </p><br>
+      <strong>TB1:</strong> <p align="justify">He realizado diagramas fáciles de entender y explicar para que personas de cualquier nivel técnico puedan entender las indicaciones correctamente, lo que ayudó en las explicaciones previas a las entrevistas </p><br>
       </td>
       <td>
         <strong>TB1:</strong><br>
-        Contenido
+        Nos hemos enfocado en mantener una alta claridad en nuestros diseños y explicaciones, lo que ayudó en el desarrollo de los gráficos.
       </td>
     </tr>
     <tr>
@@ -179,11 +179,11 @@ Github también presenta un timeline de las ramas principales y los procesos de 
          <strong>Nombre</strong> <br>
          <strong>TB1:</strong> <p align="justify">Contenido </p><br>
          <strong>Ramos Mendoza, Juan Pablo</strong> <br>
-         <strong>TB1:</strong> <p align="justify">Contenido </p><br>
+         <strong>TB1:</strong> <p align="justify">Utilizando mis avances anteriores en este proyecto he podido explicar claramente mis visiones a mis compañeros.</p><br>
       </td>
       <td>
         <strong>TB1:</strong><br>
-        Contenido
+        A través de los resultados de nuestras pruebas y diseños anteriores hemos podido explicar el proceso de desarrollo de nuestro proyecto para tenerlo como base.
       </td>
     </tr>
   </tbody>
