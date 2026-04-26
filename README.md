@@ -27,7 +27,7 @@ Producto: Nombre
 | Barrutia Vaez, Ricardo Andree   | U201714765 |
 | Espinoza Inoñan, Fabiola Ximena | U202214784 |
 | Holguin Gamarra, Hardie Alfonso | U202220250 |
-| Nombre                          | Codigo     |
+| Espejo Gamarra, Bryan Ronnald                          |u202213278|
 | Nombre                          | Codigo     |
 
 
@@ -64,7 +64,7 @@ Github también presenta un timeline de las ramas principales y los procesos de 
 | Integrante                       | User       |
 |----------------------------------|------------|
 | Holguin Gamarra, Hardie Alfonso  | HOLGUINUPC |
-| NOMBRE                           | USER       |
+|Espejo Gamarra, Bryan Ronald      | SAEBRYXN|
 | NOMBRE                           | USER       |
 | NOMBRE                           | USER       |
 | NOMBRE                           | USER       |
