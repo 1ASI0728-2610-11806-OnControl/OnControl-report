@@ -1207,9 +1207,233 @@ Segmento objetivo: Oncólogos
 
 <div id='4.1.4.'><h4>4.1.4. Architectural Design Decisions.</h4></div>
 
+Nos hemos enfocado para esta sección en los drivers que hemos identificado como de mayor importancia para stakeholders y de alto impacto técnico:
+- QAD-01 (Seguridad)
+- QAD-02 (Disponibilidad / Latencia IoT)
+- QAD-03 (Escalabilidad Concurrente de Datos)
+- FD-01 (Monitoreo en tiempo real)
+- CON-01 (Restricciones tecnológicas)
+- CON-02 (Cumplimiento Regulatorio Peruano (Ley N° 29733))
+
+**Seguridad y Cumplimiento (QAD-01, CON-02)**
+Se evaluaron los patrones siguientes:
+- API Gateway y Autenticación Centralizada
+- Seguridad distribuida por los microservicios
+- Arquitectura Zero Trust
+
+De estos patrones se ha elegido un API Gateway con autenticación, principalmente debido a la utilidad de tener el control a de acceso centralizado en nuestro poder, además de reducir la complejidad de los microservicios y un cumplimiento legal y normativo.
+
+**Procesamiento en Tiempo Real IoT (QAD-02, FD-01)**
+Se evaluaron los patrones siguientes:
+- Event-Driven Architecture
+- Arquitectura basada en colas (Message Queue)
+- Cliente-servidor síncrono
+
+De estos patrones se ha elegido una arquitectura Event-Driven y con mensajería asincrónica debido a su procesamiento en tiempo real y su reducción del acoplamiento entre IOT y Backend.
+
+**Escalabilidad (QAD-03)**
+Se evaluaron los patrones siguientes:
+- Microservices Architecture
+- Monolithic Architecture
+- Layered Architecture
+
+De estos patrones se ha elegido la arquitectura basada en microservicios debido a su escalado independiente y por ser bastante util en mantenibilidad.
+
+**Candidate Pattern Evaluation Matrix**
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Driver ID</th>
+      <th rowspan="2">Título de Driver</th>
+      <th colspan="3">Pattern 1</th>
+      <th colspan="3">Pattern 2</th>
+      <th colspan="3">Pattern 3</th>
+    </tr>
+    <tr>
+      <th>Pattern</th>
+      <th>Pros</th>
+      <th>Cons</th>
+      <th>Pattern</th>
+      <th>Pros</th>
+      <th>Cons</th>
+      <th>Pattern</th>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>QAD-01</td>
+      <td>Seguridad de datos médicos</td>
+      <td>API Gateway</td>
+      <td>Control centralizado</td>
+      <td>Punto único de fallo</td>
+      <td>Seguridad distribuida</td>
+      <td>Alta resiliencia</td>
+      <td>Mayor complejidad</td>
+      <td>Zero Trust</td>
+      <td>Máxima seguridad</td>
+      <td>Alto costo</td>
+    </tr>
+    <tr>
+      <td>QAD-02 / FD-01</td>
+      <td>IoT en tiempo real</td>
+      <td>Event-Driven</td>
+      <td>Baja latencia</td>
+      <td>Complejidad</td>
+      <td>Message Queue</td>
+      <td>Desacoplamiento</td>
+      <td>Latencia adicional</td>
+      <td>Cliente-servidor</td>
+      <td>Simplicidad</td>
+      <td>Baja escalabilidad</td>
+    </tr>
+    <tr>
+      <td>QAD-03</td>
+      <td>Escalabilidad</td>
+      <td>Microservices</td>
+      <td>Alta escalabilidad</td>
+      <td>Complejidad operativa</td>
+      <td>Monolito</td>
+      <td>Simplicidad</td>
+      <td>Difícil de escalar</td>
+      <td>Layered</td>
+      <td>Organización clara</td>
+      <td>Limitaciones</td>
+    </tr>
+  </tbody>
+</table>
 
 <div id='4.1.5.'><h4>4.1.5. Quality Attribute Scenario Refinements.</h4></div>
 
+Hemos definido escenarios refinados y priorizados que reflejan los atributos de calidad críticos de nuestro proyecto.
+
+A través de las decisiones adoptadas hemos podido satisfacer los siguientes atributos:
+- Seguridad
+- Performance
+- Disponibilidad
+- Escalabilidad
+- Usabilidad
+
+<table>
+  <tbody>
+    <tr>
+      <th>Scenario Refinement for Scenario 1</th>
+      <td><b>(QAD-02 + FD-01)</b></td>
+    </tr>
+    <tr>
+      <th>Scenario(s)</th>
+      <td>Procesamiento de datos IoT en tiempo real</td>
+    </tr>
+    <tr>
+      <th>Business Goals</th>
+      <td>Permitir intervención médica oportuna</td>
+    </tr>
+    <tr>
+      <th>Relevant Quality Attributes</th>
+      <td>Performance, Disponibilidad</td>
+    </tr>
+    <tr>
+      <th>Scenario Components</th>
+      <td>
+        <b>Stimulus:</b> Sensor envía dato crítico<br>
+        <b>Stimulus Source:</b> Dispositivo IoT<br>
+        <b>Environment:</b> Operación normal<br>
+        <b>Artifacts:</b> Servicio IoT, Event Bus, Notificaciones<br>
+        <b>Response:</b> Generar alerta inmediata al médico<br>
+        <b>Response Measure:</b> Latencia &lt; 2 segundos
+      </td>
+    </tr>
+    <tr>
+      <th>Questions</th>
+      <td>¿Qué pasa si hay pérdida de conexión?</td>
+    </tr>
+    <tr>
+      <th>Issues</th>
+      <td>Dependencia de red</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Scenario Refinement for Scenario 2</th>
+      <td>(QAD-01)</td>
+    </tr>
+    <tr>
+      <th>Scenario(s)</th>
+      <td>Acceso a datos médicos</td>
+    </tr>
+    <tr>
+      <th>Business Goals</th>
+      <td>Proteger información clínica</td>
+    </tr>
+    <tr>
+      <th>Relevant Quality Attributes</th>
+      <td>Seguridad</td>
+    </tr>
+    <tr>
+      <th>Scenario Components</th>
+      <td>
+        <b>Stimulus:</b> Usuario solicita acceso<br>
+        <b>Stimulus Source:</b> Usuario<br>
+        <b>Environment:</b> Operación normal<br>
+        <b>Artifacts:</b> API Gateway, Auth Service<br>
+        <b>Response:</b> Validar autenticación y autorización<br>
+        <b>Response Measure:</b> 100% accesos autenticados
+      </td>
+    </tr>
+    <tr>
+      <th>Questions</th>
+      <td>¿Cómo gestionar expiración de tokens?</td>
+    </tr>
+    <tr>
+      <th>Issues</th>
+      <td>Manejo de sesiones</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Scenario Refinement for Scenario 3</th>
+      <td>(QAD-03)</td>
+    </tr>
+    <tr>
+      <th>Scenario(s)</th>
+      <td>Incremento de usuarios y dispositivos</td>
+    </tr>
+    <tr>
+      <th>Business Goals</th>
+      <td>Soportar crecimiento del sistema</td>
+    </tr>
+    <tr>
+      <th>Relevant Quality Attributes</th>
+      <td>Escalabilidad</td>
+    </tr>
+    <tr>
+      <th>Scenario Components</th>
+      <td>
+        <b>Stimulus:</b> Aumento de conexiones concurrentes<br>
+        <b>Stimulus Source:</b> Usuarios y sensores<br>
+        <b>Environment:</b> Alta demanda<br>
+        <b>Artifacts:</b> Microservicios<br>
+        <b>Response:</b> Escalado horizontal automático<br>
+        <b>Response Measure:</b> Soportar +1000 conexiones
+      </td>
+    </tr>
+    <tr>
+      <th>Questions</th>
+      <td>¿Cuándo escalar automáticamente?</td>
+    </tr>
+    <tr>
+      <th>Issues</th>
+      <td>Costos cloud</td>
+    </tr>
+  </tbody>
+</table>
 
 
 
