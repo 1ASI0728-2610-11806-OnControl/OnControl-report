@@ -1189,6 +1189,20 @@ Segmento objetivo: Oncólogos
 
 <div id='4.1.1.'><h4>4.1.1. Design Purpose.</h4></div>
 
+El propósito del proceso de diseño de OnControl es desarrollar una plataforma integral que mejore la calidad de vida de los pacientes oncológicos y optimice el seguimiento médico a través de herramientas tecnológicas innovadoras. El diseño no solo busca la digitalización de procesos, sino crear un ecosistema interconectado que facilite la comunicación y la gestión clínica en el sector de la salud peruano.
+
+#### Relación con la problemática identificada:
+El diseño responde directamente a las deficiencias actuales en el cuidado oncológico, caracterizadas por métodos manuales y fragmentados que generan ineficiencia, retrasos y errores en la gestión de información. Al proveer una solución tecnológica que centraliza los datos médicos, el diseño busca mitigar el alto nivel de estrés de los pacientes, considerando que más del 60 % de los casos en Perú se diagnostican en etapas avanzadas, y aliviar la sobrecarga laboral que causa síntomas de agotamiento en más del 45 % de los oncólogos.
+
+#### Orientación a las necesidades de los segmentos objetivo:
+
+* **Pacientes oncológicos**: El diseño se centra en ofrecer una aplicación móvil gratuita y de fácil acceso que incluye un calendario digital para la visualización de citas y tratamientos. Además, la arquitectura de la solución integra sensores IoT para monitorear constantemente signos vitales clave (ritmo cardíaco, temperatura y oxigenación), lo cual atiende su necesidad de sentirse más seguros, protegidos y con un mayor control sobre su estado de salud.
+
+* **Médicos oncólogos**: La plataforma ha sido diseñada con un dashboard web especializado que permite a los profesionales administrar de forma eficiente los datos, historias clínicas y horarios de sus pacientes. El diseño cubre la necesidad de reacción rápida al incorporar alertas automáticas que notifican al médico cuando los parámetros vitales del paciente sobrepasan los rangos saludables, optimizando así su tiempo y reduciendo errores organizativos.
+
+#### Orientación a los resultados de negocio:
+Desde una perspectiva estratégica, el propósito del diseño es posicionar a OnControl como la plataforma líder en salud oncológica digital en el país. Al diseñar una experiencia que reduce la ansiedad de las familias e incrementa la sensación de seguridad en el cuidado, el modelo de negocio asegura una alta adopción y retención por parte de los usuarios. Simultáneamente, esto fomenta una mayor adherencia a los tratamientos oncológicos, garantizando una atención médica integral y sostenible a largo plazo.
+
 
 <div id='4.1.2.'><h4>4.1.2. Attribute-Driven Design Inputs.</h4></div>
 
