@@ -714,7 +714,7 @@ En esta sección se presenta el **User Task Matrix**, que resume las tareas prin
     * Las tareas de **alta frecuencia y alta importancia en ambos segmentos** (citas, recordatorios, comunicación, medicamentos) deben ser el **foco central del diseño de la aplicación**.
     * Las tareas diferenciadoras (apoyo psicológico en pacientes, coordinación entre especialistas en médicos) pueden considerarse como **funcionalidades de valor agregado** que aumenten la utilidad de la plataforma.
 
-<div id='2.3.3.'><h4>2.3.4. Empathy Mapping</h4></div>
+<div id='2.3.3.'><h4>2.3.3. Empathy Mapping</h4></div>
 En esta sección se presentan los Empathy Maps desarrollados para cada User Persona, con el propósito de profundizar en su experiencia, emociones y necesidades. El proceso de elaboración se llevó a cabo en la herramienta indicada, colocando en el centro a cada User Persona previamente definido (médico oncólogo y paciente oncológico).
 
 * **Segmento objetivo: Paciente Oncológico**
@@ -726,7 +726,7 @@ En esta sección se presentan los Empathy Maps desarrollados para cada User Pers
 ![Image](https://github.com/user-attachments/assets/6c72ffd7-e044-41e6-85a4-af57b6bcdab4)
 
 
-<div id='2.4.'><h3>2.5. Ubiquitous Language</h3></div>
+<div id='2.4.'><h3>2.4. Ubiquitous Language</h3></div>
 
 En esta sección se presenta un glosario de términos que forman parte del dominio de la aplicación. El objetivo es asegurar que tanto el equipo como los stakeholders tengan un entendimiento común y sin ambigüedades de los conceptos principales.
 
