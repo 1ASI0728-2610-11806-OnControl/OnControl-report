@@ -764,6 +764,17 @@ En esta sección se presenta un glosario de términos que forman parte del domin
 
 <div id='3.'><h2>3. Capítulo III: Requirements Specification</h2></div>
 En esta sección se presentan los requisitos del producto digital a partir del análisis de la información recopilada en las investigaciones previas. El objetivo es transformar las necesidades de los usuarios y de los stakeholders en requisitos claros y estructurados que guíen el diseño y desarrollo de la solución. Para ello, se incluyen artefactos que permiten comprender la situación futura deseada, las tareas clave de los usuarios y la priorización del trabajo.
+
+<div id='3.1.'><h3>3.1. To-Be Scenario Mapping</h3></div>
+
+**Segmento:Paciente**
+
+<img src="https://github.com/user-attachments/assets/722f6143-5adc-4082-9710-0d25b0de0ee0"/>
+
+**Segmento:Doctor Oncólogo**
+
+<img src="https://github.com/user-attachments/assets/80fc1295-1436-41cd-ad5f-8fed75e4695e"/>
+
 <div id='3.2.'><h3>3.2. User Stories</h3></div>
 
 | Epic ID | Título | Descripción |
