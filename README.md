@@ -764,7 +764,7 @@ En esta sección se presenta un glosario de términos que forman parte del domin
 
 <div id='3.'><h2>3. Capítulo III: Requirements Specification</h2></div>
 En esta sección se presentan los requisitos del producto digital a partir del análisis de la información recopilada en las investigaciones previas. El objetivo es transformar las necesidades de los usuarios y de los stakeholders en requisitos claros y estructurados que guíen el diseño y desarrollo de la solución. Para ello, se incluyen artefactos que permiten comprender la situación futura deseada, las tareas clave de los usuarios y la priorización del trabajo.
-<div id='3.1.'><h3>3.1. User Stories</h3></div>
+<div id='3.2.'><h3>3.2. User Stories</h3></div>
 
 | Epic ID | Título | Descripción |
 |---------|--------|-------------|
@@ -1100,7 +1100,7 @@ En esta sección se presentan los requisitos del producto digital a partir del a
 </table>
 
 
-<div id='3.2.'><h3>3.2. Impact Mapping</h3></div>
+<div id='3.3.'><h3>3.3. Impact Mapping</h3></div>
 
 En esta sección se elaboró el impact mapping, tomando como punto de partida las metas comerciales definidas para cada user persona. A partir de ello, se identificaron los impactos esperados, los entregables requeridos y se estableció la relación con las historias de usuario correspondientes.
 
@@ -1114,7 +1114,7 @@ Segmento objetivo: Oncólogos
 
 <img src="https://github.com/user-attachments/assets/59b450d1-59c0-4f12-9870-d5696374a1b0">
 
-<div id='3.3.'><h3>3.3. Product Backlog</h3></div>
+<div id='3.4.'><h3>3.4. Product Backlog</h3></div>
 
 | Orden | User Story ID | Título | Descripción | Story Points | Epic |
 |-------|---------------|--------|-------------|--------------|------|
