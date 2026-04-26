@@ -26,7 +26,7 @@ Producto: Nombre
 |---------------------------------|------------|
 | Barrutia Vaez, Ricardo Andree   | U201714765 |
 | Espinoza Inoñan, Fabiola Ximena | U202214784 |
-| Nombre                          | Codigo     |
+| Holguin Gamarra, Hardie Alfonso | U202220250 |
 | Nombre                          | Codigo     |
 | Nombre                          | Codigo     |
 
@@ -61,13 +61,13 @@ URL del repositorio para el reporte del proyecto:
 
 Github también presenta un timeline de las ramas principales y los procesos de merge a los que se han sometido. Todas las ramas se crearon tomando en cuenta el diseño de GitFlow para una buena organización cuando se usa un software de control de versiones.
 
-| Integrante | User |
-|------------|------|
-| NOMBRE     | USER |
-| NOMBRE     | USER |
-| NOMBRE     | USER |
-| NOMBRE     | USER |
-| NOMBRE     | USER |
+| Integrante                       | User       |
+|----------------------------------|------------|
+| Holguin Gamarra, Hardie Alfonso  | HOLGUINUPC |
+| NOMBRE                           | USER       |
+| NOMBRE                           | USER       |
+| NOMBRE                           | USER       |
+| NOMBRE                           | USER       |
 
 
 
