@@ -213,9 +213,10 @@ Como valor diferencial, OnControl integra sensores IoT que permiten medir parám
   </tr>
 
   <tr>
-    <td><img src=""></td>
-    <td>Descripcion</td>
-    <td>Codigo</td>
+    <td><img width="288" height="288" alt="image" src="https://github.com/user-attachments/assets/e272e82b-1c01-47f4-94fd-0113fef356f4" />
+</td>
+    <td>Soy estudiante de la carrera de ingeneria de software Ingeniero Full Stack Multilingüe: Especialista en el desarrollo de ecosistemas digitales complejos utilizando un stack robusto que incluye C# para arquitecturas empresariales, Kotlin y Flutter para movilidad nativa/híbrida, y frameworks modernos como Vue.js, Angular y React para interfaces de usuario de alta interactividad. Arquitecto de Datos y Persistencia: Experto en el diseño y optimización de bases de datos utilizando SQL Server (Management Studio) para entornos a gran escala y SQLite para soluciones de almacenamiento local y offline-first en dispositivos móviles. Especialista en Infraestructura y Contenedores: Dominio de Docker para la contenedorización de microservicios, asegurando que el sistema sea portable, escalable y fácil de desplegar en cualquier entorno cloud.Líder Ágil y Coordinador Técnico: Certificado en la práctica de metodologías Scrum, liderando la coordinación técnica del equipo para asegurar entregas incrementales de valor y una integración perfecta entre el hardware IoT y el software transaccional. Entornos de Desarrollo: Manejo experto de IDEs profesionales como Eclipse, VS Code y Android Studio para la gestión eficiente del ciclo de vida del software.</td>
+    <td>U202213278</td>
   </tr> 
   <tr>
     <td><img src=""></td>
