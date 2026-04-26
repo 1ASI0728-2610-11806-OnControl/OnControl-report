@@ -1184,6 +1184,35 @@ Segmento objetivo: Oncólogos
 
 <div id='4.'><h2>4. Capítulo IV: Solution Software Design</h2></div>
 
+<div id='4.1.'><h3>4.1. Strategic-Level Domain-Driven Design</h3></div>
+
+
+<div id='4.1.1.'><h4>4.1.1. Design Purpose.</h4></div>
+
+
+<div id='4.1.2.'><h4>4.1.2. Attribute-Driven Design Inputs.</h4></div>
+
+
+<div id='4.1.2.1.'><h5>4.1.2.1. Primary Functionality (Primary User Stories).</h5></div>
+
+
+<div id='4.1.2.2.'><h5>4.1.2.2. Quality attribute Scenarios.</h5></div>
+
+
+<div id='4.1.2.3.'><h5>4.1.2.3. Constraints.</h5></div>
+
+
+<div id='4.1.3.'><h4>4.1.3. Architectural Drivers Backlog.</h4></div>
+
+
+<div id='4.1.4.'><h4>4.1.4. Architectural Design Decisions.</h4></div>
+
+
+<div id='4.1.5.'><h4>4.1.5. Quality Attribute Scenario Refinements.</h4></div>
+
+
+
+
 <div id='4.2.'><h3>4.2. Strategic-Level Domain-Driven Design</h3></div>
 <div id='4.2.1.'><h4>4.2.1. EventStorming</h4></div>
 
