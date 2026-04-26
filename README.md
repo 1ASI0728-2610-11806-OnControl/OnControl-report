@@ -1273,6 +1273,23 @@ A continuación, se detallan estas historias de usuario agrupadas por su respect
 
 <div id='4.1.3.'><h4>4.1.3. Architectural Drivers Backlog.</h4></div>
 
+En esta sección se establece el conjunto de Architectural Drivers acordados por el equipo de **OnControl**, como resultado del proceso iterativo llevado a cabo mediante un Quality Attribute Workshop (QAW). Durante este taller, el equipo analizó los requerimientos del sistema junto con los objetivos de negocio para identificar los atributos de calidad críticos, las funcionalidades core y las restricciones del entorno. Se prestó especial atención a la naturaleza crítica de la aplicación en el sector salud, priorizando la seguridad de la información clínica y la fiabilidad del procesamiento de datos IoT en tiempo real.
+
+El siguiente Architectural Drivers Backlog consolida los Functional Drivers (FD), Quality Attribute Drivers (QAD) y Constraints (CON) seleccionados. Los drivers han sido ordenados de forma descendente, colocando en las primeras filas aquellos que representan una **Alta (High)** importancia para los stakeholders y un **Alto (High)** impacto en la complejidad técnica de la arquitectura (Architecture Technical Complexity).
+
+| Driver ID | Título de Driver | Descripción | Importancia para Stakeholders | Impacto en Architecture Technical Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **QAD-01** | Privacidad y Seguridad de Datos Médicos | El sistema debe garantizar la encriptación de datos sensibles (historiales clínicos, parámetros vitales) en tránsito y en reposo, asegurando que solo personal autorizado y el propio paciente tengan acceso. | High | High |
+| **QAD-02** | Alta Disponibilidad y Baja Latencia (IoT) | El sistema debe procesar el flujo de datos de los sensores IoT en tiempo real y emitir alertas automáticas de anomalías vitales con una latencia mínima para permitir respuestas médicas oportunas. | High | High |
+| **FD-01** | Monitoreo de Salud en Tiempo Real (IoT) | Capacidad central del sistema para integrar, capturar, analizar y visualizar continuamente los signos vitales (temperatura, oxígeno, ritmo cardíaco) desde sensores físicos hacia la plataforma. | High | High |
+| **CON-01** | Ecosistema Tecnológico y Hardware | La solución debe construirse integrando C# para el backend, contenedores Docker, bases de datos SQL Server/SQLite, interfaces en Flutter/Vue.js y conexión bidireccional con módulos de hardware IoT. | High | High |
+| **QAD-03** | Escalabilidad Concurrente de Datos | La arquitectura debe soportar el escalamiento horizontal para manejar múltiples conexiones simultáneas de sensores IoT enviando streams de datos sin degradar el rendimiento del dashboard médico. | Medium | High |
+| **CON-02** | Cumplimiento Regulatorio Peruano (Ley N° 29733) | La plataforma debe cumplir estrictamente con la Ley de Protección de Datos Personales del Perú respecto al tratamiento y almacenamiento de información de salud. | High | Medium |
+| **FD-02** | Gestión Integrada de Tratamientos y Citas | Funcionalidad principal que permite la coordinación bidireccional de agendas, aceptación de citas y seguimiento del cumplimiento de tratamientos entre médicos y pacientes. | High | Medium |
+| **QAD-04** | Usabilidad y Accesibilidad | La interfaz debe ser altamente intuitiva, con tiempos de carga rápidos y flujos simplificados, considerando que los pacientes oncológicos pueden tener fatiga visual o tecnológica, y los médicos cuentan con tiempo limitado. | High | Medium |
+| **CON-03** | Restricciones Académicas y Presupuestales | El proyecto es desarrollado por estudiantes universitarios, lo que impone un límite de tiempo estricto (ciclo académico) y el uso de infraestructuras cloud gratuitas o de bajo costo (Lean Startup). | Medium | Medium |
+| **FD-03** | Seguimiento de Síntomas y Comunicación | El sistema debe permitir el reporte asíncrono de síntomas, efectos secundarios de medicamentos y contar con un módulo de chat para consultas rápidas. | Medium | Low |
+
 
 <div id='4.1.4.'><h4>4.1.4. Architectural Design Decisions.</h4></div>
 
