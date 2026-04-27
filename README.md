@@ -144,8 +144,8 @@ Github también presenta un timeline de las ramas principales y los procesos de 
     <tr>
       <td style="font-weight:bold">Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerarquicos, en el marco del desarrollo de un proyecto en ingeniería.</td>
       <td>
-      <strong>NOMBRE</strong> <br>
-      <strong>TB1:</strong> <p align="justify">Contenido </p><br>
+      <strong>Holguín Gamarra, Hardie Alfonso</strong> <br>
+      <strong>TB1:</strong> <p align="justify">He liderado las reuniones de coordinación técnica, explicando la integración de la arquitectura de software y los sensores IoT de manera clara y objetiva, adaptando el lenguaje técnico para que todos los miembros del equipo y stakeholders comprendan el avance del proyecto.</p><br>
       <strong>NOMBRE</strong> <br>
       <strong>TB1:</strong> <p align="justify">Contenido </p><br>
       <strong>NOMBRE</strong> <br>
@@ -157,15 +157,15 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       </td>
       <td>
         <strong>TB1:</strong><br>
-        Nos hemos enfocado en mantener una alta claridad en nuestros diseños y explicaciones, lo que ayudó en el desarrollo de los gráficos.
+        Nos hemos enfocado en mantener una alta claridad en nuestros diseños y explicaciones, lo que ayudó en el desarrollo de los gráficos y en la comprensión general de la arquitectura tecnológica del proyecto.
       </td>
     </tr>
     <tr>
-      <td  style="font-weight:bold">Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerarquicos, en el marco del desarrollo de un proyecto en ingeniería..</td>
+      <td style="font-weight:bold">Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerarquicos, en el marco del desarrollo de un proyecto en ingeniería.</td>
       <td>
+        <strong>Holguín Gamarra, Hardie Alfonso</strong> <br>
+         <strong>TB1:</strong> <p align="justify">He redactado y estructurado la documentación técnica del proyecto, incluyendo los drivers arquitectónicos y las especificaciones de historias de usuario, presentándola de forma que sea comprensible tanto para desarrolladores como para perfiles orientados al negocio.</p><br>
         <strong>Nombre</strong> <br>
-         <strong>TB1:</strong> <p align="justify">Contenido </p><br>
-         <strong>Nombre</strong> <br>
          <strong>TB1:</strong> <p align="justify">Contenido </p><br>
          <strong>Nombre</strong> <br>
          <strong>TB1:</strong> <p align="justify">Contenido </p><br>
@@ -176,7 +176,7 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       </td>
       <td>
         <strong>TB1:</strong><br>
-        A través de los resultados de nuestras pruebas y diseños anteriores hemos podido explicar el proceso de desarrollo de nuestro proyecto para tenerlo como base.
+        A través de los resultados de nuestras pruebas y diseños anteriores hemos podido documentar y explicar el proceso de desarrollo de nuestro proyecto para tenerlo como base consolidada para todo el equipo.
       </td>
     </tr>
   </tbody>
