@@ -148,8 +148,8 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <strong>TB1:</strong> <p align="justify">He liderado las reuniones de coordinación técnica, explicando la integración de la arquitectura de software y los sensores IoT de manera clara y objetiva, adaptando el lenguaje técnico para que todos los miembros del equipo y stakeholders comprendan el avance del proyecto.</p><br>
       <strong>NOMBRE</strong> <br>
       <strong>TB1:</strong> <p align="justify">Contenido </p><br>
-      <strong>NOMBRE</strong> <br>
-      <strong>TB1:</strong> <p align="justify">Contenido </p><br>
+      <strong>Espejo Gamarra, Bryan Ronald</strong> <br>
+      <strong>TB1:</strong> <p align="justify">He presentado los avances del desarrollo del software en reuniones de equipo, traduciendo conceptos de programación y requerimientos técnicos a un lenguaje accesible, para asegurar que tanto los desarrolladores como los usuarios no técnicos comprendan el estado del proyecto.</p><br>
       <strong>NOMBRE</strong> <br>
       <strong>TB1:</strong> <p align="justify">Contenido </p><br>
       <strong>Ramos Mendoza, Juan Pablo</strong> <br>
@@ -165,8 +165,8 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <td>
         <strong>Holguín Gamarra, Hardie Alfonso</strong> <br>
          <strong>TB1:</strong> <p align="justify">He redactado y estructurado la documentación técnica del proyecto, incluyendo los drivers arquitectónicos y las especificaciones de historias de usuario, presentándola de forma que sea comprensible tanto para desarrolladores como para perfiles orientados al negocio.</p><br>
-        <strong>Nombre</strong> <br>
-         <strong>TB1:</strong> <p align="justify">Contenido </p><br>
+        <strong>Espejo Gamarra Bryan Ronald</strong> <br>
+         <strong>TB1:</strong> <p align="justify">He redactado manuales de usuario y reportes de estado del sistema, estructurando la información técnica de manera directa y visual para que tanto el equipo técnico como la gestión administrativa puedan leerla y tomar decisiones rápidamente. </p><br>
          <strong>Nombre</strong> <br>
          <strong>TB1:</strong> <p align="justify">Contenido </p><br>
          <strong>Nombre</strong> <br>
