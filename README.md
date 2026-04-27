@@ -1277,8 +1277,6 @@ A continuación, se especifican dichos escenarios en el siguiente cuadro:
 
 <div id='4.1.2.3.'><h5>4.1.2.3. Constraints.</h5></div>
 
-### Constraints
-
 En esta sección se incluye la especificación de restricciones, es decir, características que no pueden ser negociadas y son impuestas por el entorno académico, el negocio o el marco legal como guía para la elaboración de la solución **OnControl**. 
 
 Las principales restricciones consideradas para este proyecto incluyen el cumplimiento estricto de la normativa peruana sobre protección de datos personales (Ley N° 29733), dada la naturaleza sensible de la información oncológica. Asimismo, existen limitaciones tecnológicas derivadas del uso de un stack específico (C#, Docker, IoT) y restricciones de recursos, al ser un proyecto desarrollado dentro de un ciclo académico de la Universidad Peruana de Ciencias Aplicadas (UPC) que requiere el uso de infraestructuras de bajo costo o gratuitas.
