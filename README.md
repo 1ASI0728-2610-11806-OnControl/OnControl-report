@@ -1260,8 +1260,39 @@ A continuación, se detallan estas historias de usuario agrupadas por su respect
 
 <div id='4.1.2.2.'><h5>4.1.2.2. Quality attribute Scenarios.</h5></div>
 
+En esta sección se incluye la especificación de la primera versión de los escenarios de atributos de calidad que tienen mayor impacto en la arquitectura de la solución **OnControl**. Estos escenarios sirven como input principal para el proceso de diseño arquitectónico, asegurando que el sistema sea capaz de soportar las exigencias operativas y del entorno médico. 
+
+En primera instancia, se han identificado cinco atributos críticos para la plataforma: **Rendimiento (Performance)**, enfocado en el procesamiento de baja latencia para las alertas de los sensores IoT; **Seguridad (Security)**, vital para salvaguardar la privacidad de las historias clínicas bajo la normativa peruana; **Escalabilidad (Scalability)**, para soportar un volumen creciente de sensores transmitiendo en tiempo real; **Usabilidad (Usability)**, garantizando que los pacientes (potencialmente fatigados por tratamientos) y médicos puedan interactuar sin fricciones; y **Disponibilidad (Availability)**, para asegurar el monitoreo continuo de signos vitales. 
+
+A continuación, se especifican dichos escenarios en el siguiente cuadro:
+
+| Atributo | Fuente | Estímulo | Artefacto | Entorno | Respuesta | Medida |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Rendimiento** (Performance) | Sensor IoT (Dispositivo del paciente) | Envía una lectura de signos vitales que supera el umbral crítico configurado (ej. baja oxigenación o ritmo cardíaco anormal). | Módulo de procesamiento IoT y Servidor Backend | Operación normal, con tráfico de datos concurrente esperado de los usuarios activos. | El sistema procesa la lectura, detecta la anomalía, registra el evento y dispara una alerta visual y notificación push al médico responsable. | La notificación llega al dispositivo del médico en **menos de 2 segundos** desde la recepción del dato en el servidor. |
+| **Seguridad** (Security) | Usuario malintencionado / Atacante externo | Intenta acceder a historiales clínicos de pacientes o interceptar la comunicación de la red mediante fuerza bruta o inyección SQL. | Base de datos relacional y API Gateway | Operación normal, sistema expuesto a internet. | El sistema deniega el acceso, bloquea la IP, mantiene los datos cifrados (AES-256) y registra la anomalía en el log de auditoría. | **0% de datos comprometidos** y bloqueo automático de la IP tras **3 intentos fallidos** consecutivos en menos de 1 minuto. |
+| **Escalabilidad** (Scalability) | Pacientes y centros oncológicos | Incremento repentino de conexiones concurrentes debido al onboarding de 10,000 nuevos sensores enviando métricas por minuto. | Infraestructura Cloud (Balanceador de carga y contenedores Docker) | Hora pico de sincronización de datos de los dispositivos IoT. | El balanceador de carga distribuye el tráfico equitativamente y el orquestador levanta nuevas instancias (contenedores) de forma automática. | Despliegue de nuevas instancias en **menos de 3 minutos** manteniendo el tiempo de respuesta promedio de la API **por debajo de 200 ms**. |
+| **Usabilidad** (Usability) | Paciente oncológico (Usuario final) | Busca visualizar su resumen de tratamiento, procedimientos del día y próximas citas para organizar su rutina. | Interfaz de Usuario (App Móvil OnControl) | Uso diario, bajo condiciones de posible estrés o fatiga por los tratamientos terapéuticos. | El sistema presenta un dashboard consolidado, claro y con fuentes legibles al iniciar sesión, sin requerir navegación profunda. | El usuario logra ubicar la información de su tratamiento y próxima cita en un máximo de **2 clics/toques** y en **menos de 5 segundos**. |
+| **Disponibilidad** (Availability) | Fallo de hardware / red | Uno de los servidores principales (nodo de base de datos o backend) sufre una caída abrupta. | Arquitectura de servidores y base de datos distribuida | Operación normal (monitoreo de pacientes 24/7). | El sistema ejecuta un mecanismo de *failover*, redirigiendo automáticamente el tráfico hacia el nodo secundario de respaldo y notificando a soporte. | Tiempo máximo de inactividad (downtime) menor a **5 minutos** (cumpliendo con un **99.9% de disponibilidad** mensual). |
+
 
 <div id='4.1.2.3.'><h5>4.1.2.3. Constraints.</h5></div>
+
+### Constraints
+
+En esta sección se incluye la especificación de restricciones, es decir, características que no pueden ser negociadas y son impuestas por el entorno académico, el negocio o el marco legal como guía para la elaboración de la solución **OnControl**. 
+
+Las principales restricciones consideradas para este proyecto incluyen el cumplimiento estricto de la normativa peruana sobre protección de datos personales (Ley N° 29733), dada la naturaleza sensible de la información oncológica. Asimismo, existen limitaciones tecnológicas derivadas del uso de un stack específico (C#, Docker, IoT) y restricciones de recursos, al ser un proyecto desarrollado dentro de un ciclo académico de la Universidad Peruana de Ciencias Aplicadas (UPC) que requiere el uso de infraestructuras de bajo costo o gratuitas.
+
+A continuación, se presenta el cuadro de Constraints representados como Technical Stories:
+
+| Technical Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
+| :--- | :--- | :--- | :--- | :--- |
+| **CON01** | Cumplimiento Legal (Ley N° 29733) | El sistema debe cumplir con la Ley de Protección de Datos Personales del Perú para el manejo de información de salud sensible. | Los datos sensibles deben estar cifrados en la base de datos y se debe implementar un flujo de consentimiento informado para el paciente. | EP01, EP02, EP03, EP06 |
+| **CON02** | Infraestructura de Bajo Costo | La solución debe ser desplegada en entornos de nube que ofrezcan capas gratuitas (Free Tier) o de muy bajo presupuesto. | La arquitectura debe ser funcional en servicios como AWS Free Tier o Azure for Students sin generar costos adicionales. | Todos los Epics |
+| **CON03** | Compatibilidad de Hardware IoT | El software debe ser capaz de recibir e interpretar datos provenientes de sensores físicos específicos de ritmo cardíaco y oxigenación. | El sistema debe procesar correctamente los paquetes de datos enviados por protocolos estándar desde microcontroladores (como ESP32 o similares). | EP04 |
+| **CON04** | Restricción de Lenguaje y Framework | El backend de la solución debe desarrollarse obligatoriamente utilizando el lenguaje C# y el framework .NET Core. | El repositorio de código debe reflejar el uso de C# para la lógica de negocio y APIs, asegurando la escalabilidad empresarial. | Todos los Epics |
+| **CON05** | Contenedorización de Servicios | Los componentes de la arquitectura deben estar empaquetados mediante contenedores para asegurar su portabilidad y despliegue. | Cada microservicio o capa de la aplicación debe contar con su respectivo Dockerfile y un archivo Docker Compose para su orquestación. | Todos los Epics |
+| **CON06** | Disponibilidad Móvil (Android) | El paciente debe poder acceder a sus datos desde dispositivos móviles con sistema operativo Android. | La aplicación móvil debe ser compatible como mínimo con versiones de Android 8.0 en adelante para asegurar cobertura en el mercado local. | EP03, EP04, EP06 |
 
 
 <div id='4.1.3.'><h4>4.1.3. Architectural Drivers Backlog.</h4></div>
