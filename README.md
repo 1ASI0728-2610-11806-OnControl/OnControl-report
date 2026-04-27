@@ -1548,42 +1548,67 @@ A través de las decisiones adoptadas hemos podido satisfacer los siguientes atr
 <div id='4.2.'><h3>4.2. Strategic-Level Domain-Driven Design</h3></div>
 <div id='4.2.1.'><h4>4.2.1. EventStorming</h4></div>
 
-Mediante la tecnica del event storming definimos los siguientes bounded context los cuales son principales dentro del proyecto:
+Mediante la técnica de EventStorming se identificaron los principales eventos de dominio que ocurren dentro de OnControl. Para ello, se elaboró un Big Picture EventStorming que organiza el dominio en seis áreas principales: Users, Patient, Calendar, Treatment, Monitoring y Alert & Notification. Cada una de estas áreas agrupa actores, comandos, eventos, reglas y vistas relacionadas con una responsabilidad específica del sistema.
 
-### Account Managed
-![Image](https://github.com/user-attachments/assets/e8c31e5f-ddf1-4f51-8720-32d5cc9e9bb4)
+Figura. Big Picture EventStorming de OnControl.
 
-### Treatment Managed
-![Image](https://github.com/user-attachments/assets/5417e257-4acc-466d-b7d8-509a1f600e26)
+![Big Picture EventStorming](./assets/eventstorming-big-picture.jpg)
 
-### Comunication Managed
-![Image](https://github.com/user-attachments/assets/67954401-a663-456e-8722-e1dc9c94fec4)
+En la Figura  se observa que el flujo inicia en el contexto Users, donde se gestionan acciones relacionadas con el registro, autenticación, actualización de datos y eliminación de cuenta. Este contexto representa el punto de entrada al sistema, ya que antes de acceder a funciones clínicas es necesario validar la identidad del usuario y sus permisos. Esta validación permite que posteriormente el usuario interactúe con el contexto Patient, encargado de gestionar la relación médico–paciente.
 
-### Calendar Managed
-![Image](https://github.com/user-attachments/assets/44e2a840-14dd-4aeb-8d7d-dda4fc9c9da8)
+El contexto Patient representa uno de los núcleos del dominio, debido a que permite vincular a un paciente con un médico, consultar la lista de pacientes, revisar el historial clínico y administrar la información básica de seguimiento. Desde este contexto se habilitan otros procesos clínicos, como la gestión de citas y la asignación de tratamientos. Por ello, en el diagrama se representa la relación entre Patient y Calendar, indicando que un paciente vinculado habilita el agendamiento de citas, y la relación entre Patient y Treatment, indicando que el vínculo médico–paciente permite iniciar o modificar un tratamiento.
 
-### Monitoring Managed
+El contexto Calendar agrupa los eventos relacionados con la gestión de citas médicas. Entre sus elementos principales se encuentran los comandos “Solicitar cita” y “Aceptar cita”, así como los eventos “Cita solicitada” y “Cita aceptada”. Este contexto se relaciona con Alert & Notification, ya que las citas aceptadas o modificadas generan recordatorios y notificaciones para los usuarios. Esta relación responde a las necesidades identificadas en el proyecto, donde tanto médicos como pacientes requieren una mejor organización de citas, recordatorios y comunicación sobre cambios en la atención médica .
 
-![IoT - Frame 1](https://github.com/user-attachments/assets/5dce869e-6253-479c-875c-8b03e3b7d470)
+El contexto Treatment agrupa la lógica relacionada con los planes de tratamiento. En este contexto, el médico puede enviar una solicitud de tratamiento y el paciente puede aceptarla, generando eventos como “Solicitud enviada” y “Tratamiento aceptado”. Como resultado, se actualiza el resumen de tratamiento del paciente. Este flujo se alinea con las historias de usuario del documento, donde se contempla que el médico pueda enviar solicitudes de tratamiento y que el paciente pueda aceptar o rechazar cambios en su plan terapéutico .
+
+El contexto Monitoring representa el monitoreo de salud en tiempo real mediante sensores IoT. En este contexto se registran lecturas vitales, se evalúan umbrales clínicos y se detectan valores anormales. Cuando ocurre el evento “Umbral anormal detectado”, el contexto Monitoring se comunica con Alert & Notification para generar una alerta médica. Esta relación es fundamental para OnControl, ya que el documento del proyecto prioriza el monitoreo IoT, la detección de umbrales anormales y la notificación automática al médico ante valores críticos .
+
+Finalmente, el contexto Alert & Notification centraliza la generación de alertas, recordatorios y mensajes del sistema. Este contexto recibe eventos desde Calendar, Treatment y Monitoring, permitiendo informar al paciente y al médico sobre citas, tratamientos, cambios relevantes o posibles riesgos clínicos.
+
+Además del Big Picture EventStorming, se modelaron cuatro historias específicas que permiten detallar los flujos más representativos del dominio.
 
 
 <div id='4.2.2.'><h4>4.2.2. Candidate Context Discovery</a></h4></il>
 
-![Image](https://github.com/user-attachments/assets/da3b2c4d-c1e2-4145-b18d-00eb8eabea3c)
-![Image](https://github.com/user-attachments/assets/3b42a571-4390-4384-8248-5f6669ed6baa)
-![Image](https://github.com/user-attachments/assets/2345dc02-02de-470a-ac7e-c9bf62284858)
-![Image](https://github.com/user-attachments/assets/61c191c6-c639-4453-97fe-4839723c4f1b)
-![Image](https://github.com/user-attachments/assets/b5e97564-f933-4e30-8d8d-f5f1601215e9)
-![Image](https://github.com/user-attachments/assets/3df6939c-074c-4d7a-a1b3-59d2e10491ca)
-![Image](https://github.com/user-attachments/assets/7db7c4c1-3db6-44a2-82c7-7b5431bcc452)
-![Image](https://github.com/user-attachments/assets/9d7ffc30-46f7-4b4b-a758-49bd589379dd)
-![Image](https://github.com/user-attachments/assets/8728d14a-62d4-41df-b90c-56659314a272)
-![Image](https://github.com/user-attachments/assets/9b205f02-f2c5-43eb-a142-6ae2f5966fbb)
+A partir del EventStorming se realizó el Candidate Context Discovery, con el objetivo de identificar los posibles Bounded Contexts que componen el dominio de OnControl. Esta técnica permite agrupar eventos, comandos, reglas y vistas según su afinidad funcional, evitando que el sistema se diseñe como un único bloque monolítico con responsabilidades mezcladas.
+
+El análisis permitió identificar los siguientes contextos candidatos: Users, Patient, Calendar, Treatment, Monitoring, Alert & Notification y Symptoms & Medication. Estos contextos representan las principales capacidades de negocio de OnControl y se relacionan directamente con los epics definidos en el documento: gestión de cuenta y autenticación, gestión de tratamientos y citas, monitoreo de salud en tiempo real, comunicación y soporte, y seguimiento de síntomas y medicamentos .
+
+Tabla. Candidate Context Discovery de OnControl.
+
+| Candidate Context         | Responsabilidad principal                                                          | Eventos principales                                                                  | Justificación                                                                                                                   |
+| ------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Users**                 | Gestionar cuentas, autenticación, sesión y permisos de acceso.                     | Cuenta registrada, Usuario autenticado, Usuario actualizado, Usuario eliminado.      | Permite proteger el acceso a la información clínica y controlar qué funciones puede utilizar cada usuario.                      |
+| **Patient**               | Gestionar la relación médico–paciente, la lista de pacientes y el perfil clínico.  | Solicitud de vinculación enviada, Paciente asignado al médico, Historial consultado. | Es el contexto que habilita los procesos clínicos posteriores, como citas, tratamientos, revisión de síntomas y monitoreo.      |
+| **Calendar**              | Gestionar citas médicas y calendario del paciente.                                 | Cita solicitada, Cita aceptada, Cita cancelada, Cita reprogramada.                   | Responde a la necesidad de organizar citas y recordatorios entre pacientes y médicos.                                           |
+| **Treatment**             | Gestionar solicitudes, aceptación y seguimiento de tratamientos.                   | Solicitud de tratamiento enviada, Tratamiento aceptado, Tratamiento rechazado.       | Representa una capacidad central del sistema, ya que permite estructurar la atención médica y el plan terapéutico del paciente. |
+| **Monitoring**            | Registrar lecturas IoT, evaluar umbrales y actualizar dashboards vitales.          | Lectura registrada, Umbral anormal detectado.                                        | Soporta el monitoreo de signos vitales en tiempo real mediante sensores IoT.                                                    |
+| **Alert & Notification**  | Gestionar alertas médicas, recordatorios y mensajes del sistema.                   | Notificación creada, Alerta médica generada, Médico notificado, Paciente notificado. | Funciona como contexto transversal que comunica eventos críticos o recordatorios a los usuarios.                                |
+| **Symptoms & Medication** | Gestionar reporte de síntomas, revisión médica y seguimiento de evolución clínica. | Síntoma reportado, Reporte clínico actualizado, Síntoma revisado.                    | Permite complementar el monitoreo automático con reportes manuales del paciente y revisión médica.                              |
+
+El contexto Users se considera un contexto de soporte, ya que administra el acceso al sistema. Aunque no contiene directamente la lógica clínica, es indispensable para garantizar que los usuarios accedan a la plataforma de forma segura y controlada.
+
+El contexto Patient se considera un contexto central, debido a que la relación médico–paciente habilita el resto de procesos clínicos. Desde este contexto se derivan funcionalidades como la lista de pacientes, el perfil clínico y la revisión del historial.
+
+El contexto Calendar se especializa en la coordinación de citas médicas. Este contexto se mantiene separado de Treatment porque una cita puede existir como parte de un control, una evaluación o un seguimiento, sin depender necesariamente de una solicitud de tratamiento nueva.
+
+El contexto Treatment agrupa la lógica del plan terapéutico, incluyendo solicitudes de tratamiento, aceptación por parte del paciente y actualización del resumen de tratamiento. Esta separación permite que las reglas propias del tratamiento no se mezclen con las reglas de calendario o notificaciones.
+
+El contexto Monitoring gestiona la captura de datos vitales desde sensores IoT y la evaluación de umbrales. Se considera un contexto independiente porque tiene reglas técnicas y clínicas propias, como el procesamiento de lecturas, la detección de valores fuera de rango y la actualización del dashboard vital.
+
+El contexto Alert & Notification se considera transversal porque recibe eventos desde otros contextos. Por ejemplo, Calendar puede emitir eventos de citas, Treatment puede emitir eventos de cambios en tratamiento, Monitoring puede emitir eventos de umbrales anormales y Symptoms & Medication puede emitir eventos de reportes clínicos actualizados. En todos estos casos, Alert & Notification se encarga de comunicar la información relevante a médicos o pacientes.
+
+Finalmente, el contexto Symptoms & Medication se identifica como un contexto candidato independiente porque gestiona eventos específicos relacionados con síntomas, reacciones, medicamentos y revisión médica. Aunque se relaciona con Treatment, sus reglas son diferentes, ya que se enfocan en la evolución clínica diaria del paciente.
 
 <div id='4.2.3.'><h4>4.2.3. Domain Message Flows Modeling</h4></div>
 
-![Image](https://github.com/user-attachments/assets/3378b7b6-3c84-4351-a539-7f44a1fd6a3f)
+![Domain Message Flow de OnControl](./assets/domain-message-flow.jpg)
+![Domain Message Flow de OnControl](./assets/domain-message-flow2.jpg)
+![Domain Message Flow de OnControl](./assets/domain-message-flow3.jpg)
+![Domain Message Flow de OnControl](./assets/domain-message-flow4.jpg)
 
+**Figura.** Domain Message Flow Modeling de OnControl.
 <div id='4.2.4.'><h4>4.2.4. Bounded Context Canvases</h4></div>
 
 ![Image](https://github.com/user-attachments/assets/3c109b5c-a841-4528-9cb5-05c983d72542)
