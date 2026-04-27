@@ -228,9 +228,9 @@ Como valor diferencial, OnControl integra sensores IoT que permiten medir parám
     <td>U202019545</td>
   </tr>
   <tr>
-    <td><img src=""></td>
-    <td>Dexcripcion</td>
-    <td>Codigo</td>
+    <td><img src="https://raw.githubusercontent.com/metasoft-iot/upc-pre-202520-1asi0572-3479-MetaSoft-report/refs/heads/master/assets/img/capitulo-I/miembros/hardie-holguin.jpeg"></td>
+    <td>Soy Hardie Holguin, Estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), con una sólida orientación hacia la tecnología y el aprendizaje continuo. Cuento con experiencia en el desarrollo de aplicaciones modernas, seguras y escalables, integrando frameworks y herramientas que permiten optimizar procesos y fomentar la innovación. Me caracterizo por asumir nuevos desafíos que potencien tanto mi crecimiento profesional como el perfeccionamiento de mis habilidades técnicas.</td>
+    <td>U202220250</td>
   </tr>
 </table>
 <div id='1.2.'><h3>1.2. Solution Profile</h3></div>
