@@ -150,8 +150,8 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <strong>TB1:</strong> <p align="justify">Me encargué de trabajar la parte de EventStorming, Candidate Context Discovery y Domain Message Flows Modeling. Para ello, organicé los principales procesos de OnControl, como la vinculación entre médico y paciente, la gestión de citas, tratamientos, monitoreo IoT, alertas y reporte de síntomas. También expliqué al equipo cómo estos procesos se relacionan entre sí para que el dominio del sistema sea más fácil de entender. </p><br>
       <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
       <strong>TB1:</strong> <p align="justify">Trabajé en las secciones de Bounded Context Canvases, Context Mapping y Software Architecture Context Level Diagrams. Organicé la información de los contextos principales de OnControl, como Users, Patient, Calendar, Treatment, Monitoring, Symptoms & Medication y Alert & Notification. También expliqué cómo se relacionan estos contextos y cómo el sistema interactúa con pacientes, médicos, dispositivos IoT y servicios externos. </p><br>
-      <strong>NOMBRE</strong> <br>
-      <strong>TB1:</strong> <p align="justify">Contenido </p><br>
+      <strong>Espejo Gamarra, Bryan Ronnald</strong> <br>
+      <strong>TB1:</strong> <p align="justify">Trabajé en las secciones de Software Architecture Container Level Diagrams y Software Architecture Deployment Diagrams. Para ello, expliqué al equipo cómo se organizan los principales contenedores del sistema OnControl, como la aplicación web, la aplicación móvil, los servicios backend, la base de datos, los servicios de autenticación, las notificaciones y la integración con dispositivos IoT. También presenté cómo estos componentes se despliegan en la infraestructura tecnológica, usando un lenguaje claro para que tanto los integrantes técnicos como los no técnicos puedan entender cómo funciona la arquitectura del sistema. </p><br>
       <strong>Ramos Mendoza, Juan Pablo</strong> <br>
       <strong>TB1:</strong> <p align="justify">He realizado diagramas fáciles de entender y explicar para que personas de cualquier nivel técnico puedan entender las indicaciones correctamente, lo que ayudó en las explicaciones previas a las entrevistas </p><br>
       </td>
@@ -169,8 +169,8 @@ Github también presenta un timeline de las ramas principales y los procesos de 
          <strong>TB1:</strong> <p align="justify">Redacté la documentación correspondiente a EventStorming, Candidate Context Discovery y Domain Message Flows Modeling. Además, adapté las imágenes y diagramas realizados para que encajen mejor con la estructura del informe y tengan una explicación clara para cualquier lector. </p><br>
          <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
          <strong>TB1:</strong> <p align="justify">Redacté la documentación de Bounded Context Canvases, Context Mapping y Software Architecture Context Level Diagrams. En esta parte describí las responsabilidades de cada contexto, sus relaciones y las vistas de contexto del sistema, del paciente y del médico. </p><br>
-         <strong>Nombre</strong> <br>
-         <strong>TB1:</strong> <p align="justify">Contenido </p><br>
+         <strong>Espejo Gamarra, Bryan Ronnald</strong> <br>
+         <strong>TB1:</strong> <p align="justify">Redacté la documentación correspondiente a los Software Architecture Container Level Diagrams y Software Architecture Deployment Diagrams. En esta parte describí los contenedores principales de OnControl, sus responsabilidades, sus relaciones y la forma en que se comunican entre sí. Además, documenté la vista de despliegue del sistema, explicando cómo se distribuyen los componentes en la infraestructura, incluyendo aplicaciones cliente, servicios backend, base de datos, servicios externos y dispositivos IoT, con el objetivo de que la arquitectura sea comprensible para lectores de diferentes niveles técnicos. </p><br>
          <strong>Ramos Mendoza, Juan Pablo</strong> <br>
          <strong>TB1:</strong> <p align="justify">Utilizando mis avances anteriores en este proyecto he podido explicar claramente mis visiones a mis compañeros.</p><br>
       </td>
