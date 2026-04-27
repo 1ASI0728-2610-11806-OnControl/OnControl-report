@@ -224,7 +224,7 @@ Como valor diferencial, OnControl integra sensores IoT que permiten medir parám
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/fb07e471-36a2-4fa7-9234-178869d3d3b7"></td>
-    <td>Soy Juan Pablo Ramos, me encuentro en el quinto ciclo de Ingeniería de Software. En términos de programación tengo precedente en C++. Al momento de trabajar en grupos siempre trato de mantener el orden entre las partes de los miembros y apoyar en el desarrollo de las presentaciones.</td>
+    <td>Soy Juan Pablo Ramos, me encuentro en el octavo ciclo de Ingeniería de Software. En términos de programación tengo precedente en C++. Al momento de trabajar en grupos siempre trato de mantener el orden entre las partes de los miembros y apoyar en el desarrollo de las presentaciones.</td>
     <td>U202019545</td>
   </tr>
   <tr>
