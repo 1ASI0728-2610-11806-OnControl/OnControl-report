@@ -1554,6 +1554,8 @@ Figura. Big Picture EventStorming de OnControl.
 
 ![Big Picture EventStorming](./assets/eventstorming-big-picture.jpg)
 
+Link del figma: https://www.figma.com/design/AaNpimEKDLS7CJzZGA0pBw/Arquitectura?node-id=1-633&t=qup8Ghl9ksbRvQoX-1
+
 En la Figura  se observa que el flujo inicia en el contexto Users, donde se gestionan acciones relacionadas con el registro, autenticación, actualización de datos y eliminación de cuenta. Este contexto representa el punto de entrada al sistema, ya que antes de acceder a funciones clínicas es necesario validar la identidad del usuario y sus permisos. Esta validación permite que posteriormente el usuario interactúe con el contexto Patient, encargado de gestionar la relación médico–paciente.
 
 El contexto Patient representa uno de los núcleos del dominio, debido a que permite vincular a un paciente con un médico, consultar la lista de pacientes, revisar el historial clínico y administrar la información básica de seguimiento. Desde este contexto se habilitan otros procesos clínicos, como la gestión de citas y la asignación de tratamientos. Por ello, en el diagrama se representa la relación entre Patient y Calendar, indicando que un paciente vinculado habilita el agendamiento de citas, y la relación entre Patient y Treatment, indicando que el vínculo médico–paciente permite iniciar o modificar un tratamiento.
