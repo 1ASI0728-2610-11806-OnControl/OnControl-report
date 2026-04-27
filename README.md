@@ -148,8 +148,8 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <strong>TB1:</strong> <p align="justify">He liderado las reuniones de coordinación técnica, explicando la integración de la arquitectura de software y los sensores IoT de manera clara y objetiva, adaptando el lenguaje técnico para que todos los miembros del equipo y stakeholders comprendan el avance del proyecto.</p><br>
       <strong>NOMBRE</strong> <br>
       <strong>TB1:</strong> <p align="justify">Contenido </p><br>
-      <strong>Espejo Gamarra, Bryan Ronald</strong> <br>
-      <strong>TB1:</strong> <p align="justify">He presentado los avances del desarrollo del software en reuniones de equipo, traduciendo conceptos de programación y requerimientos técnicos a un lenguaje accesible, para asegurar que tanto los desarrolladores como los usuarios no técnicos comprendan el estado del proyecto.</p><br>
+      <strong>NOMBRE</strong> <br>
+      <strong>TB1:</strong> <p align="justify">Contenido </p><br>
       <strong>NOMBRE</strong> <br>
       <strong>TB1:</strong> <p align="justify">Contenido </p><br>
       <strong>Ramos Mendoza, Juan Pablo</strong> <br>
@@ -165,8 +165,8 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <td>
         <strong>Holguín Gamarra, Hardie Alfonso</strong> <br>
          <strong>TB1:</strong> <p align="justify">He redactado y estructurado la documentación técnica del proyecto, incluyendo los drivers arquitectónicos y las especificaciones de historias de usuario, presentándola de forma que sea comprensible tanto para desarrolladores como para perfiles orientados al negocio.</p><br>
-        <strong>Espejo Gamarra Bryan Ronald</strong> <br>
-         <strong>TB1:</strong> <p align="justify">He redactado manuales de usuario y reportes de estado del sistema, estructurando la información técnica de manera directa y visual para que tanto el equipo técnico como la gestión administrativa puedan leerla y tomar decisiones rápidamente. </p><br>
+        <strong>Nombre</strong> <br>
+         <strong>TB1:</strong> <p align="justify">Contenido </p><br>
          <strong>Nombre</strong> <br>
          <strong>TB1:</strong> <p align="justify">Contenido </p><br>
          <strong>Nombre</strong> <br>
@@ -1602,14 +1602,153 @@ El contexto Alert & Notification se considera transversal porque recibe eventos 
 Finalmente, el contexto Symptoms & Medication se identifica como un contexto candidato independiente porque gestiona eventos específicos relacionados con síntomas, reacciones, medicamentos y revisión médica. Aunque se relaciona con Treatment, sus reglas son diferentes, ya que se enfocan en la evolución clínica diaria del paciente.
 
 <div id='4.2.3.'><h4>4.2.3. Domain Message Flows Modeling</h4></div>
+El primer flujo representa la comunicación entre los contextos Users, Patient y Alert & Notification. El proceso inicia cuando el usuario se registra o inicia sesión correctamente. Luego, el médico puede enviar una solicitud de vinculación al paciente. Si el paciente acepta la solicitud y su cuenta se encuentra activa, el contexto Patient emite el evento Paciente asignado al médico.
 
 ![Domain Message Flow de OnControl](./assets/domain-message-flow.jpg)
+
+Este flujo es importante porque la relación médico–paciente habilita procesos posteriores como la gestión de citas, tratamientos, revisión de síntomas y monitoreo clínico.
+
+El segundo flujo integra los contextos Patient, Calendar, Treatment y Alert & Notification. Una vez que el paciente se encuentra vinculado al médico, el sistema permite gestionar citas y tratamientos.
+
+En el caso de las citas, el contexto Calendar registra la solicitud de cita y, cuando el paciente la acepta, emite el evento Cita aceptada. Este evento es consumido por Alert & Notification para generar recordatorios o avisos.
+
 ![Domain Message Flow de OnControl](./assets/domain-message-flow2.jpg)
+
+En el caso de los tratamientos, el contexto Treatment gestiona la solicitud enviada por el médico y la aceptación por parte del paciente. Cuando el tratamiento es aceptado, se actualiza el resumen terapéutico y se generan recordatorios asociados.
+
+Este flujo permite coordinar la atención médica de manera más ordenada, asegurando que tanto médicos como pacientes reciban información oportuna sobre citas, procedimientos y tratamientos.
+
+El tercer flujo representa la comunicación entre Monitoring y Alert & Notification. El proceso inicia cuando el dispositivo IoT mide signos vitales como temperatura, oxigenación y ritmo cardíaco. Luego, el contexto Monitoring registra la lectura y evalúa los umbrales clínicos.
+
+Si se detecta un valor fuera de rango, se emite el evento Umbral anormal detectado, el cual es consumido por Alert & Notification para generar una alerta médica y notificar al médico o al paciente.
+
 ![Domain Message Flow de OnControl](./assets/domain-message-flow3.jpg)
+
+Este flujo es uno de los más relevantes para OnControl, ya que permite transformar las lecturas IoT en alertas clínicas oportunas para apoyar la toma de decisiones médicas.
+
+El cuarto flujo representa la comunicación entre Symptoms & Medication, Treatment, Alert & Notification y el médico. El proceso inicia cuando el paciente reporta síntomas. Antes de registrar el reporte, el sistema valida si existe un tratamiento activo asociado.
+
+Si el tratamiento está activo, el contexto Symptoms & Medication emite el evento Síntoma reportado y actualiza el reporte clínico. Luego, Alert & Notification notifica al médico para que pueda revisar la evolución del paciente.
+
 ![Domain Message Flow de OnControl](./assets/domain-message-flow4.jpg)
 
 **Figura.** Domain Message Flow Modeling de OnControl.
 <div id='4.2.4.'><h4>4.2.4. Bounded Context Canvases</h4></div>
+A partir del Candidate Context Discovery, se elaboraron Bounded Context Canvases para describir con mayor precisión los límites funcionales de los principales contextos del dominio de OnControl. Cada canvas permite identificar el propósito del contexto, su clasificación estratégica, los eventos relevantes, las reglas de negocio y sus dependencias con otros contextos.
+
+Para esta etapa se priorizaron los contextos que concentran mayor valor dentro de la solución: Users, Patient, Calendar, Treatment, Monitoring, Symptoms & Medication y Alert & Notification. Estos contextos permiten representar los procesos principales de OnControl: autenticación, vinculación médico–paciente, gestión de citas, administración de tratamientos, monitoreo IoT, reporte de síntomas y generación de alertas.
+
+### Bounded Context Canvas: Users
+
+| Elemento | Descripción |
+|---|---|
+| **Name** | Users |
+| **Purpose** | Gestionar cuentas, autenticación, sesión y permisos de acceso al sistema. |
+| **Strategic Classification** | Supporting Domain |
+| **Main Responsibilities** | Registrar usuarios, autenticar credenciales, actualizar datos de usuario, controlar acceso y permisos. |
+| **Key Domain Events** | Cuenta registrada, Usuario autenticado, Usuario actualizado, Usuario eliminado. |
+| **Inbound Messages** | Solicitudes de registro, inicio de sesión y actualización de datos realizadas por usuarios. |
+| **Outbound Messages** | Validación de identidad y sesión hacia Patient y demás contextos clínicos. |
+| **Business Rules** | Solo los usuarios autenticados pueden acceder a funcionalidades clínicas. El sistema debe validar credenciales antes de permitir acceso. |
+| **Ubiquitous Language** | Usuario, cuenta, sesión, autenticación, permisos, perfil de usuario. |
+| **Dependencies** | Patient, Alert & Notification. |
+
+
+### Bounded Context Canvas: Patient
+
+| Elemento | Descripción |
+|---|---|
+| **Name** | Patient |
+| **Purpose** | Gestionar la relación médico–paciente, la lista de pacientes y el perfil clínico. |
+| **Strategic Classification** | Core Domain |
+| **Main Responsibilities** | Vincular pacientes con médicos, consultar lista de pacientes, revisar historial clínico y administrar el perfil clínico del paciente. |
+| **Key Domain Events** | Solicitud de vinculación enviada, Paciente asignado al médico, Historial consultado, Lista de pacientes consultada. |
+| **Inbound Messages** | Validación de identidad y sesión desde Users. |
+| **Outbound Messages** | Paciente vinculado habilita agendamiento hacia Calendar; paciente vinculado habilita tratamiento hacia Treatment. |
+| **Business Rules** | Un médico solo puede ver pacientes asignados. Un paciente debe tener cuenta activa para ser vinculado. |
+| **Ubiquitous Language** | Paciente oncológico, médico oncólogo, historial clínico, perfil clínico, lista de pacientes. |
+| **Dependencies** | Users, Calendar, Treatment, Symptoms & Medication, Monitoring. |
+
+
+### Bounded Context Canvas: Calendar
+
+| Elemento | Descripción |
+|---|---|
+| **Name** | Calendar |
+| **Purpose** | Gestionar citas médicas y calendario del paciente. |
+| **Strategic Classification** | Core Domain |
+| **Main Responsibilities** | Solicitar citas, aceptar citas, cancelar citas, reprogramar citas y actualizar el calendario del paciente. |
+| **Key Domain Events** | Cita solicitada, Cita aceptada, Cita cancelada, Cita reprogramada. |
+| **Inbound Messages** | Paciente vinculado habilita agendamiento desde Patient. |
+| **Outbound Messages** | Citas generan recordatorios hacia Alert & Notification. |
+| **Business Rules** | Una cita expirada no puede ser aceptada. Una cita cancelada o atendida no puede cancelarse nuevamente. |
+| **Ubiquitous Language** | Cita médica, calendario, recordatorio, disponibilidad, reprogramación. |
+| **Dependencies** | Patient, Alert & Notification. |
+
+
+### Bounded Context Canvas: Treatment
+
+| Elemento | Descripción |
+|---|---|
+| **Name** | Treatment |
+| **Purpose** | Gestionar solicitudes, aceptación y seguimiento de tratamientos oncológicos. |
+| **Strategic Classification** | Core Domain |
+| **Main Responsibilities** | Enviar solicitudes de tratamiento, aceptar o rechazar tratamientos, actualizar resumen de tratamiento y administrar procedimientos asociados. |
+| **Key Domain Events** | Solicitud de tratamiento enviada, Tratamiento aceptado, Tratamiento rechazado, Resumen de tratamiento actualizado. |
+| **Inbound Messages** | Paciente vinculado habilita tratamiento desde Patient. |
+| **Outbound Messages** | Tratamientos generan recordatorios hacia Alert & Notification; tratamiento activo consultado por Symptoms & Medication. |
+| **Business Rules** | Un tratamiento solo puede activarse si el paciente lo acepta. La fecha de inicio no puede ser anterior a la fecha actual. |
+| **Ubiquitous Language** | Tratamiento, plan de tratamiento, procedimiento, resumen de tratamiento, fecha de inicio. |
+| **Dependencies** | Patient, Calendar, Symptoms & Medication, Alert & Notification. |
+
+
+### Bounded Context Canvas: Monitoring
+
+| Elemento | Descripción |
+|---|---|
+| **Name** | Monitoring |
+| **Purpose** | Registrar lecturas IoT, evaluar umbrales clínicos y actualizar el dashboard de signos vitales. |
+| **Strategic Classification** | Core Domain |
+| **Main Responsibilities** | Recibir datos de sensores, registrar lecturas vitales, evaluar umbrales, detectar valores anormales y actualizar el dashboard vital. |
+| **Key Domain Events** | Lectura registrada, Umbral anormal detectado, Dashboard vital actualizado. |
+| **Inbound Messages** | Lecturas enviadas por el dispositivo IoT o IoT Gateway. |
+| **Outbound Messages** | Umbral anormal detectado hacia Alert & Notification. |
+| **Business Rules** | Si un valor vital está fuera de rango, se debe generar una alerta. Si el valor está dentro de rango, solo se actualiza el dashboard. |
+| **Ubiquitous Language** | Signos vitales, sensor IoT, temperatura, oxigenación, ritmo cardíaco, umbral clínico. |
+| **Dependencies** | Dispositivo IoT, IoT Gateway, Alert & Notification. |
+
+
+### Bounded Context Canvas: Symptoms & Medication
+
+| Elemento | Descripción |
+|---|---|
+| **Name** | Symptoms & Medication |
+| **Purpose** | Gestionar el reporte de síntomas, revisión médica y seguimiento de evolución clínica. |
+| **Strategic Classification** | Core Domain |
+| **Main Responsibilities** | Permitir que el paciente reporte síntomas, validar tratamiento activo, asociar síntomas al tratamiento, notificar al médico y registrar la revisión médica. |
+| **Key Domain Events** | Síntoma reportado, Reporte clínico actualizado, Reporte rechazado, Síntoma revisado. |
+| **Inbound Messages** | Reportar síntomas desde Paciente; verificación de tratamiento activo desde Treatment. |
+| **Outbound Messages** | Reporte clínico actualizado hacia Alert & Notification. |
+| **Business Rules** | Los síntomas deben asociarse a un tratamiento activo. Si no existe tratamiento activo, el reporte debe rechazarse. |
+| **Ubiquitous Language** | Síntoma, medicamento, reacción adversa, reporte clínico, evolución clínica. |
+| **Dependencies** | Treatment, Patient, Alert & Notification, Monitoring. |
+
+
+### Bounded Context Canvas: Alert & Notification
+
+| Elemento | Descripción |
+|---|---|
+| **Name** | Alert & Notification |
+| **Purpose** | Centralizar alertas médicas, recordatorios y mensajes del sistema. |
+| **Strategic Classification** | Supporting Domain |
+| **Main Responsibilities** | Crear notificaciones, generar alertas médicas, enviar recordatorios de citas y tratamientos, y notificar a médicos o pacientes. |
+| **Key Domain Events** | Notificación creada, Alerta médica generada, Médico notificado, Paciente notificado. |
+| **Inbound Messages** | Citas generan recordatorios desde Calendar; tratamientos generan recordatorios desde Treatment; umbral anormal detectado desde Monitoring; reporte clínico actualizado desde Symptoms & Medication. |
+| **Outbound Messages** | Notificación enviada al médico o paciente. |
+| **Business Rules** | Si un parámetro vital es crítico, el médico debe ser notificado inmediatamente. Las notificaciones deben enviarse por canales disponibles. |
+| **Ubiquitous Language** | Alerta médica, notificación, recordatorio, canal push, email, mensaje del sistema. |
+| **Dependencies** | Calendar, Treatment, Monitoring, Symptoms & Medication, servicios externos de notificación. |
+
 
 ![Image](https://github.com/user-attachments/assets/3c109b5c-a841-4528-9cb5-05c983d72542)
 ![Image](https://github.com/user-attachments/assets/c0397f26-4ca8-4724-a253-37aff347773a)
@@ -1618,15 +1757,38 @@ Finalmente, el contexto Symptoms & Medication se identifica como un contexto can
 
 <div id='4.2.5.'><h4>4.2.5. Context Mapping</h4></div>
 
-En este diagrama se muestran las relaciones estructurales entre los Bounded Contexts de Tratamiento, User, Calendar y Communicate. Cada contexto se interconecta según las reglas de Domain-Driven Design para garantizar una correcta coordinación y eficiencia en el sistema.
+El Context Mapping permite representar las relaciones estratégicas entre los Bounded Contexts identificados para OnControl. A diferencia del Candidate Context Discovery, que se enfoca en descubrir límites funcionales, el Context Mapping describe cómo dichos contextos colaboran entre sí, qué dependencias existen y qué tipo de relación se establece según los patrones de Domain-Driven Design.
 
-- **Tratamiento y User**: El contexto de User proporciona la información necesaria sobre los pacientes (datos personales, historial médico, etc.), la cual es utilizada por el contexto de Tratamiento para asignar y gestionar los tratamientos adecuados. Esta relación sigue el patrón Customer/Supplier, donde User actúa como un Supplier que provee la información al contexto de Tratamiento.
+En OnControl, los contextos principales no funcionan de manera aislada. Por ejemplo, Users valida la identidad del usuario antes de que Patient permita la vinculación médico–paciente; Patient habilita la gestión de citas y tratamientos; Monitoring publica eventos críticos cuando detecta signos vitales fuera de rango; y Alert & Notification consume eventos de distintos contextos para comunicar alertas, recordatorios o avisos a médicos y pacientes.
 
-- **Tratamiento y Calendar**: El contexto de Calendar gestiona los recordatorios y citas relacionadas con los tratamientos. Los recordatorios de citas y procedimientos son generados a partir de los datos de Tratamiento. Aquí, Calendar es un Supplier que recibe la información de Tratamiento para crear y actualizar los recordatorios correspondientes, asegurando que el paciente y el doctor sean notificados a tiempo.
 
-- **Tratamiento y Communicate**: Existe una relación de Shared Kernel (SK) entre Tratamiento y Communicate, ya que ambos contextos comparten la funcionalidad de notificaciones y mensajes. El contexto de Communicate es responsable de gestionar la comunicación entre los pacientes y los doctores, enviando notificaciones sobre el progreso del tratamiento o recordatorios importantes relacionados con el mismo.
+| Contexto origen | Contexto destino | Tipo de relación | Justificación |
+|---|---|---|---|
+| **Users** | **Patient** | Customer/Supplier | Patient requiere identidad, sesión y permisos validados para permitir la vinculación médico–paciente. |
+| **Patient** | **Calendar** | Customer/Supplier | Calendar necesita conocer qué pacientes están vinculados a un médico para permitir el agendamiento de citas. |
+| **Patient** | **Treatment** | Customer/Supplier | Treatment solo puede gestionar tratamientos de pacientes previamente vinculados a un médico. |
+| **Treatment** | **Calendar** | Customer/Supplier | Los tratamientos pueden generar fechas, procedimientos o controles que deben reflejarse en el calendario del paciente. |
+| **Treatment** | **Symptoms & Medication** | Customer/Supplier | Los síntomas reportados deben asociarse a un tratamiento activo. |
+| **Calendar** | **Alert & Notification** | Published Language / Event Publisher | Calendar publica eventos de citas para generar recordatorios y avisos. |
+| **Treatment** | **Alert & Notification** | Published Language / Event Publisher | Treatment publica eventos relacionados con solicitudes, aceptación o cambios de tratamiento. |
+| **Monitoring** | **Alert & Notification** | Published Language / Event Publisher | Monitoring publica eventos de umbrales anormales para generar alertas clínicas. |
+| **Symptoms & Medication** | **Alert & Notification** | Published Language / Event Publisher | Symptoms & Medication publica reportes clínicos actualizados para notificar al médico. |
 
-- **Calendar y Communicate**: La relación entre Calendar y Communicate es de tipo Customer/Supplier, donde Calendar actúa como un Supplier al proveer a Communicate con los datos necesarios para enviar las notificaciones correspondientes a los pacientes sobre sus citas o procedimientos programados.
+La relación entre **Users** y **Patient** se interpreta como **Customer/Supplier**, debido a que Patient depende de Users para validar la identidad, sesión y permisos del usuario. De esta forma, la vinculación médico–paciente solo puede realizarse cuando el usuario se encuentra autenticado y autorizado.
+
+La relación entre **Patient** y **Calendar** también corresponde a **Customer/Supplier**, ya que Calendar necesita información del paciente vinculado para permitir el agendamiento de citas médicas. Sin una relación médico–paciente válida, no debería generarse una cita dentro del sistema.
+
+La relación entre **Patient** y **Treatment** sigue el mismo patrón, porque Treatment solo puede gestionar solicitudes o cambios de tratamiento cuando el paciente ya se encuentra asociado a un médico. Esto protege la consistencia del dominio clínico y evita que se asignen tratamientos a pacientes no vinculados.
+
+La relación entre **Treatment** y **Calendar** se justifica porque los tratamientos pueden generar procedimientos, fechas de inicio, controles o recordatorios que deben visualizarse dentro del calendario del paciente. Por ello, Calendar consume información proveniente de Treatment para mantener actualizada la agenda clínica.
+
+La relación entre **Treatment** y **Symptoms & Medication** se considera **Customer/Supplier**, porque los síntomas reportados por el paciente deben asociarse a un tratamiento activo. Si no existe un tratamiento vigente, el sistema debe rechazar el reporte o solicitar la selección de un tratamiento válido.
+
+Por otro lado, **Calendar**, **Treatment**, **Monitoring** y **Symptoms & Medication** mantienen una relación de tipo **Published Language / Event Publisher** con **Alert & Notification**. Esto significa que dichos contextos publican eventos de dominio relevantes, como `Cita aceptada`, `Tratamiento aceptado`, `Umbral anormal detectado` o `Reporte clínico actualizado`, y Alert & Notification los consume para generar recordatorios, alertas o mensajes hacia médicos y pacientes.
+
+Finalmente, **Alert & Notification** funciona como un contexto transversal. Su responsabilidad no es ejecutar reglas clínicas, sino entregar mensajes oportunos a los actores correspondientes. Esta separación evita que la lógica de notificaciones quede mezclada con la lógica de citas, tratamientos, monitoreo o síntomas.
+
+En conclusión, el Context Mapping permite observar que OnControl utiliza una estructura orientada a eventos y con responsabilidades separadas. Los contextos clínicos principales publican eventos o consumen información de otros contextos, mientras que Alert & Notification actúa como un mecanismo transversal para comunicar avisos importantes. Esta organización reduce el acoplamiento entre módulos y facilita una arquitectura más mantenible, escalable y alineada con los procesos reales del cuidado oncológico.
 
 ![Image](https://github.com/user-attachments/assets/f6a1aeb4-6dbc-433b-886d-2bf967cf2ae8)
 
@@ -1681,6 +1843,12 @@ Vista de alto nivel que muestra todos los sistemas, usuarios y sus interacciones
 <img width="3050" height="1400" alt="structurizr-106662-SystemLandscape" src="https://github.com/user-attachments/assets/47c4f0fc-f9a6-4ad5-a861-5a00521fa852" />
 
 <div id='4.3.2.'><h4>4.3.2. Software Architecture Context Level Diagrams</h4></div>
+
+Los diagramas de contexto de arquitectura permiten representar la interacción entre OnControl, sus usuarios principales y los sistemas externos que participan en la solución. Esta vista corresponde al nivel de contexto del modelo C4, por lo que no se enfoca todavía en contenedores internos, bases de datos o microservicios, sino en mostrar el sistema como una unidad y explicar cómo se comunica con actores externos.
+
+Para OnControl se consideran tres vistas de contexto: **System Context**, **Patient Context** y **Doctor Context**. La primera muestra la relación general entre la plataforma, los usuarios y los sistemas externos. La segunda representa la perspectiva del paciente oncológico al interactuar con la aplicación móvil. La tercera representa la perspectiva del médico oncólogo al utilizar la plataforma web para gestionar pacientes, tratamientos, citas y alertas clínicas.
+
+Estas vistas se alinean con la arquitectura descrita para OnControl, donde se identifican usuarios como pacientes y médicos, dispositivos IoT para capturar signos vitales, servicios de notificación y una plataforma central encargada de gestionar pacientes, tratamientos, citas, síntomas, monitoreo, alertas y notificaciones.
 
 En este diagrama podemos observar el contexto de nuestra aplicación, identificando el sistema y las relaciones con los diferentes tipos de usuarios que este presenta, además de otros sistemas externos y de terceros que son de ayuda para el desarrollo.
 
