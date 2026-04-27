@@ -55,13 +55,13 @@ URL del repositorio para el reporte del proyecto: https://github.com/1ASI0728-26
 
 Github también presenta un timeline de las ramas principales y los procesos de merge a los que se han sometido. Todas las ramas se crearon tomando en cuenta el diseño de GitFlow para una buena organización cuando se usa un software de control de versiones.
 
-| Integrante                       | User       |
-|----------------------------------|------------|
-| Holguin Gamarra, Hardie Alfonso  | HOLGUINUPC |
-|Espejo Gamarra, Bryan Ronald      | SAEBRYXN|
-| NOMBRE                           | USER       |
-| NOMBRE                           | USER       |
-| Ramos Mendoza, Juan Pablo        | JJPPRRMM   |
+| Integrante                      | User   |
+|---------------------------------|--------|
+| Holguin Gamarra, Hardie Alfonso | HOLGUINUPC |
+| Espejo Gamarra, Bryan Ronald    | SAEBRYXN |
+| Barrutia Vaez, Ricardo Andree   | RichiAbV |
+| Espinoza Inoñan, Fabiola Ximena | Ximena-EI|
+| Ramos Mendoza, Juan Pablo       | JJPPRRMM |
 
 
 
@@ -213,14 +213,14 @@ Como valor diferencial, OnControl integra sensores IoT que permiten medir parám
     <td>U202213278</td>
   </tr> 
   <tr>
-    <td><img src=""></td>
-    <td>Descripcion</td>
-    <td>Codigo</td>
+    <td><img src="https://github.com/AidManager/upc-pre-202502-1ASI0732-7508-AidManager-Report/blob/main/assets/participantes/img-ricardo.jpg?raw=true"></td>
+    <td>Mi nombre es Ricardo Andree Barrutia Vaez, como estudiante de ingeniería de software he adquirido conocimientos de C++, Java y de Ionic. Con respecto a las habilidades más destacables de mi persona, considero que el trabajo en equipo es una de ellas. Además de la capacidad resolutiva a la par que adaptativa ante diversas situaciones.</td>
+    <td>U201714765</td>
   </tr>  
   <tr>
-    <td><img src=""></td>
-    <td>Descripcion</td>
-    <td>Codigo</td>
+    <td><img src="https://github.com/AidManager/upc-pre-202502-1ASI0732-7508-AidManager-Report/raw/main/assets/participantes/img-fabiola.png"></td>
+    <td>Mi nombre es Fabiola Espinoza, tengo 21 años y estudio Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Me considero una persona responsable, creativa y empática, con habilidades destacadas en el trabajo en equipo y la convivencia con otras personas. He participado en el programa Coder Bloom, 28h y más. Y actualmente soy coordinadora de ACM Women UPC.</td>
+    <td>u202214784</td>
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/fb07e471-36a2-4fa7-9234-178869d3d3b7"></td>
