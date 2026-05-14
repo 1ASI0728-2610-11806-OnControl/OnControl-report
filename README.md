@@ -14,7 +14,7 @@ Sección: 11806
 
 Profesor: Christian Luis De Los Rios Fernandez
 
-Informe de TB1 
+Informe de TP1 
 
 Startup: OnControl Team
 
@@ -45,6 +45,7 @@ El objetivo de esta sección es resumir las modificaciones relevantes que se rea
 | :-----: | :---: | :---: | --------------------------- |
 |    0.0    |   12/04/26   |   Grupo   | Creación del repositorio |
 |    1.0    |   26/04/26   |   Grupo   | Desarrollo del TB1       |
+|    2.0    |   16/05/26   |   Grupo   | Desarrollo del TP y correcciones       |
 
 
 # Project Report Collaboration Insights
@@ -123,6 +124,41 @@ Github también presenta un timeline de las ramas principales y los procesos de 
    4.3.3. [Software Architecture Container Level Diagrams.](#4.3.3.)<br>
    4.3.4. [Software Architecture Deployment Diagrams.](#4.3.4.)<br>
 
+5. [**Capítulo V: Tactical-Level Software Design.**](#5.)<br>
+   5.1. [Bounded Context: REEMPLAZAR](#5.1.)<br>
+   5.1.1. [Domain Layer.](#5.1.1.)<br>
+   5.1.2. [Interface Layer.](#5.1.2.)<br>
+   5.1.3. [Application Layer.](#5.1.3.)<br>
+   5.1.4. [Infrastructure Layer.](#5.1.4.)<br>
+   5.1.5. [Bounded Context Software Architecture Component Level Diagrams](#5.1.5.)<br>
+   5.1.6. [Bounded Context Software Architecture Code Level Diagrams.](#5.1.6.)<br>
+   5.1.6.1. [Bounded Context Domain Layer Class Diagrams.](#5.1.6.1.)<br>
+   5.1.6.2. [Bounded Context Database Design Diagram.](#5.1.6.2.)<br>
+   5.2. [Bounded Context: REEMPLAZAR](#5.2.)<br>
+   5.2.1. [Domain Layer.](#5.2.1.)<br>
+   5.2.2. [Interface Layer.](#5.2.2.)<br>
+   5.2.3. [Application Layer.](#5.2.3.)<br>
+   5.2.4. [Infrastructure Layer.](#5.2.4.)<br>
+   5.2.5. [Bounded Context Software Architecture Component Level Diagrams](#5.2.5.)<br>
+   5.2.6. [Bounded Context Software Architecture Code Level Diagrams.](#5.2.6.)<br>
+   5.2.6.1. [Bounded Context Domain Layer Class Diagrams.](#5.2.6.1.)<br>
+   5.2.6.2. [Bounded Context Database Design Diagram.](#5.2.6.2.)<br>
+
+6. [**Capítulo V1: Solution UX Design](#6.)<br>
+   6.1. [Style Guidelines.](#6.1.)<br>
+   6.2. [Information Architecture.](#6.2.)<br>
+      6.2.1. [Labeling Systems.](#6.2.1.)<br>
+      6.2.2. [Searching Systems.](#6.2.2.)<br>
+      6.2.3. [SEO Tags and Meta Tags.](#6.2.3.)<br>
+      6.2.4. [Navigation Systems.](#6.2.4.)<br>
+   6.3. [Landing Page UI Design.](#6.3.)<br>
+      6.3.1. [Landing Page Wireframe.](#6.3.1.)<br>
+      6.3.2. [Landing Page Mock-up.](#6.3.2.)<br>
+   6.4. [Applications UX/UI Design.](#6.4.)<br>
+      6.4.1. [Applications Wireframes.](#6.4.1.)<br>
+      6.4.2. [Applications Wireflow Diagrams.](#6.4.2.)<br>
+      6.4.3. [Applications Mock-ups.](#6.4.3.)<br>
+
 7. [**Conclusiones.**](#7.)<br>
 8. [**Bibliografía.**](#8.)<br>
 9. [**Anexo.**](#9.)<br>
@@ -146,18 +182,25 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <td>
       <strong>Holguín Gamarra, Hardie Alfonso</strong> <br>
       <strong>TB1:</strong> <p align="justify">He liderado las reuniones de coordinación técnica, explicando la integración de la arquitectura de software y los sensores IoT de manera clara y objetiva, adaptando el lenguaje técnico para que todos los miembros del equipo y stakeholders comprendan el avance del proyecto.</p><br>
+      <strong>TP:</strong> <p align="justify">  </p><br>
       <strong>Barrutia Vaez, Ricardo Andree </strong> <br>
       <strong>TB1:</strong> <p align="justify">Me encargué de trabajar la parte de EventStorming, Candidate Context Discovery y Domain Message Flows Modeling. Para ello, organicé los principales procesos de OnControl, como la vinculación entre médico y paciente, la gestión de citas, tratamientos, monitoreo IoT, alertas y reporte de síntomas. También expliqué al equipo cómo estos procesos se relacionan entre sí para que el dominio del sistema sea más fácil de entender. </p><br>
+      <strong>TP:</strong> <p align="justify">  </p><br>
       <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
       <strong>TB1:</strong> <p align="justify">Trabajé en las secciones de Bounded Context Canvases, Context Mapping y Software Architecture Context Level Diagrams. Organicé la información de los contextos principales de OnControl, como Users, Patient, Calendar, Treatment, Monitoring, Symptoms & Medication y Alert & Notification. También expliqué cómo se relacionan estos contextos y cómo el sistema interactúa con pacientes, médicos, dispositivos IoT y servicios externos. </p><br>
+      <strong>TP:</strong> <p align="justify">  </p><br>
       <strong>Espejo Gamarra, Bryan Ronnald</strong> <br>
       <strong>TB1:</strong> <p align="justify">Trabajé en las secciones de Software Architecture Container Level Diagrams y Software Architecture Deployment Diagrams. Para ello, expliqué al equipo cómo se organizan los principales contenedores del sistema OnControl, como la aplicación web, la aplicación móvil, los servicios backend, la base de datos, los servicios de autenticación, las notificaciones y la integración con dispositivos IoT. También presenté cómo estos componentes se despliegan en la infraestructura tecnológica, usando un lenguaje claro para que tanto los integrantes técnicos como los no técnicos puedan entender cómo funciona la arquitectura del sistema. </p><br>
+      <strong>TP:</strong> <p align="justify">  </p><br>
       <strong>Ramos Mendoza, Juan Pablo</strong> <br>
       <strong>TB1:</strong> <p align="justify">He realizado diagramas fáciles de entender y explicar para que personas de cualquier nivel técnico puedan entender las indicaciones correctamente, lo que ayudó en las explicaciones previas a las entrevistas </p><br>
+      <strong>TP:</strong> <p align="justify">  </p><br>
       </td>
       <td>
         <strong>TB1:</strong><br>
         Nos hemos enfocado en mantener una alta claridad en nuestros diseños y explicaciones, lo que ayudó en el desarrollo de los gráficos y en la comprensión general de la arquitectura tecnológica del proyecto.
+        <strong>TP:</strong><br>
+        Reemplazar
       </td>
     </tr>
     <tr>
@@ -165,18 +208,25 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <td>
         <strong>Holguín Gamarra, Hardie Alfonso</strong> <br>
          <strong>TB1:</strong> <p align="justify">He redactado y estructurado la documentación técnica del proyecto, incluyendo los drivers arquitectónicos y las especificaciones de historias de usuario, presentándola de forma que sea comprensible tanto para desarrolladores como para perfiles orientados al negocio.</p><br>
+         <strong>TP:</strong> <p align="justify">  </p><br>
         <strong>Barrutia Vaez, Ricardo Andree</strong> <br>
          <strong>TB1:</strong> <p align="justify">Redacté la documentación correspondiente a EventStorming, Candidate Context Discovery y Domain Message Flows Modeling. Además, adapté las imágenes y diagramas realizados para que encajen mejor con la estructura del informe y tengan una explicación clara para cualquier lector. </p><br>
+         <strong>TP:</strong> <p align="justify">  </p><br>
          <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
          <strong>TB1:</strong> <p align="justify">Redacté la documentación de Bounded Context Canvases, Context Mapping y Software Architecture Context Level Diagrams. En esta parte describí las responsabilidades de cada contexto, sus relaciones y las vistas de contexto del sistema, del paciente y del médico. </p><br>
+         <strong>TP:</strong> <p align="justify">  </p><br>
          <strong>Espejo Gamarra, Bryan Ronnald</strong> <br>
          <strong>TB1:</strong> <p align="justify">Redacté la documentación correspondiente a los Software Architecture Container Level Diagrams y Software Architecture Deployment Diagrams. En esta parte describí los contenedores principales de OnControl, sus responsabilidades, sus relaciones y la forma en que se comunican entre sí. Además, documenté la vista de despliegue del sistema, explicando cómo se distribuyen los componentes en la infraestructura, incluyendo aplicaciones cliente, servicios backend, base de datos, servicios externos y dispositivos IoT, con el objetivo de que la arquitectura sea comprensible para lectores de diferentes niveles técnicos. </p><br>
+         <strong>TP:</strong> <p align="justify">  </p><br>
          <strong>Ramos Mendoza, Juan Pablo</strong> <br>
          <strong>TB1:</strong> <p align="justify">Utilizando mis avances anteriores en este proyecto he podido explicar claramente mis visiones a mis compañeros.</p><br>
+         <strong>TP:</strong> <p align="justify">  </p><br>
       </td>
       <td>
         <strong>TB1:</strong><br>
         A través de los resultados de nuestras pruebas y diseños anteriores hemos podido documentar y explicar el proceso de desarrollo de nuestro proyecto para tenerlo como base consolidada para todo el equipo.
+        <strong>TP:</strong><br>
+        Reemplazar
       </td>
     </tr>
   </tbody>
@@ -1923,7 +1973,669 @@ Infraestructura de despliegue en producción:
 
 <img width="11497" height="5154" alt="structurizr-106662-DeploymentDiagram" src="https://github.com/user-attachments/assets/5e00acf5-c6f8-40ec-a342-dc7377e94956" />
 
+<div id='6.'><h2>6. Capítulo V: Solution UI/UX Design</h2></div>
 
+<div id='6.1.'><h3>6.1. Style Guidelines</h3></div>
+
+### Branding
+
+El branding de OnControl refleja nuestra misión de proporcionar apoyo integral a pacientes oncológicos y médicos en Perú. Nuestros elementos visuales comunican confianza, empatía y profesionalismo.
+
+### Logo
+
+El logo de OnControl combina elementos visuales que representan nuestra misión:
+
+- La palabra "ONCO" en rojo y "NTROL" en azul, simbolizando la dualidad entre el paciente y el médico
+- El lazo rosa formando un corazón, representando la conciencia sobre el cáncer y el cuidado centrado en el paciente
+
+
+**Uso del logo:**
+
+- Mantener siempre el espacio de protección alrededor del logo (equivalente a la altura de la letra "O")
+- No distorsionar, rotar o cambiar los colores del logo
+- En fondos oscuros, utilizar la versión blanca del logo
+- Tamaño mínimo: 40px de altura para asegurar legibilidad
+
+![Image](https://github.com/user-attachments/assets/4e55c970-22a6-4d60-8ec1-8a5da4e7eb16)
+
+
+### Typography
+
+La tipografía principal de OnControl es Poppins, una fuente sans-serif moderna y legible que transmite profesionalismo y accesibilidad.
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --font-primary: "Poppins", sans-serif;
+}
+```
+
+**Jerarquía tipográfica:**
+
+| Elemento | Tamaño | Peso | Uso
+|-----|-----|-----|-----
+| H1 | 3rem (48px) | 700 | Títulos principales, hero section
+| H2 | 2.5rem (40px) | 700 | Títulos de sección
+| H3 | 1.5rem (24px) | 600 | Subtítulos, encabezados de tarjetas
+| H4 | 1.3rem (20px) | 600 | Títulos menores
+| Body | 1rem (16px) | 400 | Texto general
+| Small | 0.875rem (14px) | 400 | Texto secundario, pies de página
+
+
+![Image](https://github.com/user-attachments/assets/1c7b0440-c7d0-4818-ac12-5335a309222b)
+
+### Colors
+
+La paleta de colores de OnControl está diseñada para transmitir confianza, tranquilidad y esperanza, utilizando tonos que reflejan el sector de la salud con acentos que aportan calidez y energía.
+
+```css
+:root {
+  /* Colores primarios */
+  --primary: #00796b;      /* Verde teal - Color principal */
+  --secondary: #004d40;    /* Verde teal oscuro - Color secundario */
+  --accent: #ff5722;       /* Naranja - Color de acento */
+  
+  /* Colores de la marca */
+  --brand-red: #ff3333;    /* Rojo del logo - "ONCO" */
+  --brand-blue: #0033cc;   /* Azul del logo - "NTROL" */
+  --brand-pink: #e91e63;   /* Rosa del lazo */
+  
+  /* Colores neutros */
+  --background: #f5f5f5;   /* Fondo general */
+  --foreground: #212121;   /* Texto principal */
+  --card: #ffffff;         /* Fondo de tarjetas */
+  --card-hover: #e0e0e0;   /* Estado hover de tarjetas */
+  
+  /* Colores de estado */
+  --success: #4caf50;      /* Éxito */
+  --warning: #ff9800;      /* Advertencia */
+  --error: #f44336;        /* Error */
+  --info: #2196f3;         /* Información */
+}
+```
+
+**Uso de colores:**
+
+- **Color primario (--primary)**: Utilizado para la barra de navegación, fondos de secciones importantes y elementos principales.
+- **Color secundario (--secondary)**: Utilizado para gradientes, elementos secundarios y estados hover.
+- **Color de acento (--accent)**: Utilizado para botones de llamada a la acción, iconos destacados y elementos que requieren atención.
+- **Colores de la marca**: Reservados principalmente para el logo y elementos visuales de identidad.
+- **Colores neutros**: Utilizados para fondos, texto y elementos de interfaz general.
+
+![Image](https://github.com/user-attachments/assets/f2c90d9a-edee-44c8-9327-af86b706a563)
+
+### Spacing
+
+El sistema de espaciado de OnControl sigue un patrón consistente para crear una jerarquía visual clara y una experiencia de usuario coherente.
+
+```css
+:root {
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+  --spacing-4xl: 5rem;     /* 80px */
+}
+```
+
+**Principios de espaciado:**
+
+- Utilizar espaciado consistente entre secciones (--spacing-3xl o --spacing-4xl)
+- Mantener un espaciado interno consistente en tarjetas y contenedores (--spacing-lg o --spacing-xl)
+- Aplicar espaciado vertical entre elementos de texto según su jerarquía
+- Utilizar márgenes proporcionales al tamaño de los elementos
+
+
+### Componentes UI
+
+#### Botones
+
+Los botones en OnControl siguen un diseño consistente con bordes redondeados y transiciones suaves.
+
+```css
+.cta-button {
+  display: inline-block;
+  background-color: var(--accent);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #e64a19;
+  transform: translateY(-3px);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+```
+
+**Variantes de botones:**
+
+- **Primario**: Fondo naranja (--accent), texto blanco
+- **Secundario**: Borde blanco, fondo transparente, texto blanco
+- **Terciario**: Solo texto, sin fondo ni borde
+
+
+#### Tarjetas
+
+Las tarjetas son componentes fundamentales que muestran información agrupada con un estilo consistente.
+
+```css
+.card {
+  background-color: var(--card);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+```
+
+#### Iconografía
+
+OnControl utiliza iconos de Font Awesome para mantener un estilo coherente en toda la interfaz.
+
+```html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+```
+
+**Uso de iconos:**
+
+- Mantener tamaños consistentes (generalmente 1.5rem para iconos estándar)
+- Utilizar el color primario o de acento para iconos destacados
+- Aplicar el mismo estilo de transición para estados hover
+
+
+### Accesibilidad
+
+OnControl se compromete a crear una experiencia inclusiva para todos los usuarios, incluyendo aquellos con discapacidades.
+
+**Principios de accesibilidad:**
+
+- Mantener un contraste de color adecuado (relación mínima de 4.5:1 para texto normal)
+- Utilizar etiquetas semánticas HTML5 (header, nav, main, section, etc.)
+- Incluir atributos alt en todas las imágenes
+- Asegurar que todos los elementos interactivos sean accesibles mediante teclado
+- Implementar ARIA roles y atributos cuando sea necesario
+
+
+### Implementación y Mantenimiento
+
+Esta guía de estilo debe ser consultada y seguida por todos los miembros del equipo de OnControl. Para mantener la consistencia:
+
+1. Revisar esta documentación antes de comenzar nuevos desarrollos
+2. Utilizar los componentes y tokens definidos en este documento
+3. Consultar con el equipo de diseño ante cualquier duda o necesidad de nuevos elementos
+4. Actualizar esta guía cuando se realicen cambios significativos en el diseño
+
+<div id='6.2.'><h3>6.2. Information Architecture</h3></div>
+<div id='6.2.1.'><h4>6.2.1. Labeling Systems</h4></div>
+
+### Etiquetas de Navegación Principal
+
+| Etiqueta | Descripción
+|-----|-----
+| **Características** | Funcionalidades clave de la plataforma, presentadas con iconos y descripciones breves.
+| **Beneficios** | Ventajas específicas para médicos y pacientes, organizadas en tarjetas visuales.
+| **Problemática** | Contexto sobre los desafíos en la atención oncológica en Perú y cómo OnControl los aborda.
+| **Testimonios** | Experiencias de usuarios reales, etiquetadas por rol (paciente, médico, familiar).
+| **Contacto** | Formulario para solicitar información o una demostración personalizada.
+| **Descargar App** | Sección dedicada a la descarga de la aplicación para iOS y Android.
+
+
+
+### Etiquetas de la Sección Hero
+
+| Etiqueta | Descripción
+|-----|-----
+| **Apoyo integral para pacientes oncológicos** | Título principal que comunica el propósito central de la plataforma.
+| **Solicitar demo** | Botón transparente que dirige al formulario de contacto para profesionales interesados.
+| **Descargar App** | Botón de acento (naranja) que dirige a la sección de descarga de la aplicación.
+
+
+### Etiquetas de Características
+
+| Etiqueta | Descripción
+|-----|-----
+| **Características principales** | Encabezado de sección que introduce las funcionalidades clave.
+| **Calendario Integrado** | Tarjeta que describe la funcionalidad de gestión de citas y recordatorios.
+| **Gestión de Medicamentos** | Tarjeta que explica el seguimiento de tratamientos y medicación.
+| **Comunicación Directa** | Tarjeta que presenta el sistema de chat entre médicos y pacientes.
+
+
+### Etiquetas de Beneficios
+
+| Etiqueta | Descripción
+|-----|-----
+| **Beneficios** | Encabezado de sección que introduce las ventajas de la plataforma.
+| **Para Médicos Oncólogos** | Subsección que agrupa beneficios específicos para profesionales médicos.
+| **Para Pacientes** | Subsección que agrupa beneficios específicos para personas con cáncer.
+| **Para Familiares** | Subsección que agrupa beneficios para el entorno de apoyo del paciente.
+| **Para el Sistema de Salud** | Subsección que presenta ventajas a nivel institucional y sistémico.
+
+
+### Etiquetas de Problemática
+
+| Etiqueta | Descripción
+|-----|-----
+| **La problemática** | Encabezado de sección que introduce el contexto del problema.
+| **Desafíos en la atención oncológica** | Subtítulo que enmarca la situación actual en Perú.
+| **Más Acerca del Problema** | Etiqueta que introduce el contenido multimedia explicativo.
+
+
+### Etiquetas de Descarga de App
+
+| Etiqueta | Descripción
+|-----|-----
+| **Lleva el control de tu tratamiento donde vayas** | Título que comunica el beneficio principal de la aplicación móvil.
+| **Descargar en App Store** | Botón con ícono de Apple para usuarios iOS.
+| **Disponible en Google Play** | Botón con ícono de Google Play para usuarios Android.
+
+
+### Etiquetas de Testimonios
+
+| Etiqueta | Descripción
+|-----|-----
+| **Lo que dicen nuestros usuarios** | Encabezado que introduce las experiencias de usuarios reales.
+| **[Nombre], Paciente oncológica** | Formato de atribución para testimonios de pacientes.
+| **Dr. [Nombre], Oncólogo** | Formato de atribución para testimonios de médicos.
+| **[Nombre], Familiar de paciente** | Formato de atribución para testimonios de familiares.
+
+
+### Etiquetas de Contacto
+
+| Etiqueta | Descripción
+|-----|-----
+| **¿Listo para mejorar la experiencia oncológica?** | Título que invita a la acción con un tono positivo y orientado a soluciones.
+| **Contáctanos hoy mismo para una demostración personalizada** | Subtítulo que especifica el propósito del formulario.
+| **Tipo de usuario** | Campo desplegable con opciones: Paciente, Médico, Familiar de paciente, Otro.
+| **Enviar** | Botón de envío del formulario con color de acento para destacarlo.
+
+
+### Etiquetas de Footer
+
+| Etiqueta | Descripción
+|-----|-----
+| **Navegación** | Encabezado de columna para enlaces internos del sitio.
+| **Contacto** | Encabezado de columna para información de contacto directo.
+| **Síguenos** | Encabezado de columna para redes sociales.
+| **Política de Privacidad** | Enlace a información legal sobre manejo de datos.
+| **Términos y Condiciones** | Enlace a información legal sobre uso del servicio.
+
+<div id='6.2.2.'><h4>6.2.2. Searching Systems</h4></div>
+
+### Tipos de Búsqueda por Interfaz
+
+#### Landing Page
+
+La landing page implementará un sistema de búsqueda simple:
+
+- **Barra de búsqueda en header**: Permitirá buscar términos generales dentro del contenido de la landing page.
+- **Resultados**: Se mostrarán en una página dedicada, organizados por secciones relevantes (Características, Beneficios, FAQ).
+- **Sugerencias de búsqueda**: Se mostrarán términos populares relacionados con oncología mientras el usuario escribe.
+
+
+#### Aplicación Móvil
+
+##### Para Médicos
+
+| Sección | Tipo de Búsqueda | Filtros Disponibles | Visualización de Resultados
+|-----|-----|-----|-----
+| **Pacientes** | Búsqueda por texto con autocompletado | • Nombre/ID<br> • Tipo de cáncer<br>• Estado de tratamiento<br>• Fecha de última cita | Lista con tarjetas de paciente que muestran foto, nombre, diagnóstico principal y próxima cita
+| **Tratamientos** | Búsqueda combinada (texto + filtros) | • Estado (creado, iniciado, actualizado)<br>• Tipo de tratamiento<br>• Fecha de inicio<br>• Especialista asignado | Vista tabular con opciones para expandir detalles de cada tratamiento
+| **Citas** | Búsqueda en calendario + texto | • Rango de fechas<br>• Estado (creada, confirmada, cancelada)<br>• Tipo de cita<br>• Paciente | Vista de calendario con opción de cambiar a lista, mostrando hora, paciente y tipo de cita
+| **Chat** | Búsqueda en conversaciones | • Paciente<br>• Fecha<br>• Contenido del mensaje<br>• Archivos adjuntos | Fragmentos de conversación con la opción de ver el contexto completo
+
+
+##### Para Pacientes
+
+| Sección | Tipo de Búsqueda | Filtros Disponibles | Visualización de Resultados
+|-----|-----|-----|-----
+| **Tratamientos** | Búsqueda por texto simple | • Estado (activo, completado)<br>• Fecha de inicio<br>• Tipo de tratamiento | Tarjetas con información resumida y opción para ver detalles
+| **Citas** | Búsqueda en calendario | • Estado (solicitada, confirmada, cancelada)<br>• Rango de fechas<br>• Tipo de cita | Vista de calendario con opción de lista, mostrando fecha, hora, doctor y estado
+| **Síntomas** | Búsqueda por categoría y texto | • Tipo de síntoma<br>• Intensidad<br>• Fecha de registro | Gráfico temporal con opción de ver lista detallada
+| **Chat** | Búsqueda en historial | • Fecha<br>• Contenido del mensaje | Fragmentos de conversación con contexto
+
+<div id='6.2.3.'><h4>6.2.3. SEO Tags and Meta Tags</h4></div>
+
+### Landing Page
+
+#### Title Tags
+
+| Página | Title Tag
+|-----|-----
+| **Home** | OnControl - Apoyo integral para pacientes oncológicos en Perú
+| **Características** | Características de OnControl - Gestión eficiente de tratamientos oncológicos
+| **Beneficios** | Beneficios de OnControl - Mejorando la experiencia oncológica para médicos y pacientes
+| **Contacto** | Contacta con OnControl - Solicita una demo personalizada
+
+
+#### Meta Description Tags
+
+| Página | Meta Description
+|-----|-----
+| **Home** | OnControl facilita la gestión del tratamiento oncológico, mejorando la comunicación entre médicos y pacientes para una atención más efectiva y personalizada en Perú.
+| **Características** | Descubre las funcionalidades de OnControl: calendario integrado, gestión de medicamentos y comunicación directa entre médicos oncólogos y pacientes.
+| **Beneficios** | OnControl reduce la ansiedad de los pacientes y optimiza el tiempo de los médicos oncólogos, mejorando la calidad de la atención oncológica en Perú.
+| **Contacto** | Solicita una demostración personalizada de OnControl y descubre cómo podemos mejorar la experiencia oncológica para ti o tus pacientes.
+
+
+#### Meta Keywords
+
+```html
+<meta name="keywords" content="oncología, cáncer, tratamiento oncológico, pacientes oncológicos, médicos oncólogos, gestión médica, Perú, aplicación médica, seguimiento de tratamiento, comunicación médico-paciente, citas médicas, recordatorios de medicamentos">
+```
+
+#### Meta Author
+
+```html
+<meta name="author" content="OnControl - Equipo de Desarrollo">
+```
+
+#### Open Graph Tags
+
+```html
+<meta property="og:title" content="OnControl - Apoyo integral para pacientes oncológicos">
+<meta property="og:description" content="Plataforma que facilita la gestión del tratamiento oncológico, mejorando la comunicación entre médicos y pacientes.">
+<meta property="og:image" content="https://oncontrol.pe/images/og-image.jpg">
+<meta property="og:url" content="https://oncontrol.pe">
+<meta property="og:type" content="website">
+```
+
+### Aplicaciones Móviles (ASO)
+
+#### App Store (iOS)
+
+| Elemento ASO | Contenido
+|-----|-----
+| **App Name** | OnControl: Gestión Oncológica
+| **App Subtitle** | Tratamientos y citas de cáncer
+| **Keywords** | oncología, cáncer, tratamiento, citas, médico, paciente, recordatorio, calendario, chat médico, Perú
+| **App Description (Primeros párrafos)** | OnControl es la aplicación esencial para pacientes oncológicos y médicos en Perú. Gestiona tratamientos, citas y comunicación en un solo lugar.<br><br>Diseñada específicamente para mejorar la experiencia oncológica, OnControl te permite llevar un seguimiento detallado de tu tratamiento o el de tus pacientes, con recordatorios personalizados y comunicación directa entre médicos y pacientes.
+| **Promotional Text** | ¡Nuevo! Ahora con sistema mejorado de registro de síntomas y notificaciones en tiempo real.
+
+
+#### Google Play Store (Android)
+
+| Elemento ASO | Contenido
+|-----|-----
+| **App Title** | OnControl: Gestión de Tratamientos Oncológicos
+| **Short Description** | Aplicación para pacientes con cáncer y médicos oncólogos en Perú.
+| **Long Description (Inicio)** | OnControl es la solución integral para la gestión de tratamientos oncológicos en Perú, diseñada tanto para pacientes como para médicos especialistas.<br><br>Nuestra aplicación facilita el seguimiento de tratamientos, la gestión de citas médicas, el registro de síntomas y la comunicación directa entre médicos y pacientes, todo en una interfaz intuitiva y accesible.
+| **Feature Graphic Text** | Mejorando la experiencia oncológica en Perú
+| **Categoría Principal** | Medicina
+| **Categoría Secundaria** | Salud y bienestar
+
+
+### Estrategia de Implementación
+
+**Optimización Local**: Incluiremos referencias geográficas a Perú y ciudades principales para mejorar el posicionamiento local.
+**Palabras Clave Longtail**: Incorporaremos términos específicos como "gestión de tratamiento de cáncer de mama" o "seguimiento de quimioterapia" en páginas internas.
+**Metaetiquetas Dinámicas**: Para secciones como tratamientos específicos, generaremos metaetiquetas dinámicas basadas en el contenido.
+**Actualización Regular**: Revisaremos y actualizaremos las metaetiquetas trimestralmente para mantener la relevancia y optimizar el rendimiento.
+
+<div id='6.2.4.'><h4>6.2.4. Navigation Systems</h4></div>
+
+### Landing Page
+
+#### Navegación Global
+
+- **Barra de navegación fija**: Permanece visible al hacer scroll, incluyendo logo, enlaces a secciones principales y botón de descarga destacado.
+- **Estructura jerárquica**: Organización clara de elementos por importancia, con el botón "Descargar App" visualmente destacado.
+- **Navegación responsiva**: Se transforma en menú hamburguesa en dispositivos móviles.
+
+
+#### Navegación Contextual
+
+- **Botones de llamada a la acción (CTA)**: Estratégicamente ubicados a lo largo de la página, guiando al usuario hacia la descarga o solicitud de demo.
+- **Enlaces internos**: Dentro del contenido para facilitar la navegación entre secciones relacionadas.
+- **Navegación por anclas**: Permite saltar directamente a secciones específicas desde la barra de navegación.
+
+
+#### Navegación de Utilidad
+
+- **Footer**: Contiene enlaces a información legal, contacto y mapa del sitio.
+- **Botón de regreso arriba**: Aparece al hacer scroll para facilitar el retorno al inicio.
+- **Breadcrumbs**: En páginas internas para mostrar la ubicación actual y permitir navegación hacia atrás.
+
+
+#### Indicadores de Navegación
+
+- **Resaltado de sección activa**: La sección actual se destaca en la barra de navegación.
+- **Cambio de estado en hover**: Feedback visual al pasar el cursor sobre elementos navegables.
+- **Animaciones de transición**: Suaves desplazamientos al navegar entre secciones mediante anclas.
+
+
+### Aplicación Móvil
+
+#### Estructura de Navegación Principal
+
+##### Para Médicos
+
+- **Navegación por pestañas**: Acceso rápido a las secciones principales:
+
+    - Tratamientos
+    - Pacientes
+    - Citas
+    - Calendario
+    - Chat
+
+- **Menú lateral expandible**: Para acceso a funciones secundarias y configuración.
+- **Barra inferior en móvil**: Con iconos para las funciones principales.
+
+
+##### Para Pacientes
+
+- **Navegación simplificada**: Enfocada en las necesidades del paciente:
+
+    - Mi Tratamiento
+    - Mis Citas
+    - Mis Síntomas
+    - Chat con Doctor
+
+
+
+- **Menú de hamburguesa**: Para acceso a configuración y funciones secundarias.
+- **Barra inferior en móvil**: Con iconos intuitivos para las funciones principales.
+
+
+<div id='6.3.'><h3>6.3. Landing Page UI Design</h3></div>
+
+Con el objetivo de maximizar la conversión de visitantes, hemos desarrollado una Landing Page adaptable. El diseño para ordenadores se centra en una experiencia intuitiva y sin fricciones, presentando la información clave de forma visual y concisa. Una barra de navegación siempre visible facilita el acceso continuo a todas las secciones.
+
+<div id='6.3.1.'><h4>6.3.1. Landing Page Wireframe</h4></div>
+
+En esta sección se presentarán los wireframes de la versión de la versión con menos exactitud del Landing Page.
+
+* **Sección Inicio y Caracteristicas**
+
+![Image](https://github.com/user-attachments/assets/0eb45035-16a5-43ec-9d3c-e3d0804f8f2e)
+
+* **Sección Beneficios**
+
+![Image](https://github.com/user-attachments/assets/402f71a5-8e20-4a1d-a88e-0bd3e1e82e64)
+
+* **Sección Problema y Testimonios**
+
+![Image](https://github.com/user-attachments/assets/f0bd95a9-1022-4c72-8071-0c74a404571f)
+
+* **Sección Contacto**
+ 
+![Image](https://github.com/user-attachments/assets/25e3440d-18e0-48ad-8d87-75f5c3439a20)
+
+* **Sección Descargas y Footer**
+
+![Image](https://github.com/user-attachments/assets/09051eb1-96b2-4581-821e-d6d3a93cd809)
+
+Figma: [Enlace Figma](https://www.figma.com/design/Q6qOeWezIbHOmzR6j1iWoX/Oncontigo-Mockups--Copia-?node-id=0-1&t=n4MWl8U3TC54ga3v-1)
+
+<div id='6.3.2.'><h4>6.3.2. Landing Page Mock-up</h4></div>
+
+Esta sección muestra el mock-up de la landing page de EMSafe. A diferencia del wireframe, este diseño incorpora la identidad visual completa (colores, tipografías, gráficos) para ofrecer una representación fiel del producto final. Su propósito es comunicar los beneficios clave del sistema, el problema que resuelve, su ubicación y facilitar el contacto con clientes potenciales.
+
+* **Sección Inicio**
+
+<img width="1321" height="936" alt="Captura de pantalla 2025-10-04 201058" src="https://github.com/user-attachments/assets/41ad3d5f-b51f-4514-9037-039e6d863512" />
+
+* **Sección Caracteristicas**
+
+<img width="1580" height="921" alt="Captura de pantalla 2025-10-04 201200" src="https://github.com/user-attachments/assets/e709ec32-8568-4d0d-8513-2dfe3d9b1740" />
+
+* **Sección Beneficios**
+
+<img width="1519" height="701" alt="Captura de pantalla 2025-10-04 201223" src="https://github.com/user-attachments/assets/71c11f0d-4555-4dd9-b9fa-520a7ce41051" />
+
+* **Sección Problema**
+
+<img width="1429" height="834" alt="image" src="https://github.com/user-attachments/assets/6ec524cb-f028-4c68-9a01-b17ff68f5427" />
+
+* **Sección Acerca De**
+
+<img width="1490" height="925" alt="image" src="https://github.com/user-attachments/assets/ec2081c8-e3d6-4e75-a4f2-1ea4ef31fee2" />
+
+* **Sección Testimonio**
+
+<img width="1397" height="759" alt="image" src="https://github.com/user-attachments/assets/0ffc53a2-ee1e-416f-9352-7d1be148c360" />
+
+* **Sección Contacto**
+
+<img width="1562" height="944" alt="Captura de pantalla 2025-10-04 201953" src="https://github.com/user-attachments/assets/352878c2-efae-478a-93ab-a89638a1b320" />
+
+* **Sección Descarga y Footer**
+
+<img width="1439" height="943" alt="image" src="https://github.com/user-attachments/assets/2e02a41d-79cd-444a-bcd6-fc9b1cec3813" />
+
+Figma: [Enlace Figma](https://www.figma.com/design/Q6qOeWezIbHOmzR6j1iWoX/Oncontigo-Mockups--Copia-?node-id=0-1&t=n4MWl8U3TC54ga3v-1)
+
+<div id='6.4.'><h3>6.4. Applications UX/UI Design</h3></div>
+
+Esta sección presenta y desarrolla la propuesta integral de diseño visual y de interacción para las aplicaciones que conforman la experiencia de usuario con los productos digitales del proyecto. Aquí se detallan los fundamentos, criterios y soluciones específicas que definen la interfaz y la usabilidad de las plataformas desarrolladas.
+
+<div id='6.4.1.'><h4>6.4.1. Applications Wireframes</h4></div>
+
+Esta sección presenta los wireframes de las aplicaciones, donde se materializa visualmente la propuesta de diseño. Los diseños reflejan la aplicación coherente de los principios de diseño establecidos, la arquitectura de información y el Design System definido para los productos digitales, garantizando alineación con los objetivos de usabilidad e inclusividad.
+
+* **Sección Inicio de Sesión**
+<img width="2888" height="2048" alt="image" src="https://github.com/user-attachments/assets/7ed2c174-4900-4643-95eb-0b982dc6c8ad" />
+
+* **Sección Registro de Oncólogo**
+<img width="2888" height="2048" alt="image" src="https://github.com/user-attachments/assets/386514a5-ac09-4420-8889-ef0b41820c20" />
+
+* **Sección Dashboard Principal**
+<img width="2888" height="2048" alt="image" src="https://github.com/user-attachments/assets/96c60791-7efe-4fc4-8811-031215f25c09" />
+
+* **Sección Monitoreo de Signos Vitales**
+<img width="2888" height="2048" alt="image" src="https://github.com/user-attachments/assets/835374c4-57a5-4dcf-acea-52f802aeb358" />
+
+* **Sección Lista de Pacientes**
+<img width="2888" height="2048" alt="image" src="https://github.com/user-attachments/assets/49613af6-c0b9-4d17-aaaa-8c9d98b268e6" />
+
+* **Sección Perfil de Paciente de Signos Vitales**
+<img width="2642" height="1992" alt="image" src="https://github.com/user-attachments/assets/cd32d4c1-b034-40b3-a01d-ea7c93e86eeb" />
+
+* **Sección Gestión de Citas**
+<img width="2888" height="2048" alt="image" src="https://github.com/user-attachments/assets/17d2dc7f-06e4-401b-92cb-019e7613f22f" />
+
+* **Sección Administración de Tratamientos**
+<img width="2888" height="2048" alt="image" src="https://github.com/user-attachments/assets/98d130ab-4450-4a94-8e5e-289742683877" />
+
+* **Sección Sistema de Alertas IoT**
+<img width="2888" height="2048" alt="image" src="https://github.com/user-attachments/assets/f0f360c8-103d-45b2-99c1-11c1a8833e0d" />
+
+* **Sección Centro de Notificaciones**
+<img width="2888" height="2048" alt="image" src="https://github.com/user-attachments/assets/e3c379e0-eb3a-4afd-929c-dc4e74d9b097" />
+
+* **Sección Configuración de Perfil**
+<img width="2888" height="2048" alt="image" src="https://github.com/user-attachments/assets/bec72d08-aeac-4b07-b171-bb7e494cd111" />
+
+<div id='6.4.2.'><h4>6.4.2. Applications Wireflow Diagrams</h4></div>
+Aquí se detallan los diagramas de flujo de usuario, representando tanto el "happy path" como las rutas alternativas para cada objetivo de usuario. Cada flujo se acompaña de una explicación clara de las interacciones, condiciones y su correspondencia con los wireflows predefinidos, asegurando consistencia y una experiencia intuitiva para los distintos perfiles de usuario.
+
+* **Autenticación y Dashboard**
+
+![IoT](https://github.com/user-attachments/assets/abbe4b35-981b-45f4-9fb7-45fc6264978c)
+
+
+* **Interacción con Minisecciones del Dashboard**
+
+![IoT (1)](https://github.com/user-attachments/assets/0e912616-44bb-4592-a88f-4a681339b89c)
+
+
+* **Gestión de Pacientes**
+
+![IoT (2)](https://github.com/user-attachments/assets/3163f190-b112-4407-a3b9-a8ad67429801)
+
+
+* **Gestión de Citas**
+
+![IoT (3)](https://github.com/user-attachments/assets/d1b6d0a9-8b3f-40f1-8b34-8195e70cd439)
+
+* **Gestión de Tratamientos**
+
+![IoT (4)](https://github.com/user-attachments/assets/7b98abe3-fb4f-4971-8413-947447520b51)
+
+
+* **Sistema de Alertas y Configuración**
+
+![IoT (5)](https://github.com/user-attachments/assets/258b7d60-32ef-4712-9751-3627dd9a13f1)
+
+
+<div id='6.4.3.'><h4>6.4.3. Applications Mock-ups</h4></div>
+
+Esta sección presenta los mock-ups de las aplicaciones, donde se materializa visualmente la propuesta de diseño. Los diseños reflejan la aplicación coherente de los principios de diseño establecidos, la arquitectura de información y el Design System definido para los productos digitales, garantizando alineación con los objetivos de usabilidad e inclusividad.
+
+* **Sección Inicio de Sesión**
+<img width="1499" height="941" alt="1" src="https://github.com/user-attachments/assets/d50bde98-cdcc-493f-b1b2-7699b9c2b2e6" />
+
+* **Sección Registro de Oncólogo**
+<img width="1419" height="937" alt="2" src="https://github.com/user-attachments/assets/339155af-790f-45a2-9162-539fb7a27d5c" />
+
+* **Sección Dashboard Principal**
+<img width="1512" height="951" alt="3" src="https://github.com/user-attachments/assets/d06c9408-58e5-4a33-b999-9db5dce4650e" />
+
+* **Sección Monitoreo de Signos Vitales**
+<img width="1500" height="944" alt="5" src="https://github.com/user-attachments/assets/d83cac61-8920-4b8d-af9d-3a85225e6c65" />
+
+* **Sección Lista de Pacientes**
+<img width="1400" height="915" alt="6" src="https://github.com/user-attachments/assets/31de480d-0826-403e-8714-cbd4fd8f760c" />
+
+* **Sección Perfil de Paciente de Signos Vitales**
+<img width="1382" height="915" alt="9" src="https://github.com/user-attachments/assets/327f2f29-ea3e-47f1-a78c-aa6e78d602e3" />
+
+* **Sección Gestión de Citas**
+<img width="1271" height="945" alt="13" src="https://github.com/user-attachments/assets/f0fba529-3082-47cb-bf38-eb3767e64380" />
+
+* **Sección Administración de Tratamientos**
+<img width="1390" height="943" alt="17" src="https://github.com/user-attachments/assets/55d3c062-a96b-44bc-8c0c-5a583c6ebfc8" />
+
+* **Sección Sistema de Alertas IoT**
+<img width="1479" height="945" alt="22" src="https://github.com/user-attachments/assets/cb09ee70-a23c-4ad9-813b-a9c22604691c" />
+
+* **Sección Centro de Notificaciones**
+<img width="1330" height="944" alt="28" src="https://github.com/user-attachments/assets/c10f570f-4a87-4f04-af35-876b0f91757d" />
+
+* **Sección Configuración de Perfil**
+<img width="1319" height="947" alt="24" src="https://github.com/user-attachments/assets/bdd90435-74ee-4cca-89e5-1b53190920fb" />
 
 <div id='7.'><h2>7. Conclusiones</h2></div>
 
