@@ -985,14 +985,14 @@ En esta sección se presentan los requisitos del producto digital a partir del a
       <td>US18</td>
       <td>Enviar síntomas</td>
       <td>Como paciente<br>Quiero reportar mis síntomas<br>Para que el doctor haga seguimiento clínico</td>
-      <td><strong>E01 – Reporte exitoso:</strong> Dado que el paciente completa el formulario Cuando envía Entonces el síntoma queda registrado en el panel del médico.<br><br><strong>E02 – Sin tratamiento activo:</strong> Dado que no hay tratamiento asociado Cuando intenta reportar Entonces el sistema muestra un mensaje para seleccionar uno.<br><br><strong>E03 – Síntomas con datos IoT:</strong> Dado que el paciente reporta síntomas Cuando envía el reporte Entonces el sistema incluye automáticamente los datos de los sensores del momento.</td>
+      <td><strong>E01 – Reporte exitoso:</strong> Dado que el paciente completa el formulario Cuando envía Entonces el síntoma queda registrado en el panel del médico.<br><br><strong>E02 – Sin tratamiento activo:</strong> Dado que no hay tratamiento asociado Cuando intenta reportar Entonces el sistema muestra un mensaje para seleccionar uno.<br><br><strong>E03 – Síntomas con datos IoT:</strong> Dado que el paciente reporta síntomas Cuando envía el reporte Entonces el sistema incluye automáticamente los últimos datos sincronizados del wearable.</td>
       <td>EP06</td>
     </tr>
     <tr>
       <td>US19</td>
       <td>Revisar síntomas</td>
       <td>Como doctor<br>Quiero ver los síntomas reportados<br>Para evaluar la evolución del tratamiento</td>
-      <td><strong>E01 – Síntomas disponibles:</strong> Dado que el paciente ha reportado síntomas Cuando el doctor accede al historial Entonces ve la lista ordenada por fecha.<br><br><strong>E02 – Sin reportes:</strong> Dado que no hay registros Cuando el doctor accede Entonces el sistema muestra un mensaje indicándolo.<br><br><strong>E03 – Correlación con sensores:</strong> Dado que hay síntomas reportados Cuando el doctor los revisa Entonces puede ver los valores de los sensores en el momento del reporte.</td>
+      <td><strong>E01 – Síntomas disponibles:</strong> Dado que el paciente ha reportado síntomas Cuando el doctor accede al historial Entonces ve la lista ordenada por fecha.<br><br><strong>E02 – Sin reportes:</strong> Dado que no hay registros Cuando el doctor accede Entonces el sistema muestra un mensaje indicándolo.<br><br><strong>E03 – Correlación con sensores:</strong> Dado que hay síntomas reportados Cuando el doctor los revisa Entonces puede ver los valores registrados por el wearable en el momento del reporte.</td>
       <td>EP06</td>
     </tr>
     <tr>
@@ -1137,16 +1137,16 @@ En esta sección se presentan los requisitos del producto digital a partir del a
     </tr>
     <tr>
       <td>US40</td>
-      <td>Enviar datos de sensores al sistema</td>
-      <td>Como sistema IoT<br>Quiero enviar los datos de los sensores al servidor<br>Para que los médicos y pacientes puedan ver los resultados en la app</td>
-      <td><strong>E01 – Envío exitoso:</strong> Dado que se capturan los parámetros Cuando el módulo IoT los transmite Entonces el servidor los recibe y los almacena correctamente.<br><br><strong>E02 – Fallo de comunicación:</strong> Dado que hay pérdida de conexión Cuando el módulo intenta enviar datos Entonces el sistema reintenta o muestra una advertencia.</td>
+      <td>Transmitir datos vitales al servidor</td>
+      <td>Como aplicación móvil<br>Quiero enviar los datos obtenidos del wearable al servidor en segundo plano<br>Para que los médicos puedan ver los resultados en tiempo real.</td>
+      <td><strong>E01 – Envío exitoso:</strong> Dado que la app ha sincronizado nuevos parámetros Cuando detecta conexión a internet Entonces transmite los datos al backend mediante una petición segura (HTTPS).<br><br>E02 – Modo Offline:</strong> Dado que no hay conexión a internet Cuando la app intenta enviar datos Entonces los almacena localmente (ej. en SQLite) y reintenta el envío al recuperar la conexión.</td>
       <td>EP04</td>
     </tr>
     <tr>
       <td>US41</td>
       <td>Detectar umbrales anormales</td>
-      <td>Como sistema IoT<br>Quiero comparar los valores obtenidos con los umbrales normales<br>Para detectar condiciones críticas de salud</td>
-      <td><strong>E01 – Valor fuera de rango:</strong> Dado que un valor excede el umbral superior o inferior Cuando se realiza la medición Entonces el sistema genera una alerta interna.<br><br><strong>E02 – Valor normal:</strong> Dado que los parámetros están dentro del rango Cuando se registra la medición Entonces no se genera ninguna alerta.<br><br><strong>E03 – Umbrales personalizados por paciente:</strong> Dado que el médico configuró umbrales específicos Cuando se evalúan los parámetros Entonces el sistema usa los valores personalizados en lugar de los generales.</td>
+      <td>Como Servicio de Monitoreo (Backend)<br>Quiero comparar los valores obtenidos con los umbrales normales<br>Para detectar condiciones críticas de salud</td>
+      <td><strong>E01 – Valor fuera de rango:</strong> Dado que un valor excede el umbral superior o inferior CCuando el servidor recibe un nuevo paquete de datos del paciente Entonces el sistema genera una alerta interna.<br><br><strong>E02 – Valor normal:</strong> Dado que los parámetros están dentro del rango Cuando se registra la medición Entonces no se genera ninguna alerta.<br><br><strong>E03 – Umbrales personalizados por paciente:</strong> Dado que el médico configuró umbrales específicos Cuando se evalúan los parámetros Entonces el sistema usa los valores personalizados en lugar de los generales.</td>
       <td>EP04</td>
     </tr>
     <tr>
@@ -1160,7 +1160,7 @@ En esta sección se presentan los requisitos del producto digital a partir del a
       <td>US43</td>
       <td>Visualizar lecturas en la app</td>
       <td>Como paciente<br>Quiero ver mis parámetros vitales en tiempo real<br>Para conocer mi estado de salud desde el panel de control</td>
-      <td><strong>E01 – Visualización en tiempo real:</strong> Dado que los sensores están transmitiendo Cuando el usuario accede al dashboard Entonces los valores se actualizan en pantalla cada pocos segundos.<br><br><strong>E02 – Historial de datos:</strong> Dado que se realizan mediciones continuas Cuando el usuario abre su historial Entonces puede ver los registros de temperatura, oxígeno y ritmo cardíaco.<br><br><strong>E03 – Tendencias y análisis:</strong> Dado que hay datos históricos suficientes Cuando el usuario visualiza las métricas Entonces el sistema muestra tendencias y cambios significativos.</td>
+      <td><strong>E01 – Visualización en tiempo real:</strong> Dado que el wearable está sincronizado Cuando el usuario accede al dashboard Entonces los valores se actualizan en pantalla cada pocos segundos.<br><br><strong>E02 – Historial de datos:</strong> Dado que se realizan mediciones continuas Cuando el usuario abre su historial Entonces puede ver los registros de temperatura, oxígeno y ritmo cardíaco.<br><br><strong>E03 – Tendencias y análisis:</strong> Dado que hay datos históricos suficientes Cuando el usuario visualiza las métricas Entonces el sistema muestra tendencias y cambios significativos.</td>
       <td>EP04</td>
     </tr>
     <tr>
