@@ -240,7 +240,7 @@ OnControl es una aplicación creada por alumnos de Ingeniería de Software de la
 
 OnControl ofrece una plataforma integral que facilita la gestión de pacientes y la organización de su información. Los médicos pueden administrar eficientemente los datos y horarios de sus pacientes, asignar tratamientos y procedimientos, y visualizar la evolución clínica mediante un dashboard especializado. Los pacientes, por su parte, pueden acceder a un calendario digital para consultar sus citas médicas, procedimientos y tratamientos.
 
-Como valor diferencial, OnControl integra sensores IoT que permiten medir parámetros vitales como saturación de oxígeno, ritmo cardíaco y temperatura corporal. Estos datos se registran y muestran en la aplicación del paciente y en la plataforma web del médico, generando alertas cuando se exceden los rangos saludables y contribuyendo a una atención más segura y oportuna.
+Como valor diferencial, OnControl se integra mediante APIs con los wearables y sensores IoT (smartwatches, oxímetros) que el paciente ya posee, permitiendo sincronizar parámetros vitales como saturación de oxígeno, ritmo cardíaco y temperatura corporal. Estos datos se registran y muestran en la aplicación del paciente y en la plataforma web del médico, generando alertas cuando se exceden los rangos saludables y contribuyendo a una atención más segura y oportuna.
 
 - **Misión:** Mejorar la calidad de vida de pacientes oncológicos y optimizar el seguimiento médico mediante herramientas tecnológicas innovadoras.
 
