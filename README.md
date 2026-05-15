@@ -1130,9 +1130,9 @@ En esta sección se presentan los requisitos del producto digital a partir del a
     </tr>
     <tr>
       <td>US39</td>
-      <td>Medir parámetros vitales (IoT)</td>
-      <td>Como paciente<br>Quiero que el sistema tome mis parámetros vitales mediante sensores<br>Para monitorear mi temperatura, oxígeno en sangre y ritmo cardíaco en tiempo real</td>
-      <td><strong>E01 – Lectura exitosa:</strong> Dado que los sensores están conectados al dispositivo Cuando se inicia la medición Entonces el sistema registra los valores actuales de temperatura, oxígeno y ritmo cardíaco.<br><br><strong>E02 – Error de sensor:</strong> Dado que un sensor no responde Cuando se intenta leer datos Entonces el sistema muestra un mensaje de error indicando el dispositivo afectado.<br><br><strong>E03 – Calibración de sensores:</strong> Dado que los sensores requieren calibración Cuando se inicia el sistema Entonces el dispositivo ejecuta una secuencia de autocomprobación antes de medir.</td>
+      <td>Sincronizar wearable comercial</td>
+      <td>Como paciente<br>Quiero vincular mi smartwatch o dispositivo comercial (ej. Apple Watch, Garmin) con la aplicación<br>Para sincronizar mi temperatura, oxígeno y ritmo cardíaco de forma automática.</td>
+      <td><strong>E01 – Sincronización exitosa:</strong> Dado que el usuario tiene un wearable compatible Cuando otorga los permisos a las APIs de salud (HealthKit/Google Fit) Entonces la aplicación extrae los parámetros vitales actuales.<br><br><strong>E02 – Permisos denegados:</strong> Dado que la app intenta leer los datos Cuando el usuario no otorga permisos Entonces el sistema muestra un error indicando que se requiere acceso para el monitoreo.<br><br></td>
       <td>EP04</td>
     </tr>
     <tr>
