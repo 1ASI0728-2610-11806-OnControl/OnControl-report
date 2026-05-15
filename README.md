@@ -333,21 +333,27 @@ Frente a la falta de herramientas que faciliten el acceso a información sobre m
 **Features (Características):**
 
 * Interfaz intuitiva y de fácil acceso para médicos y pacientes.
-* Aplicación móvil gratuita para pacientes.
+* Aplicación móvil gratuita para pacientes bajo un modelo Freemium, conectada a la plataforma central del médico.
 * Calendario digital para visualizar citas y tratamientos.
 * Herramientas de planificación para el seguimiento clínico.
+* Integración mediante APIs con dispositivos IoT y wearables comerciales del mercado (smartwatches, oxímetros Bluetooth) para sincronizar signos vitales (ritmo cardíaco, temperatura y oxigenación) directamente al flujo clínico del oncólogo.
 * Monitoreo de signos vitales mediante sensores IoT (ritmo cardíaco, temperatura y oxigenación).
 * Alertas automáticas cuando los parámetros vitales sobrepasen los rangos saludables.
 
 **Business Assumptions (Supuestos de negocio):**
 
+
 * Creemos que los pacientes oncológicos valoran una plataforma que centralice información confiable sobre sus citas, tratamientos y monitoreo de salud.
+* Creemos que al integrarnos con hardware IoT existente en lugar de fabricar sensores propios, eliminaremos riesgos de manufactura y mantendremos un Costo de Adquisición de Clientes (CAC) predecible y escalable.
+* Creemos que nuestro modelo de negocio será B2B (SaaS), donde las clínicas privadas de oncología pagarán una suscripción institucional para proveer la herramienta a sus oncólogos, garantizando así el respaldo financiero.
 * Creemos que los familiares se beneficiarán de una mayor claridad sobre el estado del paciente, lo que generará confianza y reducirá su ansiedad.
 * Creemos que la digitalización del seguimiento y el monitoreo de parámetros vitales permitirá a los médicos optimizar su tiempo y reducir su carga laboral.
 
 **Business Outcomes (Resultados esperados):**
 
 * Los usuarios incrementarán el uso de la aplicación al percibir mayor facilidad de acceso a información y a su estado de salud.
+* Las clínicas oncológicas privadas adquirirán planes de suscripción (SaaS) al comprobar el retorno de inversión mediante la optimización del tiempo de sus especialistas.
+* Lograremos una conversión exitosa de clínicas manteniendo un Costo de Adquisición de Clientes (CAC) sostenible mediante ventas B2B directas a administradores de salud.
 * Los pacientes experimentarán una mejor gestión y seguimiento de sus citas y tratamientos.
 * Se contribuirá a mejorar el estado emocional de pacientes y familiares, lo que impactará positivamente en la adherencia al tratamiento.
 
@@ -355,19 +361,25 @@ Frente a la falta de herramientas que faciliten el acceso a información sobre m
 
 * Mayor seguridad y confianza al contar con un monitoreo constante de signos vitales.
 * Reducción del estrés y la ansiedad de pacientes y familiares gracias a un sistema más claro y organizado.
-* Organización más eficiente para los médicos tratantes, al poder gestionar múltiples casos y recibir alertas tempranas.
+* Organización más eficiente para los médicos tratantes, quienes recibirán alertas tempranas integradas en su flujo clínico diario sin depender de revisar múltiples plataformas o hardware aislado.
 
 <div id='1.2.2.3.'><h5>1.2.2.3. Lean UX Hypothesis Statements</h5></div>
 
-* **Hypothesis 1:**
-  Creemos que el monitoreo de signos vitales (ritmo cardíaco, temperatura y oxigenación) mediante sensores IoT ayudará a los pacientes a sentirse más protegidos y permitirá a los médicos detectar posibles alertas tempranas. Será exitoso cuando al menos el 65 % de los usuarios expresen que la aplicación les da una sensación de mayor seguridad en su cuidado.
+**Hypothesis 1: (Enfoque en el pivote tecnológico de IoT a Integración)**
 
-* **Hypothesis 2:**
-  Creemos que los médicos oncólogos mejorarán la organización de sus pacientes al centralizar en una sola plataforma la información de citas, tratamientos y parámetros vitales. Consideraremos alcanzado el objetivo cuando, en entrevistas posteriores, al menos el 70 % de los médicos reporten una disminución en los errores organizativos o en la duplicidad de esfuerzos.
+- **Creemos que** la integración de OnControl con *wearables* comerciales (como Apple Watch, Garmin u oxímetros Bluetooth) mediante APIs, en lugar de fabricar hardware propio, eliminará las barreras de entrada físicas y permitirá a los médicos monitorear los signos vitales directamente en su flujo clínico.
+- **Será exitoso cuando** al menos el 70 % de los pacientes activos logren sincronizar sus dispositivos personales sin problemas técnicos, y los médicos reporten que esta data continua les da una mayor seguridad para detectar posibles alertas tempranas.
 
-* **Hypothesis 3:**
-  Creemos que el envío de alertas automáticas cuando los parámetros vitales sobrepasen los rangos saludables permitirá reaccionar con mayor rapidez ante situaciones de riesgo. Será considerado un éxito cuando al menos el 60 % de los usuarios reconozcan que las alertas les ayudaron a tomar decisiones preventivas oportunas.
+**Hypothesis 2: (Enfoque en el modelo B2B, Monetización y CAC)**
 
+- **Creemos que** las clínicas privadas de oncología estarán dispuestas a pagar una suscripción institucional (modelo SaaS B2B) para centralizar la información de sus pacientes, ya que el sistema optimiza el tiempo de sus médicos oncólogos y reduce errores organizativos.
+- **Consideraremos alcanzado el objetivo cuando** logremos adquirir al menos 3 clínicas privadas (Early Adopters) en los primeros 6 meses de lanzamiento, manteniendo un Costo de Adquisición de Clientes (CAC) sostenible y logrando que el 70 % de los médicos de estas clínicas utilicen la plataforma diariamente.
+
+**Hypothesis 3: (Enfoque en el modelo Freemium y la Retención mediante Alertas)**
+
+- **Creemos que** aplicar un modelo *Freemium* —donde la aplicación móvil es gratuita para el paciente pero el ecosistema es sostenido por la suscripción de la clínica— acelerará la adopción masiva, mientras que el sistema de alertas automáticas demostrará el valor real de la plataforma ante emergencias.
+- **Será considerado un éxito cuando** logremos una tasa de adopción del 80 % entre los pacientes de las clínicas afiliadas, y al menos el 60 % de los médicos reconozcan que el sistema de alertas les ayudó a tomar decisiones preventivas oportunas que justifican la renovación de la suscripción institucional.
+  
 <div id='1.2.2.4.'><h5>1.2.2.4. Lean UX Canvas</h5></div>
 En esta sección se presenta el Lean UX Canvas de la propuesta, donde se detallan los supuestos clave del proyecto, las necesidades de los usuarios, las posibles soluciones y las hipótesis que guiarán el proceso de validación.
 <br>
