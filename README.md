@@ -394,7 +394,7 @@ En esta sección se presenta el Lean UX Canvas de la propuesta, donde se detalla
 <div id='1.3.'><h3>1.3. Segmentos objetivo</h3></div>
 
 
-Nuestra aplicación está dirigida a **médicos oncólogos y pacientes oncológicos en el Perú**, creando un espacio digital que facilite la organización, el seguimiento del tratamiento y la comunicación en la atención oncológica.
+Nuestra aplicación está dirigida inicialmente (como Early Adopters) a médicos y pacientes de clínicas privadas de oncología en Lima Metropolitana, creando un espacio digital que facilite la organización, el seguimiento del tratamiento y la comunicación en la atención oncológica.
 
 Los **médicos oncólogos** requieren herramientas para **optimizar la gestión de citas, el registro de historias clínicas y el monitoreo del progreso de sus pacientes**, lo que les permite reducir la carga administrativa y mejorar la calidad de la atención.
 
@@ -1151,9 +1151,9 @@ En esta sección se presentan los requisitos del producto digital a partir del a
     </tr>
     <tr>
       <td>US42</td>
-      <td>Activar LED indicador</td>
-      <td>Como sistema IoT<br>Quiero encender un LED de advertencia<br>Para alertar visualmente cuando un parámetro vital sale del rango normal</td>
-      <td><strong>E01 – Umbral superado:</strong> Dado que se detecta un valor anormal Cuando el sistema lo confirma Entonces el LED se enciende (rojo si es alto, azul si es bajo).<br><br><strong>E02 – Valor estabilizado:</strong> Dado que el parámetro vuelve al rango normal Cuando se actualiza la lectura Entonces el LED se apaga.<br><br><strong>E03 – Patrón de parpadeo por gravedad:</strong> Dado que múltiples parámetros están fuera de rango Cuando se activa la alerta Entonces el LED parpadea más rápido indicando mayor urgencia.</td>
+      <td>Mostrar alerta visual de emergencia en la App</td>
+      <td>Como aplicación móvil<br>Quiero mostrar una alerta visual de emergencia en la pantalla<br>Para alertar al paciente cuando un parámetro vital sale del rango normal</td>
+      <td><strong>E01 – Alerta en pantalla:</strong> Dado que se detecta un valor anormal Cuando el backend confirma la alerta Entonces la aplicación móvil muestra una pantalla roja de advertencia con vibración.<br><br><strong>E02 – Descarte de alerta:</strong> Dado que la alerta está activa Cuando el paciente pulsa "Entendido" Entonces la alerta visual se oculta pero queda registrada en el historial.<br><br></td>
       <td>EP04</td>
     </tr>
     <tr>
