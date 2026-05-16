@@ -1945,12 +1945,15 @@ Diagramas de contexto que muestran cómo el sistema interactúa con usuarios y s
 - **DoctorContext**: Perspectiva del médico (gestión de pacientes, monitoreo de alertas)
 
 **SystemContext:**
+
 <img width="461" height="586" alt="Image" src="https://github.com/user-attachments/assets/2940bdf0-5238-4822-a86a-38987fcbaf70" />
 
 **PatientContext:**
+
 <img width="1575" height="2000" alt="structurizr-106662-PatientContext" src="https://github.com/user-attachments/assets/616bfd0c-acf2-46c4-9386-1a46dbbb6c86" />
 
 **DoctorContext:**
+
 <img width="424" height="740" alt="Image" src="https://github.com/user-attachments/assets/b1ac4296-31b2-415d-81c8-5dc1790b147d" />
 
 
