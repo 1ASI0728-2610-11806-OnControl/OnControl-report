@@ -196,8 +196,7 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <strong>TP:</strong> <p align="justify">  </p><br>
       <strong>Barrutia Vaez, Ricardo Andree </strong> <br>
       <strong>TB1:</strong> <p align="justify">Me encargué de trabajar la parte de EventStorming, Candidate Context Discovery y Domain Message Flows Modeling. Para ello, organicé los principales procesos de OnControl, como la vinculación entre médico y paciente, la gestión de citas, tratamientos, monitoreo IoT, alertas y reporte de síntomas. También expliqué al equipo cómo estos procesos se relacionan entre sí para que el dominio del sistema sea más fácil de entender. </p><br>
-      <strong>TP:</strong> <p align="justify">  </p><br>
-      <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
+      <strong>TP:</strong> <p align="justify">Participé en la explicación del diseño táctico del sistema, presentando al equipo cómo los bounded contexts seleccionados se transforman en módulos internos con responsabilidades específicas. Durante las coordinaciones, expuse la relación entre monitoreo, alertas e inteligencia predictiva, aclarando cómo cada capa contribuye al funcionamiento general de OnControl y cómo estos módulos se conectan con la arquitectura previamente definida.</p><br>      <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
       <strong>TB1:</strong> <p align="justify">Trabajé en las secciones de Bounded Context Canvases, Context Mapping y Software Architecture Context Level Diagrams. Organicé la información de los contextos principales de OnControl, como Users, Patient, Calendar, Treatment, Monitoring, Symptoms & Medication y Alert & Notification. También expliqué cómo se relacionan estos contextos y cómo el sistema interactúa con pacientes, médicos, dispositivos IoT y servicios externos. </p><br>
       <strong>TP:</strong> <p align="justify">  </p><br>
       <strong>Espejo Gamarra, Bryan Ronnald</strong> <br>
@@ -222,8 +221,7 @@ Github también presenta un timeline de las ramas principales y los procesos de 
          <strong>TP:</strong> <p align="justify">  </p><br>
         <strong>Barrutia Vaez, Ricardo Andree</strong> <br>
          <strong>TB1:</strong> <p align="justify">Redacté la documentación correspondiente a EventStorming, Candidate Context Discovery y Domain Message Flows Modeling. Además, adapté las imágenes y diagramas realizados para que encajen mejor con la estructura del informe y tengan una explicación clara para cualquier lector. </p><br>
-         <strong>TP:</strong> <p align="justify">  </p><br>
-         <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
+         <strong>TP:</strong> <p align="justify">Elaboré la documentación del Capítulo V enfocada en el diseño táctico de OnControl. En esta parte convertí los elementos arquitectónicos generales en una descripción más detallada de los módulos Monitoring, Alert & Notification y Predictive AI, precisando sus responsabilidades, capas internas, operaciones principales y artefactos técnicos necesarios para representar su implementación.</p><br>         <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
          <strong>TB1:</strong> <p align="justify">Redacté la documentación de Bounded Context Canvases, Context Mapping y Software Architecture Context Level Diagrams. En esta parte describí las responsabilidades de cada contexto, sus relaciones y las vistas de contexto del sistema, del paciente y del médico. </p><br>
          <strong>TP:</strong> <p align="justify">  </p><br>
          <strong>Espejo Gamarra, Bryan Ronnald</strong> <br>
