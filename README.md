@@ -1927,7 +1927,7 @@ Vista de alto nivel que muestra todos los sistemas, usuarios y sus interacciones
 - **Sistema Principal**: OnControl Health Platform
 - **Sistemas Externos**: Dispositivos IoT, Servidor Edge Local
 
-<img width="3050" height="1400" alt="structurizr-106662-SystemLandscape" src="https://github.com/user-attachments/assets/47c4f0fc-f9a6-4ad5-a861-5a00521fa852" />
+<img width="891" height="366" alt="Image" src="https://github.com/user-attachments/assets/ee807daf-7e4e-42a7-b4cf-269ae07887cd" />
 
 <div id='4.3.2.'><h4>4.3.2. Software Architecture Context Level Diagrams</h4></div>
 
@@ -1945,12 +1945,15 @@ Diagramas de contexto que muestran cómo el sistema interactúa con usuarios y s
 - **DoctorContext**: Perspectiva del médico (gestión de pacientes, monitoreo de alertas)
 
 **SystemContext:**
-<img width="1575" height="2100" alt="structurizr-106662-SystemContext" src="https://github.com/user-attachments/assets/e1b1abed-4fb7-48bd-9f26-c11a9f250d8b" />
+
+<img width="461" height="586" alt="Image" src="https://github.com/user-attachments/assets/2940bdf0-5238-4822-a86a-38987fcbaf70" />
 
 **PatientContext:**
-<img width="1575" height="2000" alt="structurizr-106662-PatientContext" src="https://github.com/user-attachments/assets/616bfd0c-acf2-46c4-9386-1a46dbbb6c86" />
+
+<img width="424" height="740" alt="Image" src="https://github.com/user-attachments/assets/b1ac4296-31b2-415d-81c8-5dc1790b147d" />
 
 **DoctorContext:**
+
 <img width="907" height="1400" alt="structurizr-106662-DoctorContext" src="https://github.com/user-attachments/assets/d529af9a-24b5-46e2-ad1d-2ea58a243292" />
 
 
@@ -1981,13 +1984,13 @@ Arquitectura interna del sistema OnControl con servicios especializados:
 - **NotificationFlowContainer**: Sistema de notificaciones y alertas
 
 **ContainerDiagram:**
-<img width="8038" height="5215" alt="structurizr-106662-ContainerDiagram" src="https://github.com/user-attachments/assets/431f26c6-805b-4188-9034-01a3ad1b4480" />
+<img width="8038" height="5215" alt="Image" src="https://github.com/user-attachments/assets/a941dd97-05ec-4e04-bdad-5ec62ffe3b8b" />
 **DoctorWorkflowContainer:**
 <img width="3205" height="3365" alt="structurizr-106662-DoctorWorkflowContainer" src="https://github.com/user-attachments/assets/8d3ebac1-5b6d-4375-8407-67b27e6cc547" />
 **PatientJourneyContainer:**
 <img width="3205" height="3365" alt="structurizr-106662-PatientJourneyContainer" src="https://github.com/user-attachments/assets/57cf9ef6-7300-43fd-9138-ba08980ce1b1" />
 **IoTFlowContainer:**
-<img width="5300" height="1515" alt="structurizr-106662-IoTFlowContainer" src="https://github.com/user-attachments/assets/4d06d4d9-ce3f-443f-a2d8-b1d67bf57eb8" />
+<img width="5300" height="1515" alt="Image" src="https://github.com/user-attachments/assets/014bb649-0bd5-42fb-9a9d-f5e0a4d44485" />
 
 
 <div id='4.3.4.'><h4>4.3.4. Software Architecture Deployment Diagrams</h4></div>
@@ -2006,7 +2009,7 @@ Infraestructura de despliegue en producción:
     - Base de datos con réplicas de lectura
     - Servicios de terceros (notificaciones push, email, SMS)
 
-<img width="11497" height="5154" alt="structurizr-106662-DeploymentDiagram" src="https://github.com/user-attachments/assets/5e00acf5-c6f8-40ec-a342-dc7377e94956" />
+<img width="11497" height="5154" alt="Image" src="https://github.com/user-attachments/assets/f727230b-7f9b-4429-ad42-a8d592d50ca8" />
 
 # 5. Capítulo V: Tactical-Level Software Design
 
