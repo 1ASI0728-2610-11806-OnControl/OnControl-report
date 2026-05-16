@@ -2008,6 +2008,1726 @@ Infraestructura de despliegue en producción:
 
 <img width="11497" height="5154" alt="structurizr-106662-DeploymentDiagram" src="https://github.com/user-attachments/assets/5e00acf5-c6f8-40ec-a342-dc7377e94956" />
 
+# 5. Capítulo V: Tactical-Level Software Design
+
+## 5.1. Bounded Context: Monitoring
+
+### 5.1.1. Domain Layer
+
+Esta capa contiene el núcleo del modelo de negocio y las reglas específicas del dominio. Se compone de agregados, entidades, objetos de valor, servicios de dominio y repositorios que permiten mantener la consistencia de las operaciones principales del Bounded Context.
+
+La estructura del Domain Layer se organiza de la siguiente manera:
+
+- Aggregates / Aggregate Roots
+- Entities
+- Value Objects
+- Domain Services
+- Repositories
+
+Cada elemento del dominio se describe mediante su propósito, atributos principales y métodos relevantes. Esta organización permite separar la lógica de negocio de los detalles técnicos de infraestructura, manteniendo un modelo de dominio claro, consistente y alineado con las responsabilidades del contexto.
+
+##### Aggregates / Aggregate Roots
+
+###### MonitoringProfile
+
+**Propósito:**  
+Representa el perfil de monitoreo asociado a un paciente oncológico. Actúa como Aggregate Root porque concentra la configuración principal del monitoreo, las reglas clínicas aplicadas y el estado actual del seguimiento de signos vitales.
+
+Este agregado permite determinar si el paciente puede recibir nuevas lecturas, activar o pausar el monitoreo y administrar los umbrales utilizados para evaluar posibles condiciones anormales.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único del perfil de monitoreo. |
+| patientId | UUID | Identificador del paciente asociado. |
+| status | MonitoringStatus | Estado actual del monitoreo. |
+| createdAt | DateTime | Fecha y hora de creación del perfil. |
+| updatedAt | DateTime | Fecha y hora de última actualización. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| activate() | Activa el monitoreo del paciente. |
+| pause() | Pausa temporalmente el monitoreo. |
+| addRule(rule: MonitoringRule) | Agrega una regla clínica al perfil. |
+| removeRule(ruleId: UUID) | Elimina una regla clínica configurada. |
+| canReceiveReadings() | Verifica si el perfil está habilitado para recibir lecturas. |
+
+##### Entities
+
+###### VitalReading
+
+**Propósito:**  
+Representa una lectura individual de signos vitales sincronizada desde un wearable comercial, oxímetro Bluetooth o dispositivo compatible. Esta entidad almacena los valores clínicos capturados durante el monitoreo del paciente.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único de la lectura. |
+| patientId | UUID | Identificador del paciente. |
+| deviceId | UUID | Identificador del dispositivo de origen. |
+| heartRate | Integer | Ritmo cardíaco en BPM. |
+| oxygenSaturation | Decimal | Saturación de oxígeno en porcentaje. |
+| temperature | Decimal | Temperatura corporal registrada. |
+| signalQuality | Decimal | Calidad de la señal recibida. |
+| recordedAt | DateTime | Fecha y hora de la medición. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| isValid() | Verifica si la lectura contiene datos completos y válidos. |
+| hasCriticalValues() | Evalúa si algún valor está fuera de los rangos permitidos. |
+| belongsTo(patientId: UUID) | Verifica si la lectura pertenece al paciente indicado. |
+
+###### WearableDevice
+
+**Propósito:**  
+Representa el dispositivo externo vinculado al paciente para la sincronización de datos vitales. Puede tratarse de un smartwatch, oxímetro Bluetooth u otro wearable compatible.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único del dispositivo. |
+| patientId | UUID | Identificador del paciente propietario. |
+| provider | WearableProvider | Proveedor del dispositivo o API de salud. |
+| externalDeviceId | String | Identificador externo del dispositivo. |
+| status | DeviceStatus | Estado de vinculación del dispositivo. |
+| linkedAt | DateTime | Fecha de vinculación. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| link() | Marca el dispositivo como vinculado. |
+| unlink() | Desvincula el dispositivo del paciente. |
+| isActive() | Verifica si el dispositivo está activo para sincronización. |
+
+###### MonitoringRule
+
+**Propósito:**  
+Representa una regla clínica aplicada a una métrica vital. Permite definir valores mínimos y máximos aceptables para detectar condiciones anormales en el paciente.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único de la regla. |
+| profileId | UUID | Perfil de monitoreo asociado. |
+| metricType | MetricType | Tipo de métrica evaluada. |
+| minValue | Decimal | Valor mínimo permitido. |
+| maxValue | Decimal | Valor máximo permitido. |
+| isActive | Boolean | Indica si la regla está activa. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| evaluate(reading: VitalReading) | Evalúa si una lectura cumple o incumple la regla. |
+| deactivate() | Desactiva la regla clínica. |
+| updateThresholds(minValue, maxValue) | Actualiza los valores mínimos y máximos. |
+
+##### Value Objects
+
+| Value Object | Descripción |
+|---|---|
+| MetricValue | Representa el valor de una métrica vital junto con su unidad. |
+| SignalQuality | Representa la calidad de señal de una lectura recibida. |
+| MonitoringStatus | Define los estados del perfil: ACTIVE, PAUSED, INACTIVE. |
+| MetricType | Define los tipos de métrica: HEART_RATE, OXYGEN_SATURATION, TEMPERATURE. |
+| WearableProvider | Define proveedores como APPLE_HEALTH, GOOGLE_FIT, GARMIN, BLUETOOTH. |
+| DeviceStatus | Define los estados del dispositivo: LINKED, UNLINKED, ERROR. |
+
+##### Domain Services
+
+| Servicio | Propósito |
+|---|---|
+| RuleEvaluationService | Evalúa las lecturas vitales contra las reglas clínicas configuradas. |
+| ReadingValidationService | Verifica la integridad y calidad de las lecturas recibidas. |
+| VitalTrendService | Analiza tendencias básicas en el historial de signos vitales. |
+
+##### Repositories
+
+| Repositorio | Propósito |
+|---|---|
+| IMonitoringProfileRepository | Define operaciones de persistencia para perfiles de monitoreo. |
+| IVitalReadingRepository | Define operaciones para guardar y consultar lecturas vitales. |
+| IWearableDeviceRepository | Define operaciones para administrar dispositivos vinculados. |
+| IMonitoringRuleRepository | Define operaciones para administrar reglas clínicas. |
+
+
+### 5.1.2. Interface Layer
+
+
+Esta capa expone la funcionalidad del Bounded Context al exterior, ya sea mediante APIs, controladores o endpoints que permiten que otros componentes del sistema interactúen con el dominio.
+
+La estructura reutilizada para esta capa consiste en definir:
+
+- Controllers
+- Endpoints
+- Operaciones disponibles
+- Responsabilidad de cada controlador
+
+En esta capa no se implementa la lógica principal del negocio, ya que dicha lógica pertenece al Domain Layer y al Application Layer. Su función principal es recibir solicitudes externas, validar datos básicos de entrada y delegar las operaciones correspondientes a los servicios o casos de uso de la capa de aplicación.
+
+
+En el Bounded Context **Monitoring**, la Interface Layer permite que la aplicación móvil, la aplicación web del médico y otros servicios internos interactúen con las funcionalidades de monitoreo de signos vitales.
+
+Esta capa expone endpoints para registrar lecturas vitales, sincronizar datos de wearables, consultar el historial de mediciones, obtener la última lectura disponible y administrar el perfil de monitoreo del paciente.
+
+---
+
+#### Controllers
+
+##### MonitoringController
+
+**Propósito:**  
+Gestiona las solicitudes relacionadas con el monitoreo de signos vitales del paciente. Permite consultar lecturas, registrar nuevas mediciones y obtener información del estado actual del monitoreo.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/patients/{patientId}/readings` | POST | Registra una nueva lectura de signos vitales del paciente. |
+| `/api/patients/{patientId}/readings/batch` | POST | Registra un conjunto de lecturas sincronizadas desde un wearable. |
+| `/api/patients/{patientId}/readings/latest` | GET | Obtiene la última lectura registrada del paciente. |
+| `/api/patients/{patientId}/readings` | GET | Consulta el historial de lecturas del paciente según un rango de fechas. |
+
+---
+
+##### WearableController
+
+**Propósito:**  
+Gestiona la vinculación, desvinculación y sincronización de dispositivos externos como smartwatches, oxímetros Bluetooth o APIs de salud compatibles.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/patients/{patientId}/wearables` | POST | Vincula un wearable o dispositivo externo al paciente. |
+| `/api/patients/{patientId}/wearables` | GET | Lista los dispositivos vinculados al paciente. |
+| `/api/patients/{patientId}/wearables/{deviceId}` | DELETE | Desvincula un dispositivo del paciente. |
+| `/api/patients/{patientId}/wearables/{deviceId}/sync` | POST | Ejecuta la sincronización manual de datos del wearable. |
+
+---
+
+##### MonitoringProfileController
+
+**Propósito:**  
+Administra la configuración del perfil de monitoreo del paciente, incluyendo el estado del monitoreo y las reglas clínicas asociadas.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/patients/{patientId}/monitoring-profile` | GET | Obtiene el perfil de monitoreo del paciente. |
+| `/api/patients/{patientId}/monitoring-profile` | PUT | Crea o actualiza el perfil de monitoreo. |
+| `/api/patients/{patientId}/monitoring-profile/activate` | POST | Activa el monitoreo del paciente. |
+| `/api/patients/{patientId}/monitoring-profile/pause` | POST | Pausa temporalmente el monitoreo del paciente. |
+
+---
+
+##### MonitoringRuleController
+
+**Propósito:**  
+Permite administrar las reglas clínicas utilizadas para evaluar si una lectura vital se encuentra dentro o fuera de los rangos permitidos.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/patients/{patientId}/monitoring-rules` | GET | Lista las reglas clínicas del paciente. |
+| `/api/patients/{patientId}/monitoring-rules` | POST | Crea una nueva regla clínica. |
+| `/api/patients/{patientId}/monitoring-rules/{ruleId}` | PUT | Actualiza una regla clínica existente. |
+| `/api/patients/{patientId}/monitoring-rules/{ruleId}` | DELETE | Elimina o desactiva una regla clínica. |
+
+---
+
+#### Request / Response DTOs
+
+##### RegisterVitalReadingRequest
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| deviceId | UUID | Identificador del dispositivo que envía la lectura. |
+| heartRate | Integer | Ritmo cardíaco registrado. |
+| oxygenSaturation | Decimal | Saturación de oxígeno registrada. |
+| temperature | Decimal | Temperatura corporal registrada. |
+| signalQuality | Decimal | Calidad de señal de la medición. |
+| recordedAt | DateTime | Fecha y hora de captura de la lectura. |
+
+##### VitalReadingResponse
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador de la lectura registrada. |
+| patientId | UUID | Identificador del paciente. |
+| heartRate | Integer | Ritmo cardíaco registrado. |
+| oxygenSaturation | Decimal | Saturación de oxígeno registrada. |
+| temperature | Decimal | Temperatura corporal registrada. |
+| status | String | Resultado de la evaluación: NORMAL, WARNING o CRITICAL. |
+| recordedAt | DateTime | Fecha y hora de la medición. |
+
+##### CreateMonitoringRuleRequest
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| metricType | String | Tipo de métrica: HEART_RATE, OXYGEN_SATURATION o TEMPERATURE. |
+| minValue | Decimal | Valor mínimo permitido. |
+| maxValue | Decimal | Valor máximo permitido. |
+| isActive | Boolean | Indica si la regla estará activa. |
+
+---
+
+#### Eventos expuestos o derivados desde la interfaz
+
+Aunque la Interface Layer no genera eventos directamente como responsabilidad principal, sí recibe solicitudes que pueden desencadenar eventos del dominio luego de ser procesadas por la Application Layer.
+
+| Acción desde interfaz | Evento posible |
+|---|---|
+| Registrar lectura vital | `VitalReadingRegistered` |
+| Registrar lectura fuera de rango | `AbnormalVitalSignDetected` |
+| Vincular wearable | `WearableDeviceLinked` |
+| Actualizar perfil de monitoreo | `MonitoringProfileUpdated` |
+| Actualizar regla clínica | `MonitoringRuleUpdated` |
+
+---
+
+#### Relación con otros componentes
+
+La Interface Layer del contexto Monitoring se comunica principalmente con:
+
+| Componente | Relación |
+|---|---|
+| Aplicación móvil | Envía lecturas sincronizadas desde wearables y consulta datos del paciente. |
+| Aplicación web del médico | Consulta historial de signos vitales y estado actual del paciente. |
+| API Gateway | Canaliza y protege las solicitudes hacia los controladores de Monitoring. |
+| Application Layer | Recibe las solicitudes desde los controladores y ejecuta los casos de uso correspondientes. |
+| Alert & Notification | Recibe eventos cuando una lectura vital supera los umbrales configurados. |
+
+### 5.1.3. Application Layer
+
+Esta capa orquesta los casos de uso y flujos de trabajo del Bounded Context, conectando la Interface Layer con el Domain Layer. Su responsabilidad principal es coordinar las operaciones solicitadas por los controladores, aplicar el flujo correspondiente y delegar la lógica de negocio al modelo de dominio.
+
+La estructura reutilizada para esta capa consiste en definir:
+
+- Command Handlers
+- Query Handlers
+- Application Services
+- Domain Events
+- Flujo principal de ejecución
+
+En esta capa no se definen las reglas principales del negocio ni los detalles técnicos de infraestructura. Las reglas pertenecen al Domain Layer y las implementaciones concretas pertenecen al Infrastructure Layer. La Application Layer se encarga de coordinar el proceso completo.
+
+### 5.1.3. Application Layer
+
+Esta capa orquesta los casos de uso y flujos de trabajo del Bounded Context, conectando la Interface Layer con el Domain Layer. Su responsabilidad principal es coordinar las operaciones solicitadas por los controladores, aplicar el flujo correspondiente y delegar la lógica de negocio al modelo de dominio.
+
+La estructura reutilizada para esta capa consiste en definir:
+
+- Command Handlers
+- Query Handlers
+- Application Services
+- Domain Events
+- Flujo principal de ejecución
+
+En esta capa no se definen las reglas principales del negocio ni los detalles técnicos de infraestructura. Las reglas pertenecen al Domain Layer y las implementaciones concretas pertenecen al Infrastructure Layer. La Application Layer se encarga de coordinar el proceso completo.
+
+
+En el Bounded Context **Monitoring**, la Application Layer coordina los casos de uso relacionados con el registro de lecturas vitales, sincronización de wearables, consulta de historial clínico, configuración del perfil de monitoreo y evaluación de umbrales.
+
+Esta capa recibe las solicitudes desde los controladores de la Interface Layer, ejecuta los handlers correspondientes, utiliza los servicios del dominio y guarda los resultados mediante los repositorios definidos.
+
+---
+
+#### Command Handlers
+
+##### RegisterVitalReadingCommandHandler
+
+**Propósito:**  
+Procesa el registro de una nueva lectura vital enviada desde la aplicación móvil o desde un wearable sincronizado.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Validar entrada | Verifica que la lectura contenga datos mínimos válidos. |
+| Crear entidad | Construye una entidad `VitalReading`. |
+| Validar lectura | Usa `ReadingValidationService` para revisar integridad y calidad. |
+| Persistir lectura | Guarda la lectura mediante `IVitalReadingRepository`. |
+| Evaluar umbrales | Ejecuta `RuleEvaluationService` para detectar valores anormales. |
+| Publicar evento | Si corresponde, genera `AbnormalVitalSignDetected`. |
+
+---
+
+##### SyncWearableDataCommandHandler
+
+**Propósito:**  
+Gestiona la sincronización de datos vitales provenientes de un wearable comercial o dispositivo externo vinculado al paciente.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Validar dispositivo | Verifica que el wearable esté vinculado y activo. |
+| Obtener datos | Solicita datos al adaptador correspondiente. |
+| Transformar datos | Convierte la respuesta externa al formato interno del dominio. |
+| Registrar lecturas | Guarda una o varias lecturas vitales. |
+| Publicar evento | Genera `WearableSynchronized` cuando la sincronización es exitosa. |
+
+---
+
+##### ConfigureMonitoringProfileCommandHandler
+
+**Propósito:**  
+Permite crear o actualizar el perfil de monitoreo de un paciente.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Obtener perfil | Busca si el paciente ya cuenta con un perfil de monitoreo. |
+| Crear o actualizar | Registra un nuevo perfil o actualiza el existente. |
+| Configurar estado | Define si el monitoreo estará activo, pausado o inactivo. |
+| Persistir cambios | Guarda los cambios mediante `IMonitoringProfileRepository`. |
+| Publicar evento | Genera `MonitoringProfileUpdated`. |
+
+---
+
+##### CreateMonitoringRuleCommandHandler
+
+**Propósito:**  
+Procesa la creación de una regla clínica para evaluar una métrica vital específica.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Validar datos | Verifica que los valores mínimos y máximos sean coherentes. |
+| Crear regla | Construye una entidad `MonitoringRule`. |
+| Asociar perfil | Relaciona la regla con el `MonitoringProfile`. |
+| Persistir regla | Guarda la regla mediante `IMonitoringRuleRepository`. |
+| Publicar evento | Genera `MonitoringRuleUpdated`. |
+
+---
+
+##### UpdateMonitoringRuleCommandHandler
+
+**Propósito:**  
+Actualiza los valores o el estado de una regla clínica existente.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Buscar regla | Obtiene la regla clínica por su identificador. |
+| Actualizar valores | Modifica umbrales mínimos, máximos o estado. |
+| Validar consistencia | Comprueba que la regla actualizada sea válida. |
+| Persistir cambios | Guarda la actualización. |
+| Publicar evento | Genera `MonitoringRuleUpdated`. |
+
+---
+
+#### Query Handlers
+
+##### GetLatestVitalReadingQueryHandler
+
+**Propósito:**  
+Obtiene la última lectura vital registrada para un paciente.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir patientId | Identifica al paciente consultado. |
+| Consultar repositorio | Busca la lectura más reciente. |
+| Preparar respuesta | Retorna los valores principales para el dashboard. |
+
+---
+
+##### GetVitalReadingHistoryQueryHandler
+
+**Propósito:**  
+Consulta el historial de lecturas vitales de un paciente dentro de un rango de fechas.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir filtros | Toma fechas de inicio, fin y paciente. |
+| Consultar historial | Obtiene lecturas desde `IVitalReadingRepository`. |
+| Ordenar resultados | Devuelve registros organizados cronológicamente. |
+| Preparar respuesta | Retorna datos listos para visualización o análisis. |
+
+---
+
+##### GetMonitoringProfileQueryHandler
+
+**Propósito:**  
+Obtiene la configuración de monitoreo asociada a un paciente.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir patientId | Identifica al paciente consultado. |
+| Consultar perfil | Busca el `MonitoringProfile`. |
+| Incluir reglas | Agrega las reglas clínicas asociadas. |
+| Preparar respuesta | Devuelve el estado del monitoreo y sus umbrales. |
+
+---
+
+##### GetWearableDevicesQueryHandler
+
+**Propósito:**  
+Lista los dispositivos vinculados a un paciente.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir patientId | Identifica al paciente. |
+| Consultar dispositivos | Busca wearables asociados. |
+| Preparar respuesta | Devuelve proveedor, estado y fecha de vinculación. |
+
+---
+
+#### Application Services
+
+##### MonitoringApplicationService
+
+**Propósito:**  
+Centraliza la coordinación de los principales casos de uso del contexto Monitoring.
+
+| Método | Descripción |
+|---|---|
+| registerVitalReading(command) | Registra una nueva lectura vital. |
+| syncWearableData(command) | Sincroniza datos desde un wearable. |
+| configureMonitoringProfile(command) | Crea o actualiza el perfil de monitoreo. |
+| createMonitoringRule(command) | Registra una regla clínica. |
+| updateMonitoringRule(command) | Actualiza una regla clínica existente. |
+| getLatestReading(query) | Obtiene la última lectura registrada. |
+| getReadingHistory(query) | Consulta el historial de lecturas. |
+
+---
+
+#### Domain Events
+
+| Evento | Descripción |
+|---|---|
+| VitalReadingRegistered | Se genera cuando una lectura vital fue registrada correctamente. |
+| AbnormalVitalSignDetected | Se genera cuando una lectura supera los umbrales configurados. |
+| WearableDeviceLinked | Se genera cuando un dispositivo externo fue vinculado. |
+| WearableSynchronized | Se genera cuando la sincronización del wearable se completa correctamente. |
+| MonitoringProfileUpdated | Se genera cuando el perfil de monitoreo fue creado o actualizado. |
+| MonitoringRuleUpdated | Se genera cuando una regla clínica fue creada o modificada. |
+
+---
+
+#### Flujo principal: registrar una lectura vital
+
+1. La aplicación móvil envía una lectura de signos vitales al endpoint correspondiente.
+2. El `MonitoringController` recibe la solicitud.
+3. La Interface Layer construye un `RegisterVitalReadingCommand`.
+4. El `RegisterVitalReadingCommandHandler` procesa el comando.
+5. Se crea una entidad `VitalReading`.
+6. Se valida la lectura con `ReadingValidationService`.
+7. Se guarda la lectura mediante `IVitalReadingRepository`.
+8. Se obtiene el perfil de monitoreo del paciente.
+9. Se evalúan los umbrales mediante `RuleEvaluationService`.
+10. Si la lectura está dentro del rango, se publica `VitalReadingRegistered`.
+11. Si la lectura está fuera del rango, se publica `AbnormalVitalSignDetected`.
+12. El evento puede ser consumido por el Bounded Context **Alert & Notification**.
+
+---
+
+#### Flujo principal: sincronizar datos desde wearable
+
+1. El paciente vincula un wearable compatible.
+2. La aplicación móvil solicita la sincronización de datos.
+3. El `WearableController` recibe la solicitud.
+4. Se ejecuta `SyncWearableDataCommandHandler`.
+5. El sistema valida que el wearable esté activo.
+6. Se obtiene la información desde el adaptador correspondiente.
+7. Los datos externos se transforman al formato interno.
+8. Se registran una o varias entidades `VitalReading`.
+9. Se evalúan las lecturas contra las reglas clínicas.
+10. Se publica `WearableSynchronized`.
+11. Si existe un valor anormal, se publica `AbnormalVitalSignDetected`.
+
+---
+
+#### Relación con otras capas
+
+| Capa | Relación |
+|---|---|
+| Interface Layer | Envía comandos y consultas hacia la Application Layer. |
+| Domain Layer | Ejecuta reglas de negocio mediante entidades y servicios de dominio. |
+| Infrastructure Layer | Provee implementaciones concretas de repositorios, adaptadores y publicación de eventos. |
+| Alert & Notification | Consume eventos generados por Monitoring cuando hay valores anormales. |
+
+
+### 5.1.4. Infrastructure Layer
+
+Esta capa contiene las implementaciones concretas necesarias para interactuar con tecnologías externas, bases de datos, servicios de almacenamiento, adaptadores de comunicación y mecanismos de publicación de eventos.
+
+La estructura reutilizada para esta capa consiste en definir:
+
+- Repository Implementations
+- External Service Implementations
+- Persistence
+- Integration Adapters
+- Event Publishing
+
+La Infrastructure Layer no contiene reglas de negocio. Su función es proporcionar los detalles técnicos necesarios para que la Application Layer pueda ejecutar los casos de uso definidos, manteniendo separada la lógica del dominio de las tecnologías específicas.
+
+
+En el Bounded Context **Monitoring**, la Infrastructure Layer se encarga de persistir las lecturas vitales, administrar dispositivos vinculados, conectarse con APIs externas de salud, recibir datos desde wearables comerciales y publicar eventos hacia otros bounded contexts.
+
+Esta capa permite que el sistema interactúe con componentes técnicos como bases de datos, servicios externos, APIs de wearables, adaptadores Bluetooth, servicios cloud y mecanismos de mensajería.
+
+---
+
+#### Repository Implementations
+
+##### MonitoringProfileRepository
+
+**Propósito:**  
+Implementa la persistencia del perfil de monitoreo del paciente.
+
+| Método | Descripción |
+|---|---|
+| save(profile) | Guarda un nuevo perfil de monitoreo. |
+| update(profile) | Actualiza un perfil existente. |
+| findByPatientId(patientId) | Busca el perfil de monitoreo asociado a un paciente. |
+| existsByPatientId(patientId) | Verifica si un paciente ya tiene perfil de monitoreo. |
+
+---
+
+##### VitalReadingRepository
+
+**Propósito:**  
+Implementa la persistencia de las lecturas vitales registradas por el sistema.
+
+| Método | Descripción |
+|---|---|
+| save(reading) | Guarda una lectura vital. |
+| saveBatch(readings) | Guarda múltiples lecturas sincronizadas. |
+| findLatestByPatientId(patientId) | Obtiene la última lectura registrada del paciente. |
+| findByPatientIdAndDateRange(patientId, from, to) | Consulta lecturas dentro de un rango de fechas. |
+
+---
+
+##### WearableDeviceRepository
+
+**Propósito:**  
+Administra la persistencia de los dispositivos externos vinculados al paciente.
+
+| Método | Descripción |
+|---|---|
+| save(device) | Guarda un dispositivo vinculado. |
+| updateStatus(deviceId, status) | Actualiza el estado del dispositivo. |
+| findByPatientId(patientId) | Lista los dispositivos de un paciente. |
+| findById(deviceId) | Busca un dispositivo por su identificador. |
+
+---
+
+##### MonitoringRuleRepository
+
+**Propósito:**  
+Implementa la persistencia de las reglas clínicas utilizadas para evaluar las lecturas vitales.
+
+| Método | Descripción |
+|---|---|
+| save(rule) | Guarda una nueva regla clínica. |
+| update(rule) | Actualiza una regla existente. |
+| findByProfileId(profileId) | Lista reglas asociadas a un perfil de monitoreo. |
+| delete(ruleId) | Elimina o desactiva una regla clínica. |
+
+---
+
+#### External Service Implementations
+
+##### AppleHealthAdapter
+
+**Propósito:**  
+Permite recibir o interpretar datos provenientes de Apple Health cuando el paciente utiliza un dispositivo compatible.
+
+| Función | Descripción |
+|---|---|
+| fetchHeartRate() | Obtiene registros de ritmo cardíaco. |
+| fetchOxygenSaturation() | Obtiene registros de saturación de oxígeno, si están disponibles. |
+| fetchTemperature() | Obtiene registros de temperatura corporal, si están disponibles. |
+
+---
+
+##### GoogleFitAdapter
+
+**Propósito:**  
+Permite integrar datos de salud provenientes de Google Fit o Health Connect en dispositivos Android.
+
+| Función | Descripción |
+|---|---|
+| fetchHeartRate() | Obtiene datos de ritmo cardíaco. |
+| fetchOxygenSaturation() | Obtiene datos de oxigenación disponibles. |
+| fetchTemperature() | Obtiene datos de temperatura corporal disponibles. |
+
+---
+
+##### BluetoothOxymeterAdapter
+
+**Propósito:**  
+Permite recibir datos desde un oxímetro Bluetooth vinculado al dispositivo móvil del paciente.
+
+| Función | Descripción |
+|---|---|
+| connect(deviceId) | Establece conexión con el oxímetro. |
+| readOxygenSaturation() | Obtiene la saturación de oxígeno. |
+| readHeartRate() | Obtiene el ritmo cardíaco. |
+| disconnect() | Cierra la conexión con el dispositivo. |
+
+---
+
+#### Persistence
+
+La información del contexto Monitoring se almacena en una base de datos relacional o en una base de datos optimizada para series temporales, debido a que las lecturas vitales se registran continuamente y requieren consultas por fecha.
+
+| Tabla / Colección | Propósito |
+|---|---|
+| monitoring_profiles | Guarda la configuración de monitoreo de cada paciente. |
+| vital_readings | Guarda las lecturas históricas de signos vitales. |
+| wearable_devices | Guarda los dispositivos externos vinculados. |
+| monitoring_rules | Guarda los umbrales clínicos configurados. |
+
+---
+
+#### Event Publishing
+
+##### MonitoringEventPublisher
+
+**Propósito:**  
+Publica eventos generados por el contexto Monitoring para que otros bounded contexts puedan reaccionar sin acoplarse directamente al servicio de monitoreo.
+
+| Evento publicado | Destino principal | Descripción |
+|---|---|---|
+| VitalReadingRegistered | Sistemas internos / dashboard | Informa que una lectura fue registrada. |
+| AbnormalVitalSignDetected | Alert & Notification | Informa que una lectura superó un umbral clínico. |
+| WearableSynchronized | Sistemas internos | Informa que un wearable fue sincronizado correctamente. |
+| MonitoringProfileUpdated | Sistemas internos | Informa que cambió la configuración de monitoreo. |
+
+---
+
+#### Integration Adapters
+
+| Adaptador | Responsabilidad |
+|---|---|
+| WearableIntegrationAdapter | Unifica datos provenientes de distintos proveedores de wearables. |
+| HealthApiAdapter | Adapta respuestas de APIs externas de salud al modelo interno. |
+| BluetoothDeviceAdapter | Maneja comunicación con dispositivos Bluetooth compatibles. |
+| EventBusAdapter | Publica eventos hacia otros bounded contexts. |
+
+---
+
+#### Relación con otras capas
+
+| Capa | Relación |
+|---|---|
+| Application Layer | Solicita persistencia, sincronización externa y publicación de eventos. |
+| Domain Layer | Define interfaces de repositorio y reglas que la infraestructura implementa indirectamente. |
+| Interface Layer | Recibe datos externos que luego son procesados por servicios de infraestructura. |
+| Alert & Notification | Consume eventos publicados por Monitoring. |
+
+
+### 5.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+### 5.1.6. Bounded Context Software Architecture Code Level Diagrams
+
+#### 5.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+#### 5.1.6.2. Bounded Context Database Design Diagram
+
+## 5.2. Bounded Context: Alert & Notification
+
+Este Bounded Context mantiene la misma lógica estructural utilizada en el trabajo de IoT para definir un contexto táctico: primero se presenta el propósito del contexto, luego sus responsabilidades principales y finalmente se detallan sus capas internas.
+
+También se reutiliza la idea de separar responsabilidades por capas:
+
+- Domain Layer
+- Interface Layer
+- Application Layer
+- Infrastructure Layer
+- Component Level Diagrams
+- Code Level Diagrams
+- Database Design Diagram
+
+En el trabajo de IoT, el Bounded Context seleccionado gestionaba la comunicación entre médico y paciente. Para este nuevo contexto, la lógica de comunicación se adapta a un dominio más amplio: alertas médicas, recordatorios y notificaciones del sistema.
+
+El Bounded Context **Alert & Notification** centraliza la generación, administración y envío de alertas médicas, recordatorios y notificaciones dentro de OnControl.
+
+Este contexto recibe eventos provenientes de otros bounded contexts, como **Monitoring**, **Calendar**, **Treatment** y **Symptoms & Medication**, para convertirlos en mensajes accionables dirigidos a médicos, pacientes o contactos relacionados.
+
+Su responsabilidad principal no es evaluar clínicamente los signos vitales ni gestionar tratamientos, sino asegurar que los eventos importantes sean comunicados de manera oportuna por el canal adecuado.
+
+Entre sus funciones principales se encuentran:
+
+- generar alertas médicas cuando un parámetro vital supera un umbral;
+- enviar notificaciones push al médico o paciente;
+- crear recordatorios de citas y tratamientos;
+- administrar el estado de lectura de las notificaciones;
+- escalar alertas críticas si no son atendidas;
+- registrar el historial de alertas y mensajes enviados.
+
+Este contexto es transversal porque apoya a otros módulos del sistema. Por ejemplo, cuando **Monitoring** detecta un valor anormal, **Alert & Notification** se encarga de generar la alerta médica y notificar al médico responsable.
+
+
+### 5.2.1. Domain Layer
+
+Esta capa contiene el núcleo del modelo de negocio y las reglas específicas del dominio. Se compone de agregados, entidades, objetos de valor, servicios de dominio y repositorios que permiten mantener la consistencia de las operaciones principales del Bounded Context.
+
+La estructura del Domain Layer se organiza de la siguiente manera:
+
+- Aggregates / Aggregate Roots
+- Entities
+- Value Objects
+- Domain Services
+- Repositories
+
+Cada elemento del dominio se describe mediante su propósito, atributos principales y métodos relevantes. Esta organización permite separar la lógica de negocio de los detalles técnicos de infraestructura, manteniendo un modelo de dominio claro, consistente y alineado con las responsabilidades del contexto.
+
+En el Bounded Context **Alert & Notification**, el dominio se enfoca en representar y controlar el ciclo de vida de las alertas médicas y notificaciones del sistema.
+
+A diferencia de Monitoring, este contexto no registra directamente signos vitales. Su función es recibir eventos relevantes y transformarlos en alertas o mensajes para los usuarios correspondientes.
+
+---
+
+#### Aggregates / Aggregate Roots
+
+##### MedicalAlert
+
+**Propósito:**  
+Representa una alerta médica generada por el sistema cuando ocurre un evento clínico relevante, como un signo vital fuera de rango, una alerta predictiva o una situación que requiere revisión médica.
+
+Actúa como Aggregate Root porque concentra el ciclo de vida principal de una alerta: creación, reconocimiento, escalamiento y cierre.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único de la alerta médica. |
+| patientId | UUID | Identificador del paciente relacionado. |
+| doctorId | UUID | Identificador del médico responsable. |
+| severity | AlertSeverity | Nivel de severidad de la alerta. |
+| source | AlertSource | Contexto que originó la alerta. |
+| description | String | Descripción del evento clínico. |
+| status | AlertStatus | Estado actual de la alerta. |
+| createdAt | DateTime | Fecha y hora de creación. |
+| acknowledgedAt | DateTime | Fecha y hora de revisión por el médico. |
+| closedAt | DateTime | Fecha y hora de cierre. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| acknowledge(doctorId: UUID) | Marca la alerta como revisada por el médico. |
+| close(note: String) | Cierra la alerta médica con una observación. |
+| escalate() | Escala la alerta si no fue atendida oportunamente. |
+| isCritical() | Verifica si la alerta es crítica. |
+| canBeClosed() | Verifica si la alerta puede cerrarse. |
+
+---
+
+#### Entities
+
+##### Notification
+
+**Propósito:**  
+Representa una notificación generada por el sistema para informar a un usuario sobre una alerta médica, recordatorio, cambio de tratamiento, cita médica o mensaje relevante.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único de la notificación. |
+| recipientId | UUID | Identificador del usuario destinatario. |
+| title | String | Título de la notificación. |
+| message | String | Contenido del mensaje. |
+| notificationType | NotificationType | Tipo de notificación generada. |
+| channel | NotificationChannel | Canal de envío. |
+| status | NotificationStatus | Estado de la notificación. |
+| createdAt | DateTime | Fecha y hora de creación. |
+| sentAt | DateTime | Fecha y hora de envío. |
+| readAt | DateTime | Fecha y hora de lectura. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| markAsSent() | Marca la notificación como enviada. |
+| markAsFailed() | Marca la notificación como fallida. |
+| markAsRead() | Marca la notificación como leída. |
+| canBeRetried() | Verifica si puede reintentarse el envío. |
+
+---
+
+##### NotificationPreference
+
+**Propósito:**  
+Representa las preferencias de notificación configuradas por un usuario. Permite definir qué canales están habilitados para recibir alertas, recordatorios o mensajes del sistema.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único de la preferencia. |
+| userId | UUID | Usuario asociado. |
+| pushEnabled | Boolean | Indica si permite notificaciones push. |
+| emailEnabled | Boolean | Indica si permite notificaciones por correo. |
+| smsEnabled | Boolean | Indica si permite notificaciones por SMS. |
+| quietHoursStart | Time | Hora de inicio del modo silencio. |
+| quietHoursEnd | Time | Hora de fin del modo silencio. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| enablePush() | Activa las notificaciones push. |
+| disablePush() | Desactiva las notificaciones push. |
+| updateQuietHours(start, end) | Actualiza el horario de silencio. |
+| allowsChannel(channel) | Verifica si un canal está permitido. |
+
+---
+
+##### NotificationTemplate
+
+**Propósito:**  
+Representa una plantilla reutilizable para construir mensajes de notificación según el tipo de evento recibido. Permite mantener consistencia en los mensajes enviados a médicos y pacientes.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único de la plantilla. |
+| type | NotificationType | Tipo de notificación asociada. |
+| titleTemplate | String | Plantilla del título. |
+| bodyTemplate | String | Plantilla del cuerpo del mensaje. |
+| isActive | Boolean | Indica si la plantilla está activa. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| render(data) | Genera el mensaje final usando datos del evento. |
+| deactivate() | Desactiva la plantilla. |
+| updateTemplate(title, body) | Actualiza el contenido de la plantilla. |
+
+---
+
+#### Value Objects
+
+| Value Object | Descripción |
+|---|---|
+| AlertSeverity | Define niveles: LOW, MEDIUM, HIGH, CRITICAL. |
+| AlertStatus | Define estados: OPEN, ACKNOWLEDGED, ESCALATED, CLOSED. |
+| AlertSource | Define origen: MONITORING, CALENDAR, TREATMENT, SYMPTOMS, PREDICTIVE_MODEL. |
+| NotificationType | Define tipo: MEDICAL_ALERT, APPOINTMENT_REMINDER, TREATMENT_UPDATE, SYSTEM_MESSAGE. |
+| NotificationChannel | Define canal: PUSH, EMAIL, SMS. |
+| NotificationStatus | Define estado: PENDING, SENT, FAILED, READ. |
+
+---
+
+#### Domain Services
+
+| Servicio | Propósito |
+|---|---|
+| AlertPriorityService | Determina la prioridad de una alerta según su severidad y origen. |
+| NotificationRoutingService | Selecciona el canal adecuado para enviar una notificación. |
+| NotificationTemplateService | Construye el mensaje final usando plantillas. |
+| AlertEscalationService | Define si una alerta debe escalarse a otro médico o contacto. |
+
+---
+
+#### Repositories
+
+| Repositorio | Propósito |
+|---|---|
+| IMedicalAlertRepository | Define operaciones para guardar y consultar alertas médicas. |
+| INotificationRepository | Define operaciones para guardar, consultar y actualizar notificaciones. |
+| INotificationPreferenceRepository | Define operaciones para consultar preferencias de usuario. |
+| INotificationTemplateRepository | Define operaciones para administrar plantillas de notificación. |
+
+
+### 5.2.2. Interface Layer
+
+
+Esta capa expone la funcionalidad del Bounded Context al exterior mediante controladores, APIs o endpoints. Su función principal es recibir solicitudes externas, validar datos básicos de entrada y delegar la ejecución de los casos de uso a la Application Layer.
+
+La estructura reutilizada para esta capa consiste en definir:
+
+- Controllers
+- Endpoints
+- Operaciones disponibles
+- Request / Response DTOs
+- Relación con otros componentes
+
+La Interface Layer no contiene reglas principales del negocio, ya que estas pertenecen al Domain Layer. Tampoco contiene detalles técnicos de persistencia o proveedores externos, porque esos elementos pertenecen al Infrastructure Layer.
+
+
+En el Bounded Context **Alert & Notification**, la Interface Layer permite que la aplicación móvil, la aplicación web del médico y otros servicios internos interactúen con las funcionalidades de alertas y notificaciones.
+
+Esta capa expone endpoints para consultar notificaciones, marcar mensajes como leídos, revisar alertas médicas, reconocer alertas, cerrar alertas y administrar preferencias de notificación.
+
+---
+
+#### Controllers
+
+##### NotificationController
+
+**Propósito:**  
+Gestiona las solicitudes relacionadas con las notificaciones del usuario. Permite listar notificaciones, consultar detalles y marcar notificaciones como leídas.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/users/{userId}/notifications` | GET | Lista las notificaciones recibidas por un usuario. |
+| `/api/users/{userId}/notifications/unread` | GET | Lista las notificaciones no leídas de un usuario. |
+| `/api/notifications/{notificationId}` | GET | Obtiene el detalle de una notificación específica. |
+| `/api/notifications/{notificationId}/read` | POST | Marca una notificación como leída. |
+| `/api/notifications/{notificationId}/retry` | POST | Reintenta el envío de una notificación fallida. |
+
+---
+
+##### MedicalAlertController
+
+**Propósito:**  
+Gestiona las solicitudes relacionadas con alertas médicas. Permite que el médico visualice alertas, las reconozca, las cierre o revise su estado.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/doctors/{doctorId}/alerts` | GET | Lista las alertas médicas asignadas a un médico. |
+| `/api/doctors/{doctorId}/alerts/open` | GET | Lista las alertas abiertas o pendientes. |
+| `/api/patients/{patientId}/alerts` | GET | Lista las alertas asociadas a un paciente. |
+| `/api/alerts/{alertId}` | GET | Obtiene el detalle de una alerta médica. |
+| `/api/alerts/{alertId}/acknowledge` | POST | Marca una alerta como revisada por el médico. |
+| `/api/alerts/{alertId}/close` | POST | Cierra una alerta médica con una observación. |
+| `/api/alerts/{alertId}/escalate` | POST | Escala una alerta crítica no atendida. |
+
+---
+
+##### NotificationPreferenceController
+
+**Propósito:**  
+Administra las preferencias de notificación de los usuarios, permitiendo configurar canales disponibles y horarios de silencio.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/users/{userId}/notification-preferences` | GET | Obtiene las preferencias de notificación del usuario. |
+| `/api/users/{userId}/notification-preferences` | PUT | Actualiza las preferencias de notificación. |
+| `/api/users/{userId}/notification-preferences/channels` | PUT | Actualiza los canales habilitados: push, email o SMS. |
+| `/api/users/{userId}/notification-preferences/quiet-hours` | PUT | Configura el horario de silencio del usuario. |
+
+---
+
+##### NotificationTemplateController
+
+**Propósito:**  
+Permite administrar plantillas de notificación utilizadas por el sistema para construir mensajes consistentes según el tipo de evento recibido.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/notification-templates` | GET | Lista las plantillas disponibles. |
+| `/api/notification-templates/{templateId}` | GET | Obtiene el detalle de una plantilla. |
+| `/api/notification-templates` | POST | Crea una nueva plantilla de notificación. |
+| `/api/notification-templates/{templateId}` | PUT | Actualiza una plantilla existente. |
+| `/api/notification-templates/{templateId}/deactivate` | POST | Desactiva una plantilla de notificación. |
+
+---
+
+#### Request / Response DTOs
+
+##### NotificationResponse
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único de la notificación. |
+| recipientId | UUID | Usuario destinatario. |
+| title | String | Título de la notificación. |
+| message | String | Contenido del mensaje. |
+| notificationType | String | Tipo de notificación. |
+| channel | String | Canal por el que fue enviada. |
+| status | String | Estado actual de la notificación. |
+| createdAt | DateTime | Fecha de creación. |
+| sentAt | DateTime | Fecha de envío. |
+| readAt | DateTime | Fecha de lectura. |
+
+---
+
+##### MedicalAlertResponse
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador de la alerta médica. |
+| patientId | UUID | Paciente relacionado. |
+| doctorId | UUID | Médico responsable. |
+| severity | String | Nivel de severidad. |
+| source | String | Origen de la alerta. |
+| description | String | Descripción de la alerta. |
+| status | String | Estado de la alerta. |
+| createdAt | DateTime | Fecha de creación. |
+| acknowledgedAt | DateTime | Fecha de reconocimiento. |
+| closedAt | DateTime | Fecha de cierre. |
+
+---
+
+##### AcknowledgeAlertRequest
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| doctorId | UUID | Identificador del médico que reconoce la alerta. |
+| note | String | Comentario opcional sobre la revisión. |
+
+---
+
+##### CloseAlertRequest
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| doctorId | UUID | Identificador del médico que cierra la alerta. |
+| note | String | Observación del cierre de la alerta. |
+
+---
+
+##### UpdateNotificationPreferenceRequest
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| pushEnabled | Boolean | Indica si el usuario permite notificaciones push. |
+| emailEnabled | Boolean | Indica si el usuario permite notificaciones por correo. |
+| smsEnabled | Boolean | Indica si el usuario permite notificaciones por SMS. |
+| quietHoursStart | Time | Hora de inicio del modo silencio. |
+| quietHoursEnd | Time | Hora de fin del modo silencio. |
+
+---
+
+#### Eventos expuestos o derivados desde la interfaz
+
+Aunque la Interface Layer no se encarga de crear eventos de dominio directamente, ciertas acciones recibidas desde sus endpoints pueden desencadenar eventos luego de ser procesadas por la Application Layer.
+
+| Acción desde interfaz | Evento posible |
+|---|---|
+| Reconocer alerta médica | `MedicalAlertAcknowledged` |
+| Cerrar alerta médica | `MedicalAlertClosed` |
+| Escalar alerta médica | `MedicalAlertEscalated` |
+| Marcar notificación como leída | `NotificationRead` |
+| Reintentar notificación fallida | `NotificationRetryRequested` |
+| Actualizar preferencias | `NotificationPreferencesUpdated` |
+
+---
+
+#### Relación con otros componentes
+
+| Componente | Relación |
+|---|---|
+| Aplicación móvil | Permite al paciente recibir y consultar notificaciones. |
+| Aplicación web del médico | Permite al médico revisar alertas médicas y notificaciones clínicas. |
+| API Gateway | Canaliza y protege las solicitudes hacia los controladores de Alert & Notification. |
+| Application Layer | Recibe solicitudes desde los controladores y ejecuta los casos de uso correspondientes. |
+| Monitoring | Origina eventos clínicos como lecturas fuera de rango que terminan en alertas. |
+| Calendar | Origina eventos relacionados con citas y recordatorios. |
+| Treatment | Origina eventos relacionados con cambios o recordatorios de tratamiento. |
+| Symptoms & Medication | Origina eventos relacionados con reportes clínicos y síntomas. |
+
+
+### 5.2.3. Application Layer
+
+Esta capa se encarga de coordinar los casos de uso del Bounded Context, conectando las solicitudes recibidas desde la Interface Layer con el modelo de dominio definido en el Domain Layer.
+
+La estructura reutilizada para esta capa consiste en definir:
+
+- Command Handlers
+- Query Handlers
+- Application Services
+- Domain Events
+- Flujos principales de ejecución
+
+La Application Layer no contiene reglas centrales del negocio ni implementaciones técnicas concretas. Su función es orquestar el flujo de trabajo, invocar entidades y servicios del dominio, utilizar repositorios mediante interfaces y coordinar la publicación de eventos.
+
+En el Bounded Context **Alert & Notification**, la Application Layer coordina los casos de uso relacionados con la creación, envío, consulta, reconocimiento, escalamiento y cierre de alertas médicas y notificaciones.
+
+Esta capa recibe solicitudes desde los controladores o eventos provenientes de otros bounded contexts, como **Monitoring**, **Calendar**, **Treatment** y **Symptoms & Medication**. Luego transforma esos eventos en alertas o notificaciones según el tipo de situación, la prioridad y el destinatario correspondiente.
+
+---
+
+#### Command Handlers
+
+##### CreateMedicalAlertCommandHandler
+
+**Propósito:**  
+Crea una alerta médica a partir de un evento clínico relevante, como una lectura vital fuera de rango o una alerta predictiva.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir evento clínico | Recibe información proveniente de Monitoring u otro contexto. |
+| Validar datos | Verifica paciente, médico responsable, severidad y origen. |
+| Crear alerta | Construye una entidad `MedicalAlert`. |
+| Asignar prioridad | Usa `AlertPriorityService` para definir la gravedad. |
+| Persistir alerta | Guarda la alerta mediante `IMedicalAlertRepository`. |
+| Publicar evento | Genera `MedicalAlertCreated`. |
+
+---
+
+##### SendNotificationCommandHandler
+
+**Propósito:**  
+Procesa el envío de una notificación hacia un usuario, usando el canal configurado o disponible.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Obtener destinatario | Identifica al usuario que recibirá la notificación. |
+| Consultar preferencias | Revisa canales habilitados por el usuario. |
+| Construir mensaje | Usa una plantilla de notificación. |
+| Seleccionar canal | Usa `NotificationRoutingService`. |
+| Crear notificación | Construye una entidad `Notification`. |
+| Enviar notificación | Delega el envío a la infraestructura correspondiente. |
+| Actualizar estado | Marca la notificación como enviada o fallida. |
+
+---
+
+##### AcknowledgeMedicalAlertCommandHandler
+
+**Propósito:**  
+Registra que un médico ha revisado una alerta médica.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Buscar alerta | Obtiene la alerta médica por su identificador. |
+| Validar médico | Verifica que el médico corresponda a la alerta. |
+| Reconocer alerta | Ejecuta el método `acknowledge()` del agregado. |
+| Guardar cambios | Actualiza la alerta en el repositorio. |
+| Publicar evento | Genera `MedicalAlertAcknowledged`. |
+
+---
+
+##### CloseMedicalAlertCommandHandler
+
+**Propósito:**  
+Cierra una alerta médica luego de que fue revisada o atendida.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Buscar alerta | Obtiene la alerta por su identificador. |
+| Validar cierre | Verifica si la alerta puede cerrarse. |
+| Registrar observación | Guarda una nota de cierre. |
+| Cerrar alerta | Ejecuta el método `close(note)`. |
+| Guardar cambios | Persiste el nuevo estado. |
+| Publicar evento | Genera `MedicalAlertClosed`. |
+
+---
+
+##### EscalateMedicalAlertCommandHandler
+
+**Propósito:**  
+Escala una alerta médica cuando no fue atendida en el tiempo esperado o cuando su severidad lo requiere.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Buscar alerta | Obtiene la alerta médica pendiente. |
+| Verificar severidad | Evalúa si la alerta requiere escalamiento. |
+| Ejecutar escalamiento | Invoca `AlertEscalationService`. |
+| Actualizar estado | Cambia el estado a escalada. |
+| Notificar nuevo destinatario | Genera una nueva notificación. |
+| Publicar evento | Genera `MedicalAlertEscalated`. |
+
+---
+
+##### MarkNotificationAsReadCommandHandler
+
+**Propósito:**  
+Marca una notificación como leída por el usuario destinatario.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Buscar notificación | Obtiene la notificación por su identificador. |
+| Validar destinatario | Verifica que pertenezca al usuario correcto. |
+| Marcar como leída | Ejecuta `markAsRead()`. |
+| Guardar cambios | Actualiza el estado de la notificación. |
+| Publicar evento | Genera `NotificationRead`. |
+
+---
+
+##### UpdateNotificationPreferenceCommandHandler
+
+**Propósito:**  
+Actualiza las preferencias de notificación de un usuario.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Buscar preferencias | Obtiene la configuración actual del usuario. |
+| Validar canales | Verifica canales habilitados o deshabilitados. |
+| Actualizar preferencias | Modifica push, email, SMS u horario de silencio. |
+| Guardar cambios | Persiste la nueva configuración. |
+| Publicar evento | Genera `NotificationPreferencesUpdated`. |
+
+---
+
+#### Query Handlers
+
+##### GetUserNotificationsQueryHandler
+
+**Propósito:**  
+Obtiene las notificaciones asociadas a un usuario.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir userId | Identifica al usuario consultado. |
+| Consultar repositorio | Busca notificaciones asociadas al usuario. |
+| Ordenar resultados | Devuelve las notificaciones por fecha. |
+| Preparar respuesta | Retorna datos listos para la aplicación móvil o web. |
+
+---
+
+##### GetUnreadNotificationsQueryHandler
+
+**Propósito:**  
+Obtiene las notificaciones no leídas de un usuario.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir userId | Identifica al usuario consultado. |
+| Filtrar no leídas | Consulta notificaciones con estado pendiente o no leído. |
+| Preparar respuesta | Devuelve el listado de notificaciones no leídas. |
+
+---
+
+##### GetDoctorAlertsQueryHandler
+
+**Propósito:**  
+Obtiene las alertas médicas asignadas a un médico.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir doctorId | Identifica al médico consultado. |
+| Consultar alertas | Busca alertas asignadas al médico. |
+| Filtrar resultados | Permite filtrar por estado o severidad. |
+| Ordenar alertas | Prioriza alertas críticas o recientes. |
+| Preparar respuesta | Retorna datos para el dashboard médico. |
+
+---
+
+##### GetPatientAlertsQueryHandler
+
+**Propósito:**  
+Obtiene las alertas médicas asociadas a un paciente.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir patientId | Identifica al paciente consultado. |
+| Consultar alertas | Busca alertas asociadas al paciente. |
+| Ordenar resultados | Devuelve alertas por fecha y severidad. |
+| Preparar respuesta | Retorna información para historial clínico o dashboard. |
+
+---
+
+##### GetNotificationPreferencesQueryHandler
+
+**Propósito:**  
+Obtiene las preferencias de notificación configuradas por un usuario.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir userId | Identifica al usuario consultado. |
+| Consultar preferencias | Busca configuración de canales. |
+| Preparar respuesta | Devuelve preferencias actuales. |
+
+---
+
+#### Application Services
+
+##### AlertNotificationApplicationService
+
+**Propósito:**  
+Centraliza la coordinación de los principales casos de uso del contexto Alert & Notification.
+
+| Método | Descripción |
+|---|---|
+| createMedicalAlert(command) | Crea una alerta médica a partir de un evento clínico. |
+| sendNotification(command) | Envía una notificación por el canal correspondiente. |
+| acknowledgeAlert(command) | Registra que una alerta fue revisada. |
+| closeAlert(command) | Cierra una alerta médica. |
+| escalateAlert(command) | Escala una alerta crítica no atendida. |
+| markNotificationAsRead(command) | Marca una notificación como leída. |
+| updateNotificationPreferences(command) | Actualiza preferencias de notificación. |
+| getUserNotifications(query) | Consulta notificaciones de un usuario. |
+| getDoctorAlerts(query) | Consulta alertas médicas de un doctor. |
+
+---
+
+#### Event Handlers
+
+##### AbnormalVitalSignDetectedEventHandler
+
+**Propósito:**  
+Procesa eventos generados por Monitoring cuando una lectura vital supera los umbrales configurados.
+
+| Acción | Descripción |
+|---|---|
+| Recibir evento | Obtiene datos del paciente, métrica afectada y valor registrado. |
+| Crear alerta | Genera una `MedicalAlert`. |
+| Determinar severidad | Evalúa la gravedad del evento. |
+| Notificar médico | Genera una notificación para el médico responsable. |
+
+---
+
+##### AppointmentScheduledEventHandler
+
+**Propósito:**  
+Procesa eventos relacionados con citas médicas para generar recordatorios.
+
+| Acción | Descripción |
+|---|---|
+| Recibir evento | Obtiene información de la cita. |
+| Crear notificación | Genera un recordatorio para paciente o médico. |
+| Programar envío | Define momento de envío según fecha de cita. |
+
+---
+
+##### TreatmentUpdatedEventHandler
+
+**Propósito:**  
+Procesa eventos relacionados con cambios en tratamientos.
+
+| Acción | Descripción |
+|---|---|
+| Recibir evento | Obtiene información del tratamiento actualizado. |
+| Construir mensaje | Genera contenido de notificación. |
+| Notificar usuario | Envía aviso al paciente o médico correspondiente. |
+
+---
+
+##### SymptomReportedEventHandler
+
+**Propósito:**  
+Procesa eventos generados cuando el paciente reporta síntomas.
+
+| Acción | Descripción |
+|---|---|
+| Recibir evento | Obtiene información del síntoma reportado. |
+| Evaluar prioridad | Determina si requiere alerta o solo notificación. |
+| Notificar médico | Envía aviso al médico tratante. |
+
+---
+
+#### Domain Events
+
+| Evento | Descripción |
+|---|---|
+| MedicalAlertCreated | Se genera cuando una alerta médica fue creada. |
+| MedicalAlertAcknowledged | Se genera cuando un médico revisa una alerta. |
+| MedicalAlertClosed | Se genera cuando una alerta médica fue cerrada. |
+| MedicalAlertEscalated | Se genera cuando una alerta fue escalada. |
+| NotificationCreated | Se genera cuando una notificación fue creada. |
+| NotificationSent | Se genera cuando una notificación fue enviada correctamente. |
+| NotificationFailed | Se genera cuando una notificación no pudo enviarse. |
+| NotificationRead | Se genera cuando una notificación fue marcada como leída. |
+| NotificationPreferencesUpdated | Se genera cuando el usuario actualiza sus preferencias. |
+
+---
+
+#### Flujo principal: generar alerta por signo vital anormal
+
+1. El contexto **Monitoring** publica el evento `AbnormalVitalSignDetected`.
+2. El `AbnormalVitalSignDetectedEventHandler` recibe el evento.
+3. Se valida la información del paciente, médico responsable y métrica afectada.
+4. Se ejecuta `CreateMedicalAlertCommandHandler`.
+5. Se crea una entidad `MedicalAlert`.
+6. Se determina la severidad mediante `AlertPriorityService`.
+7. Se guarda la alerta mediante `IMedicalAlertRepository`.
+8. Se genera una notificación para el médico responsable.
+9. Se ejecuta `SendNotificationCommandHandler`.
+10. Se selecciona el canal mediante `NotificationRoutingService`.
+11. Se envía la notificación por push, email o SMS.
+12. Se publica el evento `MedicalAlertCreated` y, si el envío fue exitoso, `NotificationSent`.
+
+---
+
+#### Flujo principal: reconocer y cerrar una alerta médica
+
+1. El médico visualiza una alerta desde la aplicación web.
+2. El `MedicalAlertController` recibe la solicitud de reconocimiento.
+3. Se ejecuta `AcknowledgeMedicalAlertCommandHandler`.
+4. El sistema verifica que la alerta pertenezca al médico.
+5. Se actualiza el estado de la alerta a `ACKNOWLEDGED`.
+6. Se publica el evento `MedicalAlertAcknowledged`.
+7. Luego de revisar el caso, el médico envía una solicitud de cierre.
+8. Se ejecuta `CloseMedicalAlertCommandHandler`.
+9. El sistema valida si la alerta puede cerrarse.
+10. Se registra una observación de cierre.
+11. Se actualiza el estado a `CLOSED`.
+12. Se publica el evento `MedicalAlertClosed`.
+
+---
+
+#### Relación con otras capas
+
+| Capa | Relación |
+|---|---|
+| Interface Layer | Envía comandos y consultas hacia la Application Layer. |
+| Domain Layer | Ejecuta reglas de negocio mediante entidades y servicios de dominio. |
+| Infrastructure Layer | Provee repositorios, proveedores de notificación y consumidores de eventos. |
+| Monitoring | Publica eventos de valores anormales que generan alertas. |
+| Calendar | Publica eventos de citas que generan recordatorios. |
+| Treatment | Publica eventos de tratamientos que generan notificaciones. |
+| Symptoms & Medication | Publica eventos de síntomas que generan avisos médicos. |
+
+### 5.2.4. Infrastructure Layer
+
+Esta capa contiene las implementaciones concretas necesarias para interactuar con tecnologías externas, bases de datos, servicios de mensajería, proveedores de notificaciones y mecanismos de persistencia.
+
+La estructura reutilizada para esta capa consiste en definir:
+
+- Repository Implementations
+- External Service Implementations
+- Persistence
+- Event Consumers
+- Notification Providers
+- Event Publishing
+
+La Infrastructure Layer no contiene reglas de negocio. Su función es proporcionar las implementaciones técnicas que permiten a la Application Layer ejecutar los casos de uso del contexto.
+
+
+En el Bounded Context **Alert & Notification**, la Infrastructure Layer se encarga de persistir alertas y notificaciones, consumir eventos provenientes de otros bounded contexts y enviar mensajes por canales externos como push notifications, email o SMS.
+
+Esta capa permite que el sistema se comunique con servicios externos de notificación, almacene el historial de alertas médicas, gestione reintentos de envío y mantenga trazabilidad sobre los mensajes generados.
+
+---
+
+#### Repository Implementations
+
+##### MedicalAlertRepository
+
+**Propósito:**  
+Implementa la persistencia de las alertas médicas generadas por el sistema.
+
+| Método | Descripción |
+|---|---|
+| save(alert) | Guarda una nueva alerta médica. |
+| update(alert) | Actualiza el estado de una alerta existente. |
+| findById(alertId) | Busca una alerta por su identificador. |
+| findByDoctorId(doctorId) | Lista las alertas asignadas a un médico. |
+| findOpenByDoctorId(doctorId) | Lista las alertas abiertas de un médico. |
+| findByPatientId(patientId) | Lista las alertas asociadas a un paciente. |
+
+---
+
+##### NotificationRepository
+
+**Propósito:**  
+Implementa la persistencia de las notificaciones generadas para médicos, pacientes o usuarios relacionados.
+
+| Método | Descripción |
+|---|---|
+| save(notification) | Guarda una nueva notificación. |
+| update(notification) | Actualiza el estado de una notificación. |
+| findById(notificationId) | Busca una notificación específica. |
+| findByRecipientId(recipientId) | Lista las notificaciones de un usuario. |
+| findUnreadByRecipientId(recipientId) | Lista las notificaciones no leídas de un usuario. |
+
+---
+
+##### NotificationPreferenceRepository
+
+**Propósito:**  
+Administra la persistencia de las preferencias de notificación configuradas por cada usuario.
+
+| Método | Descripción |
+|---|---|
+| save(preference) | Guarda preferencias de notificación. |
+| update(preference) | Actualiza preferencias existentes. |
+| findByUserId(userId) | Obtiene preferencias de un usuario. |
+| existsByUserId(userId) | Verifica si el usuario ya tiene preferencias registradas. |
+
+---
+
+##### NotificationTemplateRepository
+
+**Propósito:**  
+Administra las plantillas utilizadas para construir mensajes de notificación.
+
+| Método | Descripción |
+|---|---|
+| save(template) | Guarda una nueva plantilla. |
+| update(template) | Actualiza una plantilla existente. |
+| findByType(type) | Busca una plantilla por tipo de notificación. |
+| findActiveTemplates() | Lista plantillas activas. |
+
+---
+
+##### NotificationOutboxRepository
+
+**Propósito:**  
+Guarda notificaciones pendientes o fallidas para permitir reintentos de envío.
+
+| Método | Descripción |
+|---|---|
+| save(outboxMessage) | Guarda un mensaje pendiente de envío. |
+| findPending() | Lista mensajes pendientes. |
+| markAsProcessed(id) | Marca un mensaje como procesado. |
+| markAsFailed(id) | Marca un mensaje como fallido. |
+| incrementRetryCount(id) | Incrementa el contador de reintentos. |
+
+---
+
+#### External Service Implementations
+
+##### PushNotificationProvider
+
+**Propósito:**  
+Permite enviar notificaciones push a dispositivos móviles de pacientes o médicos.
+
+| Función | Descripción |
+|---|---|
+| sendPushNotification(userId, title, message) | Envía una notificación push al usuario. |
+| validateDeviceToken(token) | Valida el token del dispositivo. |
+| refreshDeviceToken(userId) | Actualiza el token del dispositivo si es necesario. |
+
+---
+
+##### EmailNotificationProvider
+
+**Propósito:**  
+Permite enviar notificaciones por correo electrónico cuando el usuario tiene este canal habilitado.
+
+| Función | Descripción |
+|---|---|
+| sendEmail(to, subject, body) | Envía un correo electrónico. |
+| validateEmail(email) | Valida el formato del correo. |
+| sendTemplateEmail(to, template, data) | Envía un correo usando plantilla. |
+
+---
+
+##### SmsNotificationProvider
+
+**Propósito:**  
+Permite enviar mensajes SMS para alertas críticas o recordatorios importantes.
+
+| Función | Descripción |
+|---|---|
+| sendSms(phoneNumber, message) | Envía un SMS al número configurado. |
+| validatePhoneNumber(phoneNumber) | Valida el número telefónico. |
+| sendEmergencySms(phoneNumber, message) | Envía SMS para alertas críticas. |
+
+---
+
+#### Event Consumers
+
+##### MonitoringEventConsumer
+
+**Propósito:**  
+Consume eventos generados por el Bounded Context Monitoring, especialmente cuando se detectan signos vitales fuera de rango.
+
+| Evento consumido | Acción |
+|---|---|
+| AbnormalVitalSignDetected | Crea una alerta médica y notifica al médico. |
+| VitalReadingRegistered | Puede actualizar información de seguimiento si corresponde. |
+| PredictiveRiskDetected | Crea una alerta preventiva. |
+
+---
+
+##### CalendarEventConsumer
+
+**Propósito:**  
+Consume eventos relacionados con citas médicas para generar recordatorios o avisos.
+
+| Evento consumido | Acción |
+|---|---|
+| AppointmentScheduled | Genera recordatorio de cita. |
+| AppointmentRescheduled | Notifica cambio de fecha u hora. |
+| AppointmentCancelled | Notifica cancelación de cita. |
+
+---
+
+##### TreatmentEventConsumer
+
+**Propósito:**  
+Consume eventos relacionados con tratamientos para informar al paciente o médico sobre cambios importantes.
+
+| Evento consumido | Acción |
+|---|---|
+| TreatmentCreated | Notifica creación de tratamiento. |
+| TreatmentUpdated | Notifica cambios en el tratamiento. |
+| TreatmentCompleted | Notifica finalización del tratamiento. |
+
+---
+
+##### SymptomsEventConsumer
+
+**Propósito:**  
+Consume eventos relacionados con reportes de síntomas o reacciones adversas.
+
+| Evento consumido | Acción |
+|---|---|
+| SymptomReported | Notifica al médico responsable. |
+| AdverseReactionReported | Genera aviso prioritario al médico. |
+| SymptomReviewed | Notifica revisión al paciente si corresponde. |
+
+---
+
+#### Persistence
+
+La información del contexto Alert & Notification se almacena en una base de datos relacional, ya que se requiere mantener historial de alertas, notificaciones, estados, preferencias y trazabilidad de envíos.
+
+| Tabla / Colección | Propósito |
+|---|---|
+| medical_alerts | Guarda alertas médicas generadas por el sistema. |
+| notifications | Guarda notificaciones enviadas o pendientes. |
+| notification_preferences | Guarda preferencias de notificación por usuario. |
+| notification_templates | Guarda plantillas de mensajes. |
+| notification_outbox | Guarda mensajes pendientes o fallidos para reintento. |
+
+---
+
+#### Event Publishing
+
+##### AlertNotificationEventPublisher
+
+**Propósito:**  
+Publica eventos generados por el contexto Alert & Notification para informar a otros módulos sobre cambios relevantes en alertas y notificaciones.
+
+| Evento publicado | Descripción |
+|---|---|
+| MedicalAlertCreated | Informa que una alerta médica fue creada. |
+| MedicalAlertAcknowledged | Informa que una alerta fue revisada por el médico. |
+| MedicalAlertClosed | Informa que una alerta fue cerrada. |
+| MedicalAlertEscalated | Informa que una alerta fue escalada. |
+| NotificationSent | Informa que una notificación fue enviada. |
+| NotificationFailed | Informa que una notificación falló. |
+| NotificationRead | Informa que una notificación fue leída. |
+
+---
+
+#### Integration Adapters
+
+| Adaptador | Responsabilidad |
+|---|---|
+| PushNotificationAdapter | Integra el sistema con proveedores de notificaciones push. |
+| EmailAdapter | Integra el sistema con servicios de correo electrónico. |
+| SmsAdapter | Integra el sistema con proveedores de SMS. |
+| EventBusConsumerAdapter | Consume eventos publicados por otros bounded contexts. |
+| EventBusPublisherAdapter | Publica eventos generados por este contexto. |
+| NotificationOutboxAdapter | Gestiona mensajes pendientes y reintentos. |
+
+---
+
+#### Manejo de reintentos
+
+Para evitar pérdida de notificaciones importantes, el contexto utiliza un mecanismo de **outbox**. Cuando una notificación no puede enviarse correctamente, se registra en `notification_outbox` y se reintenta posteriormente.
+
+| Situación | Acción |
+|---|---|
+| Error temporal del proveedor push | Guardar en outbox y reintentar. |
+| Error de correo inválido | Marcar como fallido y registrar motivo. |
+| Error de conexión | Reintentar envío cuando el servicio esté disponible. |
+| Alerta crítica no enviada | Escalar por canal alternativo, como SMS o email. |
+
+---
+
+#### Relación con otras capas
+
+| Capa | Relación |
+|---|---|
+| Application Layer | Solicita persistencia, envío de notificaciones y consumo/publicación de eventos. |
+| Domain Layer | Define entidades, servicios y reglas que la infraestructura persiste o ejecuta indirectamente. |
+| Interface Layer | Expone operaciones que dependen de repositorios y proveedores externos. |
+| Monitoring | Publica eventos clínicos que son consumidos por esta capa. |
+| Calendar | Publica eventos de citas para generar recordatorios. |
+| Treatment | Publica eventos de tratamiento para notificar cambios. |
+| Symptoms & Medication | Publica eventos de síntomas para alertar al médico. |
+
+### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+### 5.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+#### 5.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+#### 5.2.6.2. Bounded Context Database Design Diagram
+
+
 <div id='6.'><h2>6. Capítulo V: Solution UI/UX Design</h2></div>
 
 <div id='6.1.'><h3>6.1. Style Guidelines</h3></div>
