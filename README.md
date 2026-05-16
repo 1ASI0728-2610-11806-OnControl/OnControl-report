@@ -31,7 +31,7 @@ Producto: OnControl
 | Ramos Mendoza, Juan Pablo       | U202019545 |
 
 
-**Abril del 2026**
+**Mayo del 2026**
 
 </div>
 
@@ -193,24 +193,24 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <td>
       <strong>Holguín Gamarra, Hardie Alfonso</strong> <br>
       <strong>TB1:</strong> <p align="justify">He liderado las reuniones de coordinación técnica, explicando la integración de la arquitectura de software y los sensores IoT de manera clara y objetiva, adaptando el lenguaje técnico para que todos los miembros del equipo y stakeholders comprendan el avance del proyecto.</p><br>
-      <strong>TP:</strong> <p align="justify">  </p><br>
+      <strong>TP:</strong> <p align="justify">Teniendo un buen control durante las reuniones he podido explicar con comprensión los detalles más importantes en el desarrollo de la arquitectura, explicando nuestros modelos de forma clara.</p><br>
       <strong>Barrutia Vaez, Ricardo Andree </strong> <br>
       <strong>TB1:</strong> <p align="justify">Me encargué de trabajar la parte de EventStorming, Candidate Context Discovery y Domain Message Flows Modeling. Para ello, organicé los principales procesos de OnControl, como la vinculación entre médico y paciente, la gestión de citas, tratamientos, monitoreo IoT, alertas y reporte de síntomas. También expliqué al equipo cómo estos procesos se relacionan entre sí para que el dominio del sistema sea más fácil de entender. </p><br>
       <strong>TP:</strong> <p align="justify">Participé en la explicación del diseño táctico del sistema, presentando al equipo cómo los bounded contexts seleccionados se transforman en módulos internos con responsabilidades específicas. Durante las coordinaciones, expuse la relación entre monitoreo, alertas e inteligencia predictiva, aclarando cómo cada capa contribuye al funcionamiento general de OnControl y cómo estos módulos se conectan con la arquitectura previamente definida.</p><br>      <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
       <strong>TB1:</strong> <p align="justify">Trabajé en las secciones de Bounded Context Canvases, Context Mapping y Software Architecture Context Level Diagrams. Organicé la información de los contextos principales de OnControl, como Users, Patient, Calendar, Treatment, Monitoring, Symptoms & Medication y Alert & Notification. También expliqué cómo se relacionan estos contextos y cómo el sistema interactúa con pacientes, médicos, dispositivos IoT y servicios externos. </p><br>
-      <strong>TP:</strong> <p align="justify">  </p><br>
+      <strong>TP:</strong>Para garantizar el correcto desarrollo del proyecto Oncontrol, mantuve una comunicación constante y fluida con mis compañeros de equipo para coordinar la integración de los servicios. A través de la explicación oral del diagrama de componentes C4 y el modelo de dominio de IA, logré sustentar con objetividad las decisiones arquitectónicas ante el equipo de desarrollo y asegurar que todos comprendiéramos el flujo del sistema.<p align="justify">  </p><br>
       <strong>Espejo Gamarra, Bryan Ronnald</strong> <br>
       <strong>TB1:</strong> <p align="justify">Trabajé en las secciones de Software Architecture Container Level Diagrams y Software Architecture Deployment Diagrams. Para ello, expliqué al equipo cómo se organizan los principales contenedores del sistema OnControl, como la aplicación web, la aplicación móvil, los servicios backend, la base de datos, los servicios de autenticación, las notificaciones y la integración con dispositivos IoT. También presenté cómo estos componentes se despliegan en la infraestructura tecnológica, usando un lenguaje claro para que tanto los integrantes técnicos como los no técnicos puedan entender cómo funciona la arquitectura del sistema. </p><br>
-      <strong>TP:</strong> <p align="justify">  </p><br>
+      <strong>TP:</strong>He explicado a mis compañeros correctamente las indicaciones de revisiones anteriores para poder seguir mejorando nuestro trabajo según las indicaciones anteriores.<p align="justify">  </p><br>
       <strong>Ramos Mendoza, Juan Pablo</strong> <br>
       <strong>TB1:</strong> <p align="justify">He realizado diagramas fáciles de entender y explicar para que personas de cualquier nivel técnico puedan entender las indicaciones correctamente, lo que ayudó en las explicaciones previas a las entrevistas </p><br>
-      <strong>TP:</strong> <p align="justify">  </p><br>
+      <strong>TP:</strong> <p align="justify">Con la comunicación correcta entre mis compañeros he podido tomar las mejores decisiones en el proceso de diseño de nuestro proyecto.</p><br>
       </td>
       <td>
         <strong>TB1:</strong><br>
         Nos hemos enfocado en mantener una alta claridad en nuestros diseños y explicaciones, lo que ayudó en el desarrollo de los gráficos y en la comprensión general de la arquitectura tecnológica del proyecto.
         <strong>TP:</strong><br>
-        Reemplazar
+        Nos hemos enfocado en mantener la claridad y compresión durante toda la parte de nuestro trabajo, siempre teniendo un enfoque en la facilidad de compresión de nuestro proyecto.
       </td>
     </tr>
     <tr>
@@ -218,24 +218,25 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <td>
         <strong>Holguín Gamarra, Hardie Alfonso</strong> <br>
          <strong>TB1:</strong> <p align="justify">He redactado y estructurado la documentación técnica del proyecto, incluyendo los drivers arquitectónicos y las especificaciones de historias de usuario, presentándola de forma que sea comprensible tanto para desarrolladores como para perfiles orientados al negocio.</p><br>
-         <strong>TP:</strong> <p align="justify">  </p><br>
+         <strong>TP:</strong> <p align="justify">Al estructurar nuestro proyecto de forma clara hemos tenido una facilidad de explicar cada paso del proyecto hacia el resto de los miembros.</p><br>
         <strong>Barrutia Vaez, Ricardo Andree</strong> <br>
          <strong>TB1:</strong> <p align="justify">Redacté la documentación correspondiente a EventStorming, Candidate Context Discovery y Domain Message Flows Modeling. Además, adapté las imágenes y diagramas realizados para que encajen mejor con la estructura del informe y tengan una explicación clara para cualquier lector. </p><br>
-         <strong>TP:</strong> <p align="justify">Elaboré la documentación del Capítulo V enfocada en el diseño táctico de OnControl. En esta parte convertí los elementos arquitectónicos generales en una descripción más detallada de los módulos Monitoring, Alert & Notification y Predictive AI, precisando sus responsabilidades, capas internas, operaciones principales y artefactos técnicos necesarios para representar su implementación.</p><br>         <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
+         <strong>TP:</strong> <p align="justify">Elaboré la documentación del Capítulo V enfocada en el diseño táctico de OnControl. En esta parte convertí los elementos arquitectónicos generales en una descripción más detallada de los módulos Monitoring, Alert & Notification y Predictive AI, precisando sus responsabilidades, capas internas, operaciones principales y artefactos técnicos necesarios para representar su implementación.</p><br>
+         <strong>Espinoza Inoñan, Fabiola Ximena</strong> <br>
          <strong>TB1:</strong> <p align="justify">Redacté la documentación de Bounded Context Canvases, Context Mapping y Software Architecture Context Level Diagrams. En esta parte describí las responsabilidades de cada contexto, sus relaciones y las vistas de contexto del sistema, del paciente y del médico. </p><br>
-         <strong>TP:</strong> <p align="justify">  </p><br>
+         <strong>TP:</strong> <p align="justify"> El objetivo de diseño se cumplió correctamente mediante el uso de PlantUML para documentar formalmente la arquitectura CQRS, los patrones de DDD y el modelo relacional de la base de datos. Esta documentación escrita rigurosa sirvió como una especificación técnica clara y sin ambigüedades, permitiendo que mis compañeros e ingenieros de otras especialidades entendieran el ciclo de persistencia y consumo de la IA en Oncontrol. </p><br>
          <strong>Espejo Gamarra, Bryan Ronnald</strong> <br>
          <strong>TB1:</strong> <p align="justify">Redacté la documentación correspondiente a los Software Architecture Container Level Diagrams y Software Architecture Deployment Diagrams. En esta parte describí los contenedores principales de OnControl, sus responsabilidades, sus relaciones y la forma en que se comunican entre sí. Además, documenté la vista de despliegue del sistema, explicando cómo se distribuyen los componentes en la infraestructura, incluyendo aplicaciones cliente, servicios backend, base de datos, servicios externos y dispositivos IoT, con el objetivo de que la arquitectura sea comprensible para lectores de diferentes niveles técnicos. </p><br>
-         <strong>TP:</strong> <p align="justify">  </p><br>
+         <strong>TP:</strong> <p align="justify"> Hemos tenido una facilidad de comunicar de forma clara las intenciones de nuestro proyecto gracias a la nueva redacción y revisión que he realizado basada en comentarios anteriores del profesor. </p><br>
          <strong>Ramos Mendoza, Juan Pablo</strong> <br>
          <strong>TB1:</strong> <p align="justify">Utilizando mis avances anteriores en este proyecto he podido explicar claramente mis visiones a mis compañeros.</p><br>
-         <strong>TP:</strong> <p align="justify">  </p><br>
+         <strong>TP:</strong> <p align="justify"> Con una explicación clara y al punto sobre las tomas de decisiones en los diseños, hemos podido realizar el landing page y mockups satisfactorios que se apegan a la visión principal. </p><br>
       </td>
       <td>
         <strong>TB1:</strong><br>
         A través de los resultados de nuestras pruebas y diseños anteriores hemos podido documentar y explicar el proceso de desarrollo de nuestro proyecto para tenerlo como base consolidada para todo el equipo.
         <strong>TP:</strong><br>
-        Reemplazar
+        Gracias al enfoque en la claridad de nuestras explicaciones y diagramas hemos podido tener una visión muy clara del objetivo que deseamos realizar através de este proyecto.
       </td>
     </tr>
   </tbody>
@@ -250,6 +251,8 @@ OnControl es una aplicación creada por alumnos de Ingeniería de Software de la
 OnControl ofrece una plataforma integral que facilita la gestión de pacientes y la organización de su información. Los médicos pueden administrar eficientemente los datos y horarios de sus pacientes, asignar tratamientos y procedimientos, y visualizar la evolución clínica mediante un dashboard especializado. Los pacientes, por su parte, pueden acceder a un calendario digital para consultar sus citas médicas, procedimientos y tratamientos.
 
 Como valor diferencial, OnControl se integra mediante APIs con los wearables y sensores IoT (smartwatches, oxímetros) que el paciente ya posee, permitiendo sincronizar parámetros vitales como saturación de oxígeno, ritmo cardíaco y temperatura corporal de forma transparente. Además, nuestra plataforma emplea modelos de Machine Learning predictivo para analizar el historial continuo de estos signos vitales. Esto nos permite generar un Sistema de Alerta Temprana que identifica tendencias de riesgo y posibles descompensaciones antes de que se agraven. Todos estos datos se registran y muestran en la aplicación del paciente y en la plataforma web del médico, generando alertas tanto en tiempo real como preventivas, contribuyendo a una atención clínica más segura, proactiva y oportuna.
+
+Como apoyo general en el control, distribución y adquisición de los dispositivos IoT y sus APIs se está considerando la existencia de una empresa con la cuál haríamos colaboración para que se enfoquen en los partes de hardware ellos mientras nuestro grupo pueda enfocarse completamente en la parte de programación, el control de datos y de los clientes.
 
 **Misión**: Mejorar la calidad de vida de pacientes oncológicos y optimizar el seguimiento médico mediante herramientas tecnológicas innovadoras, datos en tiempo real e inteligencia predictiva.
 
@@ -1932,11 +1935,11 @@ Sensores → Dispositivo IoT → Servidor Edge → IoT Gateway → Monitoreo →
 En este diagrama podemos observar el contexto de nuestra aplicación, identificando el sistema y las relaciones con los diferentes tipos de usuarios que este presenta, además de otros sistemas externos y de terceros que son de ayuda para el desarrollo.
 
 Vista de alto nivel que muestra todos los sistemas, usuarios y sus interacciones:
-- **Usuarios**: Pacientes, Médicos, Familiares
+- **Usuarios**: Pacientes, Médicos, Familiares, Proveedores
 - **Sistema Principal**: OnControl Health Platform
-- **Sistemas Externos**: Dispositivos IoT, Servidor Edge Local
+- **Sistemas Externos**: Dispositivos IoT, API de los dispositivos
 
-<img width="891" height="366" alt="Image" src="https://github.com/user-attachments/assets/ee807daf-7e4e-42a7-b4cf-269ae07887cd" />
+<img width="846" height="353" alt="Image" src="https://github.com/user-attachments/assets/35df7def-8525-4eff-b2c6-0588b4f5ae2a" />
 
 <div id='4.3.2.'><h4>4.3.2. Software Architecture Context Level Diagrams</h4></div>
 
@@ -2020,11 +2023,11 @@ Infraestructura de despliegue en producción:
 
 <img width="11497" height="5154" alt="Image" src="https://github.com/user-attachments/assets/f727230b-7f9b-4429-ad42-a8d592d50ca8" />
 
-# 5. Capítulo V: Tactical-Level Software Design
+<div id='5.'><h2>5. Capítulo V: Tactical-Level Software Design</h2></div>
 
-## 5.1. Bounded Context: Monitoring
+<div id='5.1.'><h3>5.1. Bounded Context: Monitoring</h3></div>
 
-### 5.1.1. Domain Layer
+<div id='5.1.1.'><h4>5.1.1. Domain Layer</h4></div>
 
 Esta capa contiene el núcleo del modelo de negocio y las reglas específicas del dominio. Se compone de agregados, entidades, objetos de valor, servicios de dominio y repositorios que permiten mantener la consistencia de las operaciones principales del Bounded Context.
 
@@ -2172,7 +2175,7 @@ Representa una regla clínica aplicada a una métrica vital. Permite definir val
 | IMonitoringRuleRepository | Define operaciones para administrar reglas clínicas. |
 
 
-### 5.1.2. Interface Layer
+<div id='5.1.2.'><h4>5.1.2. Interface Layer</h4></div>
 
 
 Esta capa expone la funcionalidad del Bounded Context al exterior, ya sea mediante APIs, controladores o endpoints que permiten que otros componentes del sistema interactúen con el dominio.
@@ -2313,21 +2316,7 @@ La Interface Layer del contexto Monitoring se comunica principalmente con:
 | Application Layer | Recibe las solicitudes desde los controladores y ejecuta los casos de uso correspondientes. |
 | Alert & Notification | Recibe eventos cuando una lectura vital supera los umbrales configurados. |
 
-### 5.1.3. Application Layer
-
-Esta capa orquesta los casos de uso y flujos de trabajo del Bounded Context, conectando la Interface Layer con el Domain Layer. Su responsabilidad principal es coordinar las operaciones solicitadas por los controladores, aplicar el flujo correspondiente y delegar la lógica de negocio al modelo de dominio.
-
-La estructura reutilizada para esta capa consiste en definir:
-
-- Command Handlers
-- Query Handlers
-- Application Services
-- Domain Events
-- Flujo principal de ejecución
-
-En esta capa no se definen las reglas principales del negocio ni los detalles técnicos de infraestructura. Las reglas pertenecen al Domain Layer y las implementaciones concretas pertenecen al Infrastructure Layer. La Application Layer se encarga de coordinar el proceso completo.
-
-### 5.1.3. Application Layer
+<div id='5.1.3.'><h4>5.1.3. Application Layer</h4></div>
 
 Esta capa orquesta los casos de uso y flujos de trabajo del Bounded Context, conectando la Interface Layer con el Domain Layer. Su responsabilidad principal es coordinar las operaciones solicitadas por los controladores, aplicar el flujo correspondiente y delegar la lógica de negocio al modelo de dominio.
 
@@ -2557,7 +2546,7 @@ Centraliza la coordinación de los principales casos de uso del contexto Monitor
 | Alert & Notification | Consume eventos generados por Monitoring cuando hay valores anormales. |
 
 
-### 5.1.4. Infrastructure Layer
+<div id='5.1.4.'><h4>5.1.4. Infrastructure Layer</h4></div>
 
 Esta capa contiene las implementaciones concretas necesarias para interactuar con tecnologías externas, bases de datos, servicios de almacenamiento, adaptadores de comunicación y mecanismos de publicación de eventos.
 
@@ -2728,7 +2717,7 @@ Publica eventos generados por el contexto Monitoring para que otros bounded cont
 | Alert & Notification | Consume eventos publicados por Monitoring. |
 
 
-### 5.1.5. Bounded Context Software Architecture Component Level Diagrams
+<div id='5.1.5.'><h4>5.1.5. Bounded Context Software Architecture Component Level Diagrams</h4></div>
 
 <div align="center">
   <img alt="Monitoring Component Level Diagram" src="https://github.com/user-attachments/assets/a77a2844-159f-41ab-9eb4-c9b17a6b672b" />
@@ -2736,9 +2725,9 @@ Publica eventos generados por el contexto Monitoring para que otros bounded cont
 </div>
 
 
-### 5.1.6. Bounded Context Software Architecture Code Level Diagrams
+<div id='5.1.6.'><h4>5.1.6. Bounded Context Software Architecture Code Level Diagrams</h4></div>
 
-#### 5.1.6.1. Bounded Context Domain Layer Class Diagrams
+<div id='5.1.6.1.'><h5>5.1.6.1. Bounded Context Domain Layer Class Diagrams</h5></div>
 
 <div align="center">
   <img alt="Monitoring Domain Layer Class Diagram" src="https://github.com/user-attachments/assets/7f0b8173-38c1-4da6-abc8-87e01c003582" />
@@ -2746,7 +2735,7 @@ Publica eventos generados por el contexto Monitoring para que otros bounded cont
 </div>
 
 
-#### 5.1.6.2. Bounded Context Database Design Diagram
+<div id='5.1.6.2.'><h5>5.1.6.2. Bounded Context Database Design Diagram</h5></div>
 
 <div align="center">
   <img alt="Monitoring Database Design Diagram" src="https://github.com/user-attachments/assets/57870fa2-19ec-4bba-9042-682d30ee31fb" />
@@ -2754,7 +2743,7 @@ Publica eventos generados por el contexto Monitoring para que otros bounded cont
 </div>
 
 
-## 5.2. Bounded Context: Alert & Notification
+<div id='5.2.'><h3>5.2. Bounded Context: Alert & Notification</h3></div>
 
 Este Bounded Context mantiene la misma lógica estructural utilizada en el trabajo de IoT para definir un contexto táctico: primero se presenta el propósito del contexto, luego sus responsabilidades principales y finalmente se detallan sus capas internas.
 
@@ -2788,7 +2777,7 @@ Entre sus funciones principales se encuentran:
 Este contexto es transversal porque apoya a otros módulos del sistema. Por ejemplo, cuando **Monitoring** detecta un valor anormal, **Alert & Notification** se encarga de generar la alerta médica y notificar al médico responsable.
 
 
-### 5.2.1. Domain Layer
+<div id='5.2.1.'><h4>5.2.1. Domain Layer</h4></div>
 
 Esta capa contiene el núcleo del modelo de negocio y las reglas específicas del dominio. Se compone de agregados, entidades, objetos de valor, servicios de dominio y repositorios que permiten mantener la consistencia de las operaciones principales del Bounded Context.
 
@@ -2964,7 +2953,7 @@ Representa una plantilla reutilizable para construir mensajes de notificación s
 | INotificationTemplateRepository | Define operaciones para administrar plantillas de notificación. |
 
 
-### 5.2.2. Interface Layer
+<div id='5.2.2.'><h4>5.2.2. Interface Layer</h4></div>
 
 
 Esta capa expone la funcionalidad del Bounded Context al exterior mediante controladores, APIs o endpoints. Su función principal es recibir solicitudes externas, validar datos básicos de entrada y delegar la ejecución de los casos de uso a la Application Layer.
@@ -3144,7 +3133,7 @@ Aunque la Interface Layer no se encarga de crear eventos de dominio directamente
 | Symptoms & Medication | Origina eventos relacionados con reportes clínicos y síntomas. |
 
 
-### 5.2.3. Application Layer
+<div id='5.2.3.'><h4>5.2.3. Application Layer</h4></div>
 
 Esta capa se encarga de coordinar los casos de uso del Bounded Context, conectando las solicitudes recibidas desde la Interface Layer con el modelo de dominio definido en el Domain Layer.
 
@@ -3485,7 +3474,7 @@ Procesa eventos generados cuando el paciente reporta síntomas.
 | Treatment | Publica eventos de tratamientos que generan notificaciones. |
 | Symptoms & Medication | Publica eventos de síntomas que generan avisos médicos. |
 
-### 5.2.4. Infrastructure Layer
+<div id='5.2.4.'><h4>5.2.4. Infrastructure Layer</h4></div>
 
 Esta capa contiene las implementaciones concretas necesarias para interactuar con tecnologías externas, bases de datos, servicios de mensajería, proveedores de notificaciones y mecanismos de persistencia.
 
@@ -3749,7 +3738,7 @@ Para evitar pérdida de notificaciones importantes, el contexto utiliza un mecan
 | Treatment | Publica eventos de tratamiento para notificar cambios. |
 | Symptoms & Medication | Publica eventos de síntomas para alertar al médico. |
 
-### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
+<div id='5.2.5.'><h4>5.2.5. Bounded Context Software Architecture Component Level Diagrams</h4></div>
 
 <div align="center">
   <img alt="Alert and Notification Component Level Diagram" src="https://github.com/user-attachments/assets/3f0b6f9b-8b3b-4733-92d4-1178d683199e" />
@@ -3758,23 +3747,23 @@ Para evitar pérdida de notificaciones importantes, el contexto utiliza un mecan
 
 
 
-### 5.2.6. Bounded Context Software Architecture Code Level Diagrams
+<div id='5.2.6.'><h4>5.2.6. Bounded Context Software Architecture Code Level Diagrams</h4></div>
 
-#### 5.2.6.1. Bounded Context Domain Layer Class Diagrams
+<div id='5.2.6.1.'><h5>5.2.6.1. Bounded Context Domain Layer Class Diagrams</h5></div>
 
 <div align="center">
   <img alt="Alert and Notification Domain Layer Class Diagram" src="https://github.com/user-attachments/assets/571f6a04-45ae-4003-b36c-6fb4ab2c1db5" />
   <p><em>Figura 5.5. Alert & Notification Bounded Context Domain Layer Class Diagram.</em></p>
 </div>
 
-#### 5.2.6.2. Bounded Context Database Design Diagram
+<div id='5.2.6.2.'><h5>5.2.6.2. Bounded Context Database Design Diagram</h5></div>
 
 <div align="center">
   <img alt="Alert and Notification Database Design Diagram" src="https://github.com/user-attachments/assets/57870fa2-19ec-4bba-9042-682d30ee31fb" />
   <p><em>Figura 5.6. Alert & Notification Bounded Context Database Design Diagram.</em></p>
 </div>
 
-## 5.3. Bounded Context: Predictive AI
+<div id='5.3.'><h3>5.3. Bounded Context: Predictive AI</h3></div>
 
 Este Bounded Context reutiliza la misma estructura táctica aplicada en los contextos anteriores. Se mantiene la división por capas para separar responsabilidades internas del sistema:
 
@@ -3806,7 +3795,7 @@ Entre sus funciones principales se encuentran:
 
 ---
 
-### 5.3.1. Domain Layer
+<div id='5.3.1.'><h4>5.3.1. Domain Layer</h4></div>
 
 Esta capa contiene el núcleo del modelo de negocio y las reglas específicas del dominio. Se compone de agregados, entidades, objetos de valor, servicios de dominio y repositorios que permiten mantener la consistencia de las operaciones principales del Bounded Context.
 
@@ -3977,7 +3966,7 @@ Representa el resultado devuelto por el modelo predictivo antes de ser convertid
 
 ---
 
-### 5.3.2. Interface Layer
+<div id='5.3.2.'><h4>5.3.2. Interface Layer</h4></div>
 
 Esta capa expone la funcionalidad del Bounded Context al exterior mediante controladores, APIs o endpoints. Su función principal es recibir solicitudes externas, validar datos básicos de entrada y delegar la ejecución de los casos de uso a la Application Layer.
 
@@ -4097,7 +4086,7 @@ Permite consultar los datos utilizados para generar una predicción.
 
 ---
 
-### 5.3.3. Application Layer
+<div id='5.3.3.'><h4>5.3.3. Application Layer</h4></div>
 
 Esta capa se encarga de coordinar los casos de uso del Bounded Context, conectando las solicitudes recibidas desde la Interface Layer con el modelo de dominio definido en el Domain Layer.
 
@@ -4222,7 +4211,7 @@ Centraliza la coordinación de los casos de uso del contexto Predictive AI.
 
 ---
 
-### 5.3.4. Infrastructure Layer
+<div id='5.3.4.'><h4>5.3.4. Infrastructure Layer</h4></div>
 
 Esta capa contiene las implementaciones concretas necesarias para interactuar con bases de datos, servicios externos, adaptadores de integración y mecanismos de publicación de eventos.
 
@@ -4334,20 +4323,20 @@ Permite consultar datos históricos del Bounded Context Monitoring.
 
 ---
 
-### 5.3.5. Bounded Context Software Architecture Component Level Diagrams
+<div id='5.3.5.'><h4>5.3.5. Bounded Context Software Architecture Component Level Diagrams</h4></div>
 
 Muestra la arquitectura completa del Predictive AI System con su flujo desde el API Gateway hasta los componentes internos y externos. El RiskPredictionController recibe las solicitudes y las delega al PredictiveAIApplicationService, que coordina la lógica de aplicación. Este despacha un comando hacia el GenerateRiskPredictionCommandHandler, quien orquesta todo el flujo de generación de predicción. Desde el handler se ramifica hacia el RiskPredictionRepository (persistencia), MonitoringDataClient (historial de signos vitales), MachineLearningModelClient (score del modelo) y PredictiveAIEventPublisher (eventos al bus de mensajería). Los Predictive Domain Services encapsulan la extracción de features y la clasificación del riesgo. Externamente, el sistema se comunica con Monitoring BC, ML Model Service y Alert & Notification BC, este último consume eventos para disparar alertas preventivas.
 
 <img width="944" height="1011" alt="Image" src="https://github.com/user-attachments/assets/c4396492-245b-432b-bdda-249f926d75c4" />
 
-### 5.3.6. Bounded Context Software Architecture Code Level Diagrams
+<div id='5.3.6.'><h4>5.3.6. Bounded Context Software Architecture Code Level Diagrams</h4></div>
 
-#### 5.3.6.1. Bounded Context Domain Layer Class Diagrams
+<div id='5.3.6.1.'><h5>5.3.6.1. Bounded Context Domain Layer Class Diagrams</h5></div>
 
 Representa el modelo relacional del sistema con tres tablas principales interconectadas. La tabla patients almacena datos básicos del paciente (nombre, apellido, fecha de nacimiento) con un id VARCHAR como clave primaria. La tabla risk_predictions es la entidad central, guardando el risk_score, el risk_level (LOW, MEDIUM, HIGH, CRITICAL), el status (COMPLETED, FAILED, PENDING) y el timestamp de generación. Cada predicción se vincula a su paciente mediante FK patient_id, estableciendo una relación 1 a 0..* entre ambas tablas. La tabla prediction_inputs almacena cada métrica clínica usada como insumo (ej: HeartRate, O2Saturation), con su valor numérico y timestamp de captura. La relación entre risk_predictions y prediction_inputs es de 1 a 1..*, indicando que toda predicción requiere al menos un input. El diseño refleja claramente la trazabilidad completa desde el paciente hasta cada dato clínico utilizado.
 <img width="2784" height="733" alt="Image" src="https://github.com/user-attachments/assets/1f715577-2e3e-4742-9047-b3377f41cdaa" />
 
-#### 5.3.6.2. Bounded Context Database Design Diagram
+<div id='5.3.6.2.'><h5>5.3.6.2. Bounded Context Database Design Diagram</h5></div>
 
 Ilustra la estructura de clases del dominio siguiendo principios de DDD y arquitectura hexagonal. El RiskPredictionController expone el endpoint REST y delega hacia el PredictiveAIApplicationService, que actúa como coordinador de la capa de aplicación. Este hace dispatch hacia el GenerateRiskPredictionCommandHandler, responsable de orquestar todo el flujo de forma asíncrona. El agregado RiskPrediction es el núcleo del dominio, compuesto por atributos como riskScore, classification (RiskLevel) y status, y contiene una o más entidades PredictionInput con las métricas clínicas. El enum RiskLevel define los niveles LOW, MEDIUM, HIGH y CRITICAL. Las interfaces de salida (IRiskPredictionRepository, IMiningDataClient, IMachineLearningModelClient, IPredictiveAIEventPublisher) representan los puertos hacia infraestructura externa. Los servicios de dominio FeatureExtractionService y RiskClassificationService encapsulan la lógica de extracción de características y clasificación del riesgo respectivamente.
 
