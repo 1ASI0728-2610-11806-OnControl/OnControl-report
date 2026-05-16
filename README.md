@@ -98,7 +98,7 @@ Github también presenta un timeline de las ramas principales y los procesos de 
 
 3. [**Capítulo III: Requirements Specification**](#3.)<br>
    3.1. [To-Be Scenario Mapping.](#3.1.)<br>
-   3.2. [User Stories.](#3.2.)<br>
+   3.2. [ories.](#3.2.)<br>
    3.3. [Impact Mapping.](#3.3.)<br>
    3.4. [Product Backlog.](#3.4.)<br>
 
@@ -240,11 +240,11 @@ OnControl es una aplicación creada por alumnos de Ingeniería de Software de la
 
 OnControl ofrece una plataforma integral que facilita la gestión de pacientes y la organización de su información. Los médicos pueden administrar eficientemente los datos y horarios de sus pacientes, asignar tratamientos y procedimientos, y visualizar la evolución clínica mediante un dashboard especializado. Los pacientes, por su parte, pueden acceder a un calendario digital para consultar sus citas médicas, procedimientos y tratamientos.
 
-Como valor diferencial, OnControl se integra mediante APIs con los wearables y sensores IoT (smartwatches, oxímetros) que el paciente ya posee, permitiendo sincronizar parámetros vitales como saturación de oxígeno, ritmo cardíaco y temperatura corporal. Estos datos se registran y muestran en la aplicación del paciente y en la plataforma web del médico, generando alertas cuando se exceden los rangos saludables y contribuyendo a una atención más segura y oportuna.
+Como valor diferencial, OnControl se integra mediante APIs con los wearables y sensores IoT (smartwatches, oxímetros) que el paciente ya posee, permitiendo sincronizar parámetros vitales como saturación de oxígeno, ritmo cardíaco y temperatura corporal de forma transparente. Además, nuestra plataforma emplea modelos de Machine Learning predictivo para analizar el historial continuo de estos signos vitales. Esto nos permite generar un Sistema de Alerta Temprana que identifica tendencias de riesgo y posibles descompensaciones antes de que se agraven. Todos estos datos se registran y muestran en la aplicación del paciente y en la plataforma web del médico, generando alertas tanto en tiempo real como preventivas, contribuyendo a una atención clínica más segura, proactiva y oportuna.
 
-- **Misión:** Mejorar la calidad de vida de pacientes oncológicos y optimizar el seguimiento médico mediante herramientas tecnológicas innovadoras.
+**Misión**: Mejorar la calidad de vida de pacientes oncológicos y optimizar el seguimiento médico mediante herramientas tecnológicas innovadoras, datos en tiempo real e inteligencia predictiva.
 
-- **Visión:** Ser la plataforma líder en salud oncológica digital en el Perú, reconocida por nuestra innovación, accesibilidad y compromiso con la atención integral.
+**Visión**: Ser la plataforma líder en salud oncológica digital en el Perú, reconocida por nuestra innovación técnica, accesibilidad y compromiso inquebrantable con el bienestar de los pacientes y la eficiencia del ecosistema médico.
 
 </ul>
 <div id='1.1.2.'><h4>1.1.2. Perfiles de los integrantes del equipo</h4></div>
@@ -348,6 +348,7 @@ Frente a la falta de herramientas que faciliten el acceso a información sobre m
 * Creemos que nuestro modelo de negocio será B2B (SaaS), donde las clínicas privadas de oncología pagarán una suscripción institucional para proveer la herramienta a sus oncólogos, garantizando así el respaldo financiero.
 * Creemos que los familiares se beneficiarán de una mayor claridad sobre el estado del paciente, lo que generará confianza y reducirá su ansiedad.
 * Creemos que la digitalización del seguimiento y el monitoreo de parámetros vitales permitirá a los médicos optimizar su tiempo y reducir su carga laboral.
+* Creemos que la incorporación de algoritmos predictivos reducirá los ingresos de emergencia en las clínicas afiliadas, convirtiéndose en el principal argumento de venta B2B.
 
 **Business Outcomes (Resultados esperados):**
 
@@ -362,6 +363,7 @@ Frente a la falta de herramientas que faciliten el acceso a información sobre m
 * Mayor seguridad y confianza al contar con un monitoreo constante de signos vitales.
 * Reducción del estrés y la ansiedad de pacientes y familiares gracias a un sistema más claro y organizado.
 * Organización más eficiente para los médicos tratantes, quienes recibirán alertas tempranas integradas en su flujo clínico diario sin depender de revisar múltiples plataformas o hardware aislado.
+* Capacidad de priorizar la atención diaria gracias a un Score de Riesgo Predictivo asignado por IA a cada paciente.
 
 <div id='1.2.2.3.'><h5>1.2.2.3. Lean UX Hypothesis Statements</h5></div>
 
@@ -379,6 +381,12 @@ Frente a la falta de herramientas que faciliten el acceso a información sobre m
 
 - **Creemos que** aplicar un modelo *Freemium* —donde la aplicación móvil es gratuita para el paciente pero el ecosistema es sostenido por la suscripción de la clínica— acelerará la adopción masiva, mientras que el sistema de alertas automáticas demostrará el valor real de la plataforma ante emergencias.
 - **Será considerado un éxito cuando** logremos una tasa de adopción del 80 % entre los pacientes de las clínicas afiliadas, y al menos el 60 % de los médicos reconozcan que el sistema de alertas les ayudó a tomar decisiones preventivas oportunas que justifican la renovación de la suscripción institucional.
+
+**Hypothesis 4: (Enfoque en Inteligencia Artificial y Predicción de Riesgos)**
+
+**Creemos que** el uso de modelos de Machine Learning predictivo para analizar el historial continuo de signos vitales (obtenidos vía wearables) permitirá identificar patrones y tendencias ocultas, generando un Sistema de Alerta Temprana que anticipe posibles complicaciones de salud en los pacientes.
+
+**Será considerado un éxito cuando** el algoritmo logre predecir correctamente el 70 % de las alertas críticas con al menos 24 horas de anticipación, y las clínicas asociadas reporten una reducción medible en los ingresos de emergencia de sus pacientes, validando así el alto valor tecnológico de nuestra plataforma B2B.
   
 <div id='1.2.2.4.'><h5>1.2.2.4. Lean UX Canvas</h5></div>
 En esta sección se presenta el Lean UX Canvas de la propuesta, donde se detallan los supuestos clave del proyecto, las necesidades de los usuarios, las posibles soluciones y las hipótesis que guiarán el proceso de validación.
@@ -849,6 +857,7 @@ En esta sección se presentan los requisitos del producto digital a partir del a
 | **EP05** | **Comunicación y Soporte** | Como usuario general<br>Quiero comunicarme con médicos y soporte<br>Para resolver dudas y recibir atención |
 | **EP06** | **Seguimiento de Síntomas y Medicamentos** | Como paciente y médico<br>Quiero gestionar síntomas y medicamentos<br>Para realizar seguimiento clínico adecuado |
 | **EP07** | **Información y Marketing** | Como usuario general<br>Quiero acceder a información de la aplicación<br>Para conocer sus beneficios y funcionalidades |
+| **EP08** | **Motor Predictivo y Alertas Tempranas (IA)** | Como médico y sistema (IA)<br> Quiero analizar el historial continuo de signos vitales con Machine Learning<br>Para predecir descompensaciones y generar alertas preventivas antes de una emergencia |
 
 
 <table border="1" class="dataframe">
@@ -1170,6 +1179,20 @@ En esta sección se presentan los requisitos del producto digital a partir del a
       <td><strong>E01 – Notificación push inmediata:</strong> Dado que se detecta un parámetro crítico Cuando se confirma la alerta Entonces el médico recibe una notificación push con los detalles del paciente.<br><br><strong>E02 – Escalación de alertas:</strong> Dado que la alerta no es atendida en 5 minutos Cuando pasa el tiempo límite Entonces el sistema notifica a un segundo médico o contacto de emergencia.</td>
       <td>EP04</td>
     </tr>
+    <tr>
+      <td>US45</td>
+      <td>Score de Riesgo Predictivo</td>
+      <td>Como médico<br>Quiero ver un porcentaje de riesgo predictivo al lado del nombre de cada paciente en mi lista<br>Para priorizar a aquellos que están a punto de sufrir una descompensación</td>
+      <td><strong>E01 – Visualización de riesgo:</strong> Dado que el modelo predictivo ha analizado los datos históricos Cuando el médico visualiza la lista de pacientes Entonces el sistema muestra un porcentaje de riesgo junto al nombre de cada uno.<br><br><strong>E02 – Ordenamiento por riesgo:</strong> Dado que hay múltiples pacientes en la lista Cuando el médico aplica el filtro "Priorizar por riesgo" Entonces la lista se ordena automáticamente de mayor a menor probabilidad de descompensación.</td>
+      <td>EP08</td>
+    </tr>
+    <tr>
+      <td>US46</td>
+      <td>Generación de Alertas Preventivas</td>
+      <td>Como motor de IA (Backend)<br>Quiero procesar el historial de signos vitales diarios mediante un modelo de ML<br>Para generar una alerta preventiva si el paciente tiene alta probabilidad de salir de sus umbrales en los próximos 2 días</td>
+      <td><strong>E01 – Detección de riesgo alto:</strong> Dado que el motor procesa continuamente los datos de los wearables Cuando detecta una probabilidad de descompensación crítica Entonces genera una alerta preventiva amarilla en el dashboard del médico.<br><br><strong>E02 – Sugerencias de autocuidado:</strong> Dado que se activa una alerta preventiva de riesgo moderado Cuando el sistema lo registra Entonces el paciente recibe una notificación push amigable con recomendaciones de descanso o hidratación en su app.</td>
+      <td>EP08</td>
+    </tr>
   </tbody>
 </table>
 
