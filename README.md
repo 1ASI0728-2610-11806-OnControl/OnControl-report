@@ -2731,9 +2731,10 @@ Publica eventos generados por el contexto Monitoring para que otros bounded cont
 ### 5.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 <div align="center">
-  <img width="5300" height="1515" alt="structurizr-106662-IoTFlowContainer" src="https://github.com/user-attachments/assets/4d06d4d9-ce3f-443f-a2d8-b1d67bf57eb8" />
-  <p><em>Figura 5.1. Monitoring Bounded Context Component Level Diagram.</em></p>
+  <img alt="Monitoring Component Level Diagram" src="https://github.com/user-attachments/assets/a77a2844-159f-41ab-9eb4-c9b17a6b672b" />
+  <p><em>Figura 5.1. Monitoring Bounded Context Software Architecture Component Level Diagram.</em></p>
 </div>
+
 
 ### 5.1.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -2748,7 +2749,8 @@ Publica eventos generados por el contexto Monitoring para que otros bounded cont
 #### 5.1.6.2. Bounded Context Database Design Diagram
 
 <div align="center">
-  <p><em>Figura 5.3. Monitoring Bounded Context Database Design Diagram. [Crear nuevo diagrama]</em></p>
+  <img alt="Monitoring Database Design Diagram" src="https://github.com/user-attachments/assets/57870fa2-19ec-4bba-9042-682d30ee31fb" />
+  <p><em>Figura 5.3. Monitoring Bounded Context Database Design Diagram.</em></p>
 </div>
 
 
@@ -3750,9 +3752,10 @@ Para evitar pérdida de notificaciones importantes, el contexto utiliza un mecan
 ### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
 
 <div align="center">
-  <img width="8038" height="5215" alt="structurizr-106662-ContainerDiagram" src="https://github.com/user-attachments/assets/431f26c6-805b-4188-9034-01a3ad1b4480" />
-  <p><em>Figura 5.4. Alert & Notification Bounded Context Component Level Diagram.</em></p>
+  <img alt="Alert and Notification Component Level Diagram" src="https://github.com/user-attachments/assets/3f0b6f9b-8b3b-4733-92d4-1178d683199e" />
+  <p><em>Figura 5.4. Alert & Notification Bounded Context Software Architecture Component Level Diagram.</em></p>
 </div>
+
 
 
 ### 5.2.6. Bounded Context Software Architecture Code Level Diagrams
@@ -3760,13 +3763,15 @@ Para evitar pérdida de notificaciones importantes, el contexto utiliza un mecan
 #### 5.2.6.1. Bounded Context Domain Layer Class Diagrams
 
 <div align="center">
-  <p><em>Figura 5.5. Alert & Notification Bounded Context Domain Layer Class Diagram. [Crear nuevo diagrama]</em></p>
+  <img alt="Alert and Notification Domain Layer Class Diagram" src="https://github.com/user-attachments/assets/571f6a04-45ae-4003-b36c-6fb4ab2c1db5" />
+  <p><em>Figura 5.5. Alert & Notification Bounded Context Domain Layer Class Diagram.</em></p>
 </div>
 
 #### 5.2.6.2. Bounded Context Database Design Diagram
 
 <div align="center">
-  <p><em>Figura 5.6. Alert & Notification Bounded Context Database Design Diagram. [Crear nuevo diagrama]</em></p>
+  <img alt="Alert and Notification Database Design Diagram" src="https://github.com/user-attachments/assets/57870fa2-19ec-4bba-9042-682d30ee31fb" />
+  <p><em>Figura 5.6. Alert & Notification Bounded Context Database Design Diagram.</em></p>
 </div>
 
 ## 5.3. Bounded Context: Predictive AI
