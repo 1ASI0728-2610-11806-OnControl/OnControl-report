@@ -125,24 +125,35 @@ Github también presenta un timeline de las ramas principales y los procesos de 
    4.3.4. [Software Architecture Deployment Diagrams.](#4.3.4.)<br>
 
 5. [**Capítulo V: Tactical-Level Software Design.**](#5.)<br>
-   5.1. [Bounded Context: REEMPLAZAR](#5.1.)<br>
+   5.1. [Bounded Context: Monitoring](#5.1.)<br>
    5.1.1. [Domain Layer.](#5.1.1.)<br>
    5.1.2. [Interface Layer.](#5.1.2.)<br>
    5.1.3. [Application Layer.](#5.1.3.)<br>
    5.1.4. [Infrastructure Layer.](#5.1.4.)<br>
-   5.1.5. [Bounded Context Software Architecture Component Level Diagrams](#5.1.5.)<br>
+   5.1.5. [Bounded Context Software Architecture Component Level Diagrams.](#5.1.5.)<br>
    5.1.6. [Bounded Context Software Architecture Code Level Diagrams.](#5.1.6.)<br>
    5.1.6.1. [Bounded Context Domain Layer Class Diagrams.](#5.1.6.1.)<br>
    5.1.6.2. [Bounded Context Database Design Diagram.](#5.1.6.2.)<br>
-   5.2. [Bounded Context: REEMPLAZAR](#5.2.)<br>
+
+   5.2. [Bounded Context: Alert & Notification](#5.2.)<br>
    5.2.1. [Domain Layer.](#5.2.1.)<br>
    5.2.2. [Interface Layer.](#5.2.2.)<br>
    5.2.3. [Application Layer.](#5.2.3.)<br>
    5.2.4. [Infrastructure Layer.](#5.2.4.)<br>
-   5.2.5. [Bounded Context Software Architecture Component Level Diagrams](#5.2.5.)<br>
+   5.2.5. [Bounded Context Software Architecture Component Level Diagrams.](#5.2.5.)<br>
    5.2.6. [Bounded Context Software Architecture Code Level Diagrams.](#5.2.6.)<br>
    5.2.6.1. [Bounded Context Domain Layer Class Diagrams.](#5.2.6.1.)<br>
    5.2.6.2. [Bounded Context Database Design Diagram.](#5.2.6.2.)<br>
+
+   5.3. [Bounded Context: Predictive AI](#5.3.)<br>
+   5.3.1. [Domain Layer.](#5.3.1.)<br>
+   5.3.2. [Interface Layer.](#5.3.2.)<br>
+   5.3.3. [Application Layer.](#5.3.3.)<br>
+   5.3.4. [Infrastructure Layer.](#5.3.4.)<br>
+   5.3.5. [Bounded Context Software Architecture Component Level Diagrams.](#5.3.5.)<br>
+   5.3.6. [Bounded Context Software Architecture Code Level Diagrams.](#5.3.6.)<br>
+   5.3.6.1. [Bounded Context Domain Layer Class Diagrams.](#5.3.6.1.)<br>
+   5.3.6.2. [Bounded Context Database Design Diagram.](#5.3.6.2.)<br>
 
 6. [**Capítulo V1: Solution UX Design](#6.)<br>
    6.1. [Style Guidelines.](#6.1.)<br>
@@ -3730,6 +3741,573 @@ Para evitar pérdida de notificaciones importantes, el contexto utiliza un mecan
 
 #### 5.2.6.2. Bounded Context Database Design Diagram
 
+## 5.3. Bounded Context: Predictive AI
+
+Este Bounded Context reutiliza la misma estructura táctica aplicada en los contextos anteriores. Se mantiene la división por capas para separar responsabilidades internas del sistema:
+
+- Domain Layer
+- Interface Layer
+- Application Layer
+- Infrastructure Layer
+- Component Level Diagrams
+- Code Level Diagrams
+- Database Design Diagram
+
+También se reutiliza la lógica de eventos entre bounded contexts, donde un contexto recibe información de otros módulos, procesa reglas internas y publica eventos que pueden ser consumidos por Alert & Notification.
+
+El Bounded Context **Predictive AI** encapsula la lógica relacionada con el análisis predictivo de signos vitales, cálculo de riesgo clínico y generación de alertas preventivas.
+
+Este contexto utiliza el historial de lecturas vitales obtenidas desde **Monitoring** para calcular un porcentaje de riesgo asociado a cada paciente. Su objetivo es anticipar posibles descompensaciones antes de que ocurra una emergencia, permitiendo que el médico priorice la atención de pacientes con mayor probabilidad de presentar valores críticos.
+
+Este contexto no reemplaza al monitoreo en tiempo real. Mientras **Monitoring** detecta valores anormales actuales, **Predictive AI** analiza tendencias históricas para estimar riesgos futuros.
+
+Entre sus funciones principales se encuentran:
+
+- recibir datos históricos de signos vitales;
+- preparar datos para análisis predictivo;
+- ejecutar un modelo de Machine Learning;
+- calcular el score de riesgo del paciente;
+- registrar predicciones generadas;
+- emitir eventos de riesgo predictivo;
+- comunicar alertas preventivas hacia Alert & Notification.
+
+---
+
+### 5.3.1. Domain Layer
+
+Esta capa contiene el núcleo del modelo de negocio y las reglas específicas del dominio. Se compone de agregados, entidades, objetos de valor, servicios de dominio y repositorios que permiten mantener la consistencia de las operaciones principales del Bounded Context.
+
+La estructura del Domain Layer se organiza de la siguiente manera:
+
+- Aggregates / Aggregate Roots
+- Entities
+- Value Objects
+- Domain Services
+- Repositories
+
+Cada elemento del dominio se describe mediante su propósito, atributos principales y métodos relevantes. Esta organización permite separar la lógica de negocio de los detalles técnicos de infraestructura, manteniendo un modelo de dominio claro, consistente y alineado con las responsabilidades del contexto.
+
+
+En el Bounded Context **Predictive AI**, el dominio se enfoca en representar predicciones clínicas, scores de riesgo, modelos predictivos y resultados de análisis generados a partir del historial de signos vitales.
+
+---
+
+#### Aggregates / Aggregate Roots
+
+##### RiskPrediction
+
+**Propósito:**  
+Representa una predicción de riesgo generada para un paciente a partir del análisis de sus signos vitales históricos. Actúa como Aggregate Root porque concentra el resultado predictivo, el nivel de riesgo, el modelo utilizado y la vigencia de la predicción.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único de la predicción. |
+| patientId | UUID | Identificador del paciente evaluado. |
+| modelId | UUID | Identificador del modelo predictivo utilizado. |
+| riskScore | Decimal | Porcentaje de riesgo calculado. |
+| riskLevel | RiskLevel | Nivel de riesgo: bajo, medio, alto o crítico. |
+| predictionWindow | PredictionWindow | Ventana temporal de predicción. |
+| generatedAt | DateTime | Fecha y hora de generación de la predicción. |
+| expiresAt | DateTime | Fecha y hora de expiración de la predicción. |
+| status | PredictionStatus | Estado de la predicción. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| classifyRisk() | Clasifica el score en un nivel de riesgo. |
+| isHighRisk() | Verifica si la predicción representa riesgo alto o crítico. |
+| expire() | Marca la predicción como expirada. |
+| isValid() | Verifica si la predicción aún se encuentra vigente. |
+| requiresPreventiveAlert() | Determina si debe generarse una alerta preventiva. |
+
+---
+
+#### Entities
+
+##### AIModel
+
+**Propósito:**  
+Representa el modelo de Machine Learning utilizado para generar predicciones de riesgo clínico.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador único del modelo. |
+| name | String | Nombre del modelo predictivo. |
+| version | String | Versión del modelo. |
+| algorithmType | AlgorithmType | Tipo de algoritmo utilizado. |
+| accuracy | Decimal | Precisión estimada del modelo. |
+| status | ModelStatus | Estado del modelo. |
+| deployedAt | DateTime | Fecha de despliegue del modelo. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| activate() | Activa el modelo para generar predicciones. |
+| deactivate() | Desactiva el modelo. |
+| isAvailable() | Verifica si el modelo puede usarse. |
+| updateMetrics(accuracy) | Actualiza métricas de rendimiento del modelo. |
+
+---
+
+##### PredictionInput
+
+**Propósito:**  
+Representa el conjunto de datos preparado para ejecutar una predicción. Incluye métricas vitales históricas y variables derivadas.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador del input predictivo. |
+| patientId | UUID | Paciente asociado. |
+| heartRateAvg | Decimal | Promedio de ritmo cardíaco. |
+| oxygenSaturationAvg | Decimal | Promedio de saturación de oxígeno. |
+| temperatureAvg | Decimal | Promedio de temperatura corporal. |
+| heartRateTrend | Decimal | Tendencia del ritmo cardíaco. |
+| oxygenTrend | Decimal | Tendencia de oxigenación. |
+| temperatureTrend | Decimal | Tendencia de temperatura. |
+| generatedAt | DateTime | Fecha de generación del input. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| hasEnoughData() | Verifica si existen datos suficientes para predecir. |
+| normalize() | Normaliza los valores para el modelo. |
+| validate() | Valida integridad del conjunto de entrada. |
+
+---
+
+##### PredictionResult
+
+**Propósito:**  
+Representa el resultado devuelto por el modelo predictivo antes de ser convertido en una predicción clínica persistente.
+
+**Atributos:**
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador del resultado. |
+| inputId | UUID | Identificador del conjunto de entrada. |
+| riskScore | Decimal | Score de riesgo devuelto por el modelo. |
+| confidence | Decimal | Nivel de confianza de la predicción. |
+| explanation | String | Explicación breve de los factores relevantes. |
+| createdAt | DateTime | Fecha de creación del resultado. |
+
+**Métodos:**
+
+| Método | Descripción |
+|---|---|
+| isReliable() | Verifica si la confianza supera el mínimo requerido. |
+| toRiskPrediction() | Convierte el resultado en una predicción del dominio. |
+
+---
+
+#### Value Objects
+
+| Value Object | Descripción |
+|---|---|
+| RiskScore | Representa el porcentaje de riesgo calculado. |
+| RiskLevel | Define niveles: LOW, MEDIUM, HIGH, CRITICAL. |
+| PredictionWindow | Define la ventana temporal de predicción, por ejemplo 24 o 48 horas. |
+| PredictionStatus | Define estados: ACTIVE, EXPIRED, DISCARDED. |
+| AlgorithmType | Define el tipo de algoritmo: REGRESSION, RANDOM_FOREST, NEURAL_NETWORK, GRADIENT_BOOSTING. |
+| ModelStatus | Define estados del modelo: ACTIVE, INACTIVE, TRAINING, DEPRECATED. |
+
+---
+
+#### Domain Services
+
+| Servicio | Propósito |
+|---|---|
+| RiskClassificationService | Clasifica el score predictivo en nivel de riesgo. |
+| PredictionValidationService | Verifica si existen datos suficientes y confiables para ejecutar la predicción. |
+| FeatureExtractionService | Extrae variables relevantes desde el historial de signos vitales. |
+| PreventiveAlertPolicyService | Determina si una predicción debe convertirse en alerta preventiva. |
+
+---
+
+#### Repositories
+
+| Repositorio | Propósito |
+|---|---|
+| IRiskPredictionRepository | Define operaciones para guardar y consultar predicciones. |
+| IAIModelRepository | Define operaciones para consultar modelos predictivos disponibles. |
+| IPredictionInputRepository | Define operaciones para almacenar los datos usados en la predicción. |
+| IPredictionResultRepository | Define operaciones para guardar resultados generados por el modelo. |
+
+---
+
+### 5.3.2. Interface Layer
+
+Esta capa expone la funcionalidad del Bounded Context al exterior mediante controladores, APIs o endpoints. Su función principal es recibir solicitudes externas, validar datos básicos de entrada y delegar la ejecución de los casos de uso a la Application Layer.
+
+La estructura reutilizada para esta capa consiste en definir:
+
+- Controllers
+- Endpoints
+- Operaciones disponibles
+- Request / Response DTOs
+- Relación con otros componentes
+
+
+En el Bounded Context **Predictive AI**, la Interface Layer permite que la aplicación web del médico, la aplicación móvil y otros servicios internos consulten predicciones, scores de riesgo y resultados del modelo predictivo.
+
+---
+
+#### Controllers
+
+##### RiskPredictionController
+
+**Propósito:**  
+Gestiona las solicitudes relacionadas con predicciones de riesgo clínico.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/patients/{patientId}/risk-predictions/latest` | GET | Obtiene la última predicción de riesgo del paciente. |
+| `/api/patients/{patientId}/risk-predictions` | GET | Lista el historial de predicciones del paciente. |
+| `/api/patients/{patientId}/risk-predictions/generate` | POST | Solicita la generación de una nueva predicción. |
+| `/api/doctors/{doctorId}/risk-dashboard` | GET | Lista pacientes ordenados por score de riesgo. |
+
+---
+
+##### AIModelController
+
+**Propósito:**  
+Administra la consulta de modelos predictivos disponibles y su estado.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/ai-models` | GET | Lista los modelos predictivos registrados. |
+| `/api/ai-models/active` | GET | Obtiene el modelo activo para predicciones clínicas. |
+| `/api/ai-models/{modelId}` | GET | Obtiene detalle de un modelo predictivo. |
+
+---
+
+##### PredictionInputController
+
+**Propósito:**  
+Permite consultar los datos utilizados para generar una predicción.
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/predictions/{predictionId}/input` | GET | Obtiene el conjunto de datos usado para una predicción. |
+| `/api/patients/{patientId}/prediction-input/latest` | GET | Obtiene el último input predictivo generado. |
+
+---
+
+#### Request / Response DTOs
+
+##### RiskPredictionResponse
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| id | UUID | Identificador de la predicción. |
+| patientId | UUID | Paciente evaluado. |
+| riskScore | Decimal | Porcentaje de riesgo calculado. |
+| riskLevel | String | Nivel de riesgo. |
+| confidence | Decimal | Nivel de confianza del resultado. |
+| predictionWindow | String | Ventana temporal de predicción. |
+| generatedAt | DateTime | Fecha de generación. |
+| expiresAt | DateTime | Fecha de expiración. |
+
+---
+
+##### GenerateRiskPredictionRequest
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| patientId | UUID | Paciente que será evaluado. |
+| predictionWindowHours | Integer | Cantidad de horas a predecir. |
+| forceRefresh | Boolean | Indica si se debe generar una nueva predicción aunque exista una vigente. |
+
+---
+
+##### RiskDashboardResponse
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| patientId | UUID | Paciente evaluado. |
+| patientName | String | Nombre del paciente. |
+| riskScore | Decimal | Porcentaje de riesgo. |
+| riskLevel | String | Nivel de riesgo. |
+| lastPredictionAt | DateTime | Fecha de última predicción. |
+
+---
+
+#### Eventos expuestos o derivados desde la interfaz
+
+| Acción desde interfaz | Evento posible |
+|---|---|
+| Generar predicción | `RiskPredictionGenerated` |
+| Detectar riesgo alto | `PredictiveRiskDetected` |
+| Consultar dashboard de riesgo | No genera evento, solo consulta |
+| Expirar predicción | `RiskPredictionExpired` |
+
+---
+
+#### Relación con otros componentes
+
+| Componente | Relación |
+|---|---|
+| Aplicación web del médico | Consulta score de riesgo y priorización de pacientes. |
+| Aplicación móvil | Puede mostrar recomendaciones preventivas al paciente. |
+| Monitoring | Provee historial de signos vitales para generar predicciones. |
+| Alert & Notification | Consume eventos de riesgo alto para emitir alertas preventivas. |
+| API Gateway | Protege y canaliza solicitudes hacia Predictive AI. |
+
+---
+
+### 5.3.3. Application Layer
+
+Esta capa se encarga de coordinar los casos de uso del Bounded Context, conectando las solicitudes recibidas desde la Interface Layer con el modelo de dominio definido en el Domain Layer.
+
+La estructura reutilizada para esta capa consiste en definir:
+
+- Command Handlers
+- Query Handlers
+- Application Services
+- Domain Events
+- Flujos principales de ejecución
+
+En el Bounded Context **Predictive AI**, la Application Layer coordina los casos de uso relacionados con la generación, consulta, validación y publicación de predicciones de riesgo.
+
+---
+
+#### Command Handlers
+
+##### GenerateRiskPredictionCommandHandler
+
+**Propósito:**  
+Genera una predicción de riesgo clínico para un paciente.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Obtener historial | Solicita lecturas históricas al contexto Monitoring. |
+| Preparar input | Genera variables predictivas a partir de los signos vitales. |
+| Validar datos | Verifica si existen datos suficientes. |
+| Ejecutar modelo | Invoca el modelo predictivo activo. |
+| Clasificar riesgo | Usa `RiskClassificationService`. |
+| Guardar predicción | Persiste el resultado generado. |
+| Publicar evento | Genera `RiskPredictionGenerated` o `PredictiveRiskDetected`. |
+
+---
+
+##### ExpireRiskPredictionCommandHandler
+
+**Propósito:**  
+Marca una predicción como expirada cuando supera su ventana de validez.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Buscar predicción | Obtiene predicciones activas vencidas. |
+| Validar expiración | Verifica si ya superaron su vigencia. |
+| Expirar predicción | Ejecuta el método `expire()`. |
+| Guardar cambios | Actualiza el estado. |
+| Publicar evento | Genera `RiskPredictionExpired`. |
+
+---
+
+#### Query Handlers
+
+##### GetLatestRiskPredictionQueryHandler
+
+**Propósito:**  
+Obtiene la última predicción de riesgo generada para un paciente.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir patientId | Identifica al paciente consultado. |
+| Consultar repositorio | Busca la predicción más reciente. |
+| Validar vigencia | Verifica si la predicción sigue activa. |
+| Preparar respuesta | Devuelve score, nivel y fecha de generación. |
+
+---
+
+##### GetDoctorRiskDashboardQueryHandler
+
+**Propósito:**  
+Obtiene la lista de pacientes ordenada por nivel de riesgo para el dashboard médico.
+
+| Responsabilidad | Descripción |
+|---|---|
+| Recibir doctorId | Identifica al médico. |
+| Consultar predicciones | Obtiene última predicción por paciente. |
+| Ordenar por riesgo | Prioriza pacientes con riesgo alto o crítico. |
+| Preparar respuesta | Devuelve datos listos para el dashboard. |
+
+---
+
+#### Application Services
+
+##### PredictiveAIApplicationService
+
+**Propósito:**  
+Centraliza la coordinación de los casos de uso del contexto Predictive AI.
+
+| Método | Descripción |
+|---|---|
+| generateRiskPrediction(command) | Genera una nueva predicción de riesgo. |
+| expireRiskPrediction(command) | Expira predicciones vencidas. |
+| getLatestRiskPrediction(query) | Obtiene la última predicción de un paciente. |
+| getDoctorRiskDashboard(query) | Obtiene pacientes priorizados por riesgo. |
+
+---
+
+#### Domain Events
+
+| Evento | Descripción |
+|---|---|
+| RiskPredictionGenerated | Se genera cuando una predicción fue calculada correctamente. |
+| PredictiveRiskDetected | Se genera cuando el paciente presenta riesgo alto o crítico. |
+| RiskPredictionExpired | Se genera cuando una predicción deja de estar vigente. |
+| AIModelUsed | Se genera cuando un modelo predictivo fue utilizado. |
+
+---
+
+#### Flujo principal: generar score de riesgo predictivo
+
+1. El médico consulta el dashboard de riesgo.
+2. El sistema solicita la predicción más reciente de cada paciente.
+3. Si no existe una predicción vigente, se ejecuta `GenerateRiskPredictionCommandHandler`.
+4. Se obtiene el historial de signos vitales desde Monitoring.
+5. Se preparan las variables de entrada mediante `FeatureExtractionService`.
+6. Se valida si existen datos suficientes.
+7. Se ejecuta el modelo predictivo activo.
+8. Se genera un `PredictionResult`.
+9. Se convierte el resultado en `RiskPrediction`.
+10. Se clasifica el nivel de riesgo.
+11. Se guarda la predicción.
+12. Si el riesgo es alto o crítico, se publica `PredictiveRiskDetected`.
+13. Alert & Notification consume el evento y genera una alerta preventiva.
+
+---
+
+### 5.3.4. Infrastructure Layer
+
+Esta capa contiene las implementaciones concretas necesarias para interactuar con bases de datos, servicios externos, adaptadores de integración y mecanismos de publicación de eventos.
+
+La estructura reutilizada para esta capa consiste en definir:
+
+- Repository Implementations
+- External Service Implementations
+- Persistence
+- Integration Adapters
+- Event Publishing
+
+En el Bounded Context **Predictive AI**, la Infrastructure Layer se encarga de persistir predicciones, consultar datos históricos, ejecutar modelos de Machine Learning y publicar eventos hacia otros bounded contexts.
+
+---
+
+#### Repository Implementations
+
+##### RiskPredictionRepository
+
+| Método | Descripción |
+|---|---|
+| save(prediction) | Guarda una predicción generada. |
+| findLatestByPatientId(patientId) | Obtiene la última predicción de un paciente. |
+| findByPatientId(patientId) | Lista predicciones históricas del paciente. |
+| findActivePredictions() | Lista predicciones activas. |
+
+---
+
+##### AIModelRepository
+
+| Método | Descripción |
+|---|---|
+| save(model) | Guarda información de un modelo predictivo. |
+| findActiveModel() | Obtiene el modelo activo. |
+| findById(modelId) | Obtiene detalle de un modelo. |
+| updateStatus(modelId, status) | Actualiza el estado de un modelo. |
+
+---
+
+##### PredictionInputRepository
+
+| Método | Descripción |
+|---|---|
+| save(input) | Guarda los datos preparados para predicción. |
+| findByPredictionId(predictionId) | Obtiene los datos usados en una predicción. |
+| findLatestByPatientId(patientId) | Obtiene el último input generado. |
+
+---
+
+#### External Service Implementations
+
+##### MachineLearningModelClient
+
+**Propósito:**  
+Permite ejecutar el modelo predictivo desplegado como servicio interno o externo.
+
+| Función | Descripción |
+|---|---|
+| predict(input) | Envía los datos preparados al modelo y obtiene un score. |
+| checkHealth() | Verifica disponibilidad del servicio de IA. |
+| getModelMetadata() | Obtiene información del modelo activo. |
+
+---
+
+##### MonitoringDataClient
+
+**Propósito:**  
+Permite consultar datos históricos del Bounded Context Monitoring.
+
+| Función | Descripción |
+|---|---|
+| getVitalReadings(patientId, from, to) | Obtiene lecturas históricas de signos vitales. |
+| getLatestReading(patientId) | Obtiene la lectura más reciente. |
+| getAggregatedMetrics(patientId) | Obtiene métricas agregadas del paciente. |
+
+---
+
+#### Persistence
+
+| Tabla / Colección | Propósito |
+|---|---|
+| risk_predictions | Guarda predicciones de riesgo generadas. |
+| ai_models | Guarda información de modelos predictivos. |
+| prediction_inputs | Guarda datos preparados para ejecutar predicciones. |
+| prediction_results | Guarda resultados devueltos por el modelo. |
+
+---
+
+#### Event Publishing
+
+##### PredictiveAIEventPublisher
+
+| Evento publicado | Destino principal | Descripción |
+|---|---|---|
+| RiskPredictionGenerated | Sistemas internos | Informa que se generó una predicción. |
+| PredictiveRiskDetected | Alert & Notification | Informa que se detectó riesgo alto o crítico. |
+| RiskPredictionExpired | Sistemas internos | Informa que una predicción expiró. |
+
+---
+
+#### Integration Adapters
+
+| Adaptador | Responsabilidad |
+|---|---|
+| MLModelAdapter | Adapta la comunicación con el modelo predictivo. |
+| MonitoringDataAdapter | Adapta la consulta de datos históricos desde Monitoring. |
+| EventBusPublisherAdapter | Publica eventos generados por Predictive AI. |
+| FeatureEngineeringAdapter | Transforma datos vitales en variables para el modelo. |
+
+---
+
+### 5.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+### 5.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+#### 5.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+#### 5.3.6.2. Bounded Context Database Design Diagram
 
 <div id='6.'><h2>6. Capítulo V: Solution UI/UX Design</h2></div>
 
