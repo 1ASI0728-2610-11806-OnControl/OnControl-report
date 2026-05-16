@@ -2730,11 +2730,27 @@ Publica eventos generados por el contexto Monitoring para que otros bounded cont
 
 ### 5.1.5. Bounded Context Software Architecture Component Level Diagrams
 
+<div align="center">
+  <img width="5300" height="1515" alt="structurizr-106662-IoTFlowContainer" src="https://github.com/user-attachments/assets/4d06d4d9-ce3f-443f-a2d8-b1d67bf57eb8" />
+  <p><em>Figura 5.1. Monitoring Bounded Context Component Level Diagram.</em></p>
+</div>
+
 ### 5.1.6. Bounded Context Software Architecture Code Level Diagrams
 
 #### 5.1.6.1. Bounded Context Domain Layer Class Diagrams
 
+<div align="center">
+  <img alt="Monitoring Domain Layer Class Diagram" src="https://github.com/user-attachments/assets/7f0b8173-38c1-4da6-abc8-87e01c003582" />
+  <p><em>Figura 5.2. Monitoring Bounded Context Domain Layer Class Diagram.</em></p>
+</div>
+
+
 #### 5.1.6.2. Bounded Context Database Design Diagram
+
+<div align="center">
+  <p><em>Figura 5.3. Monitoring Bounded Context Database Design Diagram. [Crear nuevo diagrama]</em></p>
+</div>
+
 
 ## 5.2. Bounded Context: Alert & Notification
 
@@ -3733,11 +3749,25 @@ Para evitar pérdida de notificaciones importantes, el contexto utiliza un mecan
 
 ### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
 
+<div align="center">
+  <img width="8038" height="5215" alt="structurizr-106662-ContainerDiagram" src="https://github.com/user-attachments/assets/431f26c6-805b-4188-9034-01a3ad1b4480" />
+  <p><em>Figura 5.4. Alert & Notification Bounded Context Component Level Diagram.</em></p>
+</div>
+
+
 ### 5.2.6. Bounded Context Software Architecture Code Level Diagrams
 
 #### 5.2.6.1. Bounded Context Domain Layer Class Diagrams
 
+<div align="center">
+  <p><em>Figura 5.5. Alert & Notification Bounded Context Domain Layer Class Diagram. [Crear nuevo diagrama]</em></p>
+</div>
+
 #### 5.2.6.2. Bounded Context Database Design Diagram
+
+<div align="center">
+  <p><em>Figura 5.6. Alert & Notification Bounded Context Database Design Diagram. [Crear nuevo diagrama]</em></p>
+</div>
 
 ## 5.3. Bounded Context: Predictive AI
 
