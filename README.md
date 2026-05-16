@@ -1950,11 +1950,11 @@ Diagramas de contexto que muestran cómo el sistema interactúa con usuarios y s
 
 **PatientContext:**
 
-<img width="1575" height="2000" alt="structurizr-106662-PatientContext" src="https://github.com/user-attachments/assets/616bfd0c-acf2-46c4-9386-1a46dbbb6c86" />
+<img width="424" height="740" alt="Image" src="https://github.com/user-attachments/assets/b1ac4296-31b2-415d-81c8-5dc1790b147d" />
 
 **DoctorContext:**
 
-<img width="424" height="740" alt="Image" src="https://github.com/user-attachments/assets/b1ac4296-31b2-415d-81c8-5dc1790b147d" />
+<img width="907" height="1400" alt="structurizr-106662-DoctorContext" src="https://github.com/user-attachments/assets/d529af9a-24b5-46e2-ad1d-2ea58a243292" />
 
 
 <div id='4.3.3.'><h4>4.3.3. Software Architecture Container Level Diagrams</h4></div>
