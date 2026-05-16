@@ -4336,11 +4336,24 @@ Permite consultar datos históricos del Bounded Context Monitoring.
 
 ### 5.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+Muestra la arquitectura completa del Predictive AI System con su flujo desde el API Gateway hasta los componentes internos y externos. El RiskPredictionController recibe las solicitudes y las delega al PredictiveAIApplicationService, que coordina la lógica de aplicación. Este despacha un comando hacia el GenerateRiskPredictionCommandHandler, quien orquesta todo el flujo de generación de predicción. Desde el handler se ramifica hacia el RiskPredictionRepository (persistencia), MonitoringDataClient (historial de signos vitales), MachineLearningModelClient (score del modelo) y PredictiveAIEventPublisher (eventos al bus de mensajería). Los Predictive Domain Services encapsulan la extracción de features y la clasificación del riesgo. Externamente, el sistema se comunica con Monitoring BC, ML Model Service y Alert & Notification BC, este último consume eventos para disparar alertas preventivas.
+
+<img width="944" height="1011" alt="Image" src="https://github.com/user-attachments/assets/c4396492-245b-432b-bdda-249f926d75c4" />
+
 ### 5.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 #### 5.3.6.1. Bounded Context Domain Layer Class Diagrams
 
+Representa el modelo relacional del sistema con tres tablas principales interconectadas. La tabla patients almacena datos básicos del paciente (nombre, apellido, fecha de nacimiento) con un id VARCHAR como clave primaria. La tabla risk_predictions es la entidad central, guardando el risk_score, el risk_level (LOW, MEDIUM, HIGH, CRITICAL), el status (COMPLETED, FAILED, PENDING) y el timestamp de generación. Cada predicción se vincula a su paciente mediante FK patient_id, estableciendo una relación 1 a 0..* entre ambas tablas. La tabla prediction_inputs almacena cada métrica clínica usada como insumo (ej: HeartRate, O2Saturation), con su valor numérico y timestamp de captura. La relación entre risk_predictions y prediction_inputs es de 1 a 1..*, indicando que toda predicción requiere al menos un input. El diseño refleja claramente la trazabilidad completa desde el paciente hasta cada dato clínico utilizado.
+<img width="2784" height="733" alt="Image" src="https://github.com/user-attachments/assets/1f715577-2e3e-4742-9047-b3377f41cdaa" />
+
 #### 5.3.6.2. Bounded Context Database Design Diagram
+
+Ilustra la estructura de clases del dominio siguiendo principios de DDD y arquitectura hexagonal. El RiskPredictionController expone el endpoint REST y delega hacia el PredictiveAIApplicationService, que actúa como coordinador de la capa de aplicación. Este hace dispatch hacia el GenerateRiskPredictionCommandHandler, responsable de orquestar todo el flujo de forma asíncrona. El agregado RiskPrediction es el núcleo del dominio, compuesto por atributos como riskScore, classification (RiskLevel) y status, y contiene una o más entidades PredictionInput con las métricas clínicas. El enum RiskLevel define los niveles LOW, MEDIUM, HIGH y CRITICAL. Las interfaces de salida (IRiskPredictionRepository, IMiningDataClient, IMachineLearningModelClient, IPredictiveAIEventPublisher) representan los puertos hacia infraestructura externa. Los servicios de dominio FeatureExtractionService y RiskClassificationService encapsulan la lógica de extracción de características y clasificación del riesgo respectivamente.
+
+<img width="501" height="572" alt="Image" src="https://github.com/user-attachments/assets/6061a8b8-cd21-4d1f-b28e-3619b31660ea" />
+
+
 
 <div id='6.'><h2>6. Capítulo V: Solution UI/UX Design</h2></div>
 
