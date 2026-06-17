@@ -134,7 +134,6 @@ Github también presenta un timeline de las ramas principales y los procesos de 
    5.1.6. [Bounded Context Software Architecture Code Level Diagrams.](#5.1.6.)<br>
    5.1.6.1. [Bounded Context Domain Layer Class Diagrams.](#5.1.6.1.)<br>
    5.1.6.2. [Bounded Context Database Design Diagram.](#5.1.6.2.)<br>
-
    5.2. [Bounded Context: Alert & Notification](#5.2.)<br>
    5.2.1. [Domain Layer.](#5.2.1.)<br>
    5.2.2. [Interface Layer.](#5.2.2.)<br>
@@ -144,7 +143,6 @@ Github también presenta un timeline de las ramas principales y los procesos de 
    5.2.6. [Bounded Context Software Architecture Code Level Diagrams.](#5.2.6.)<br>
    5.2.6.1. [Bounded Context Domain Layer Class Diagrams.](#5.2.6.1.)<br>
    5.2.6.2. [Bounded Context Database Design Diagram.](#5.2.6.2.)<br>
-
    5.3. [Bounded Context: Predictive AI](#5.3.)<br>
    5.3.1. [Domain Layer.](#5.3.1.)<br>
    5.3.2. [Interface Layer.](#5.3.2.)<br>
@@ -155,20 +153,44 @@ Github también presenta un timeline de las ramas principales y los procesos de 
    5.3.6.1. [Bounded Context Domain Layer Class Diagrams.](#5.3.6.1.)<br>
    5.3.6.2. [Bounded Context Database Design Diagram.](#5.3.6.2.)<br>
 
-6. [**Capítulo V1: Solution UX Design](#6.)<br>
+6. [**Capítulo VI: Solution UX Design](#6.)<br>
    6.1. [Style Guidelines.](#6.1.)<br>
    6.2. [Information Architecture.](#6.2.)<br>
-      6.2.1. [Labeling Systems.](#6.2.1.)<br>
-      6.2.2. [Searching Systems.](#6.2.2.)<br>
-      6.2.3. [SEO Tags and Meta Tags.](#6.2.3.)<br>
-      6.2.4. [Navigation Systems.](#6.2.4.)<br>
+   6.2.1. [Labeling Systems.](#6.2.1.)<br>
+   6.2.2. [Searching Systems.](#6.2.2.)<br>
+   6.2.3. [SEO Tags and Meta Tags.](#6.2.3.)<br>
+   6.2.4. [Navigation Systems.](#6.2.4.)<br>
    6.3. [Landing Page UI Design.](#6.3.)<br>
-      6.3.1. [Landing Page Wireframe.](#6.3.1.)<br>
-      6.3.2. [Landing Page Mock-up.](#6.3.2.)<br>
+   6.3.1. [Landing Page Wireframe.](#6.3.1.)<br>
+   6.3.2. [Landing Page Mock-up.](#6.3.2.)<br>
    6.4. [Applications UX/UI Design.](#6.4.)<br>
-      6.4.1. [Applications Wireframes.](#6.4.1.)<br>
-      6.4.2. [Applications Wireflow Diagrams.](#6.4.2.)<br>
-      6.4.3. [Applications Mock-ups.](#6.4.3.)<br>
+   6.4.1. [Applications Wireframes.](#6.4.1.)<br>
+   6.4.2. [Applications Wireflow Diagrams.](#6.4.2.)<br>
+   6.4.3. [Applications Mock-ups.](#6.4.3.)<br>
+   6.4.4. [Applications User Flow Diagrams](#6.4.4.)<br>
+   6.5. [Applications Prototyping](#6.5.)<br>
+
+7. [**Capítulo VII: Product Implementation, Validation & Deployment](#7.)<br>
+   7.1. [Software Configuration Management.](#7.1.)<br>
+   7.1.1. [Software Development Environment Configuration.](#7.1.1.)<br>
+   7.1.2. [Source Code Management.](#7.1.2.)<br>
+   7.1.3. [Source Code Style Guide & Conventions.](#7.1.3.)<br>
+   7.1.4. [Software Deployment Configuration.](#7.1.4.)<br>
+   7.2. [Solution Implementation.](#7.2.)<br>
+   7.2.1. [Sprint 1.](#7.2.1.)<br>
+   7.2.1.1. [Sprint Planning 1.](#7.2.1.1.)<br>
+   7.2.1.2. [Sprint Backlog 1.](#7.2.1.2.)<br>
+   7.2.1.3. [Development Evidence for Sprint Review.](#7.2.1.3.)<br>
+   7.2.1.4. [Testing Suite Evidence for Sprint Review.](#7.2.1.4.)<br>
+   7.2.1.5. [Execution Evidence for Sprint Review.](#7.2.1.5.)<br>
+   7.2.1.6. [Services Documentation Evidence for Sprint Review.](#7.2.1.6.)<br>
+   7.2.1.7. [Software Deployment Evidence for Sprint Review.](#7.2.1.7.)<br>
+   7.3. [Validation Interviews.](#7.3.)<br>
+   7.3.1. [Diseño de Entrevistas.](#7.3.1.)<br>
+   7.3.2. [Registro de Entrevistas.](#7.3.2.)<br>
+   7.3.3. [Evaluaciones Según Heurísticas.](#7.3.3.)<br>
+   7.4. [Video About-the-Product.](#7.4.)<br>
+   7.5. [Conclusiones.](#7.5.)<br>
 
 7. [**Conclusiones.**](#7.)<br>
 8. [**Bibliografía.**](#8.)<br>
@@ -4344,7 +4366,7 @@ Ilustra la estructura de clases del dominio siguiendo principios de DDD y arquit
 
 
 
-<div id='6.'><h2>6. Capítulo V: Solution UI/UX Design</h2></div>
+<div id='6.'><h2>6. Capítulo VI: Solution UI/UX Design</h2></div>
 
 <div id='6.1.'><h3>6.1. Style Guidelines</h3></div>
 
@@ -5009,6 +5031,1033 @@ Esta sección presenta los mock-ups de las aplicaciones, donde se materializa vi
 <img width="1319" height="947" alt="24" src="https://github.com/user-attachments/assets/bdd90435-74ee-4cca-89e5-1b53190920fb" />
 
 <div id='7.'><h2>7. Conclusiones</h2></div>
+
+
+1. **Ecosistema Integral con Modelo Sostenible:** OnControl trasciende una simple aplicación al integrar gestión médica, acompañamiento emocional y herramientas de autocontrol bajo un modelo freemium que balancea accesibilidad para pacientes con valor tangible para profesionales, asegurando viabilidad económica.
+
+2. **Experiencia de Usuario Empática y Técnicamente Sólida:** El diseño prioriza interfaces intuitivas y reducción de carga cognitiva para pacientes oncológicos, respaldado por una arquitectura escalable con Flutter, microservicios en Spring Boot e infraestructura cloud que garantiza seguridad, rendimiento y cumplimiento normativo.
+
+3. **Desarrollo Ágil con Enfoque Estratégico:** La metodología Scrum permite entregas incrementales validadas continuamente, mientras que el backlog priorizado mediante story points asegura que el desarrollo avance sobre funcionalidades críticas primero, manteniendo flexibilidad y enfoque en el valor central.
+
+4. **Seguridad Integrada y Confianza del Usuario:** La protección de datos médicos sensibles se incorpora desde el diseño inicial mediante cifrado y adherencia a estándares HIPAA y GDPR, generando la confianza necesaria para que pacientes y médicos adopten la plataforma.
+
+5. **Impacto Transformador en Telemedicina Oncológica:** La plataforma democratiza el acceso a especialistas y optimiza el manejo de tratamientos mediante tecnología, equilibrando soluciones técnicas avanzadas con sensibilidad humana para mejorar genuinamente la calidad de vida durante el proceso oncológico.
+
+<div id='6.4.4.'><h4>6.4.4. Applications User Flow Diagrams</h4></div>
+
+Aquí se detallan los diagramas de flujo de usuario, representando tanto el "happy path" como las rutas alternativas para cada objetivo de usuario. Cada flujo se acompaña de una explicación clara de las interacciones, condiciones y su correspondencia con los wireflows predefinidos, asegurando consistencia y una experiencia intuitiva para los distintos perfiles de usuario.
+
+* **User Flow: Autenticación y Dashboard**
+
+Este flujo gestiona el acceso al sistema y la visualización del estado general. Comienza con el login, donde el usuario ingresa sus credenciales. Tras una autenticación exitosa, accede al dashboard principal que muestra métricas clave: citas del día, pacientes activos, alertas críticas y sensores IoT conectados.
+El flujo principal permite una navegación directa hacia la gestión de alertas médicas, mientras las rutas alternativas manejan escenarios comunes como credenciales incorrectas o usuarios nuevos que requieren registro previo. El diseño asegura que el usuario acceda rápidamente a la información crítica del sistema.
+
+![1](https://github.com/user-attachments/assets/c365e0d6-76f1-4450-b881-02a1928642fc)
+
+* **User Flow: Interacción con Minisecciones del Dashboard**
+
+Este flujo permite la interacción con las minisecciones del dashboard mediante un sistema de modales overlay. Al hacer clic en cualquier minisección (Alertas, Monitoreo IoT, Signos Vitales o Próximos Pacientes), se despliega un modal con información detallada específica, manteniendo al usuario en el contexto principal del dashboard. El diseño garantiza que la visualización de detalles expandidos no interrumpa la experiencia general, permitiendo un acceso rápido a información complementaria sin necesidad de navegar a pantallas separadas. Los modales se cierran fácilmente, retornando siempre al estado inicial del dashboard.
+
+![2](https://github.com/user-attachments/assets/c15405e2-d3b7-4c4a-bebe-262d881aa0e8)
+
+* **User Flow: Gestión de Pacientes**
+
+Este flujo organiza la gestión de pacientes mediante una estructura de pestañas que permite navegar de manera cohesiva entre las secciones de Historial, Documentos, Laboratorios y Evolución. Desde la lista principal de pacientes, el usuario puede seleccionar cualquier registro para acceder a su perfil completo, donde encuentra información personal, historial de consultas, documentos médicos, resultados de laboratorio y monitoreo de signos vitales en gráficas temporales. Los botones de "Nuevo Paciente", "Agendar Cita" y "Editar" proporcionan acceso inmediato a las funciones administrativas esenciales, manteniendo una experiencia integrada y evitando la navegación entre múltiples pantallas.
+
+![3](https://github.com/user-attachments/assets/d51cca88-1fba-45d5-916d-30fd6664903f)
+
+* **User Flow: Gestión de Citas**
+
+Este flujo organiza la administración de citas médicas a través de dos vistas principales: calendario semanal y listado cronológico. Desde la vista semanal, el usuario puede visualizar la distribución horaria de las citas, identificar disponibilidades y programar nuevas citas mediante un formulario integrado que incluye selección de paciente, tipo de cita y observaciones. La vista de listado permite una gestión masiva con capacidad de edición rápida de horarios, estados (confirmada/pendiente) y detalles de cada cita. El sistema mantiene un resumen actualizado del total de citas, su estado de confirmación y proporciona acceso inmediato a funciones de creación y modificación, optimizando la gestión del tiempo médico.
+
+![Image](https://github.com/user-attachments/assets/e5fcd849-2aab-4199-8cbf-562812cb5fb8)
+
+* **User Flow: Gestión de Tratamientos**
+
+Este flujo organiza la administración integral de tratamientos oncológicos mediante un sistema que combina la planificación médica con el seguimiento continuo del paciente. Comienza con la creación de nuevos tratamientos donde se define el protocolo médico, objetivos terapéuticos y duración estimada. Desde la vista principal de tratamientos activos, clasificados por estado (nuevo, en progreso, crítico), se accede a las subsecciones de Plan para detalle de medicamentos y controles, Timeline para visualizar la evolución histórica, y Síntomas para reportar y monitorear efectos secundarios. La actualización periódica del progreso y el reporte de síntomas permiten ajustes en tiempo real al protocolo de tratamiento, manteniendo un ciclo continuo de evaluación y optimización de la terapia oncológica.
+
+![5](https://github.com/user-attachments/assets/b5866bf8-412d-4f1f-b6e6-973e61016768)
+
+* **User Flow: Sistema de Alertas y Configuración**
+
+Este flujo integra la monitorización en tiempo real de pacientes con la gestión proactiva de alertas médicas. El sistema muestra las alertas activas generadas por los sensores IoT, organizadas por criticidad y tiempo de detección, permitiendo al personal médico reconocer, verificar y resolver cada incidencia con acceso directo al perfil del paciente. Simultáneamente, el módulo de configuración de umbrales ofrece control personalizado sobre los rangos normales de signos vitales (temperatura, ritmo cardíaco, oxígeno), permitiendo ajustar la sensibilidad del sistema de notificaciones según las necesidades clínicas específicas de cada paciente y optimizando el balance entre detección temprana y falsas alarmas.
+
+![6](https://github.com/user-attachments/assets/7a016989-f119-4be5-9c68-5db2d7c68ab4)
+
+<div id='6.5.'><h4>6.5 Applications Prototyping</h3></div>
+
+Esta sección introduce los prototipos interactivos desarrollados para navegadores web en escritorio y dispositivos móviles. Se explican los criterios de interacción y navegación adoptados, junto con su relación con la arquitectura de información. Incluye capturas y enlaces a videos que demuestran los flujos de interacción clave, validando la usabilidad y eficacia de la propuesta.
+
+<img width="1512" height="951" alt="3" src="https://github.com/user-attachments/assets/5f67f32c-ca79-4f68-afbc-6be892cda305" />
+
+Link: [Applications Prototyping OnControl](https://drive.google.com/file/d/1K3aS0c6qkvcI4jvKs8c5SBguF8tUycp5/view?usp=sharing)
+
+
+
+<div id='7.'><h2>7. Capítulo VII: Product Implementation, Validation & Deployment</h2></div>
+
+<div id='7.1.'><h4>7.1. Software Configuration Management</h3></div>
+
+<div id='7.1.1.'><h4>7.1.1. Software Development Environment Configuration</h4></div>
+
+##### Product UX/UI Design
+
+- Uxpressia: Herramienta en línea para mapeo de trayectoria del cliente, creación de mapas de impacto y personas.  
+
+- Figma: Pizarra digital colaborativa en línea para investigación, ideación, lluvias de ideas y mapas mentales.  
+[https://www.figma.com/es-la/](https://www.figma.com/es-la/)
+
+- Structurizr: Herramienta de diseño que soporta el modelo C4 para visualizar arquitecturas de software.  
+[https://structurizr.com/](https://structurizr.com/)
+
+- Lucid Chart: Herramienta de diagramación en línea para la colaboración en tiempo real para el desarrollo de nuestros esquemas.  
+[https://www.lucidchart.com/pages/es/landing?utm_source=bing&utm_medium=cpc&utm_campaign=_chart_es_tier2_mixed_search_brand_exact_&km_CPC_CampaignId=369684522&km_CPC_AdGroupID=1228154671885459&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID={extensionid}&km_CPC_Network=o&km_CPC_AdPosition=&km_CPC_Creative=&km_CPC_TargetID=kwd-76759815762640:loc-148&km_CPC_Country=145622&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&mkt_query=lucidchart](https://www.lucidchart.com/pages/es/landing?utm_source=bing&utm_medium=cpc&utm_campaign=_chart_es_tier2_mixed_search_brand_exact_&km_CPC_CampaignId=369684522&km_CPC_AdGroupID=1228154671885459&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID={extensionid}&km_CPC_Network=o&km_CPC_AdPosition=&km_CPC_Creative=&km_CPC_TargetID=kwd-76759815762640:loc-148&km_CPC_Country=145622&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&mkt_query=lucidchart)
+
+- MIRO: Pizarra digital colaborativa en línea para diversas actividades colaborativas.  
+[https://miro.com/es/](https://miro.com/es/)
+
+##### Software Development
+
+Estructura aplicada al desarrollo de un producto de software.
+
+- Github: Repositorio comunitario para almacenar avances de proyectos colaborativos.  
+[https://github.com/OnControl-IOT](https://github.com/OnControl-IOT)
+
+- Visual Studio Code: Editor de código que ofrece extensiones y funcionalidades para el desarrollo eficiente, utilizado para construir backend de aplicaciones web.  
+[https://code.visualstudio.com/](https://code.visualstudio.com/)
+
+- HTML: Lenguaje para el desarrollo de plataformas web, será utilizado para el desarrollo de la landing page.  
+[https://www.jetbrains.com/help/webstorm/editing-html-files.html](https://www.jetbrains.com/help/webstorm/editing-html-files.html)
+
+- CSS: Lenguaje de diseño gráfico para la elaboración de interfaces de usuario.  
+[https://www.jetbrains.com/help/webstorm/style-sheets.html#ws_css_completion](https://www.jetbrains.com/help/webstorm/style-sheets.html#ws_css_completion)
+
+- Kotlin: Lenguaje de programación principal para aplicaciones android, utilizada para nuestro proyecto.
+[https://kotlinlang.org/](https://kotlinlang.org/)
+
+##### Software Deployment
+
+- Github pages: Servicio para alojar páginas web estáticas y aplicaciones web.  
+[https://pages.github.com/](https://pages.github.com/)
+
+<div id='7.1.2.'><h4>7.1.2. Source Code Management</h4></div>
+
+##### Enlaces Importantes
+
+- **Organización en GitHub**: [OnControl](https://github.com/1ASI0728-2610-11806-OnControl)
+
+###### GitFlow
+
+GitFlow es un flujo de trabajo de control de versiones que facilita la gestión de ramas durante el desarrollo:
+
+###### Main Branches
+
+- `main`: Rama principal que contiene el historial de publicación oficial y todas las versiones.
+- `develop`: Rama creada desde `main`, integra todas las funciones estables y prepara la próxima versión.
+
+###### Support Branches
+
+Estas ramas son temporales y se eliminan después de integrarse en sus ramas principales.
+
+###### Feature
+
+- **Origen**: `develop`
+- **Destino**: `develop`
+- Se utilizan para el desarrollo de nuevas funcionalidades, existen mientras están en desarrollo y luego se integran a `develop`.
+
+###### Release
+
+- **Origen**: `develop`
+- **Destino**: `develop` / `main`
+- Preparan la nueva versión de producción, corrigen errores menores y preparan metadatos para el lanzamiento.
+
+###### Motivos para usar Gitflow
+
+- Adecuado para proyectos con lanzamientos programados.
+- Combina los beneficios de un flujo centralizado y descentralizado.
+- Permite trabajo individual, ideal cuando el equipo tiene horarios diferentes.
+- Requiere actualización constante en el repositorio central.
+
+Cada miembro del equipo debe mantener su trabajo al día con el repositorio central en GitHub para garantizar la cohesión y el progreso del proyecto.
+
+<div id='7.1.3.'><h4>7.1.3. Source Code Style & Conventions</h4></div>
+
+##### Nomenclatura General
+
+- Utilizaremos términos en inglés para nombrar variables, objetos, elementos y funciones que describan claramente su propósito.
+- No se utilizarán mayúsculas arbitrarias para mantener la legibilidad del código.
+
+Ejemplo de nomenclatura estándar:
+```css
+Calendar.kt 
+getMedication(){}
+.login {}
+```
+
+#### Sangria
+- En HTML, CSS y JavaScript, aplicaremos espacios antes de cada línea dentro de un bloque.
+- Se recomienda usar dos espacios y evitar la tecla “Tabulación”.
+- Ejemplo de sangría en HTML:
+    ```css
+    <table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    </table>
+    ```
+- Ejemplo de sangría en CSS:
+    ```css
+    html {
+    background: #fff;
+    color: #404;
+    }
+    ```
+- Ejemplo de sangría en JavaScript:
+    ```css
+    function toCelsius(fahrenheit) {
+        return (5 / 9) * (fahrenheit - 32);
+    }
+    ```
+
+###### HTML
+
+- Declare Document Type: Siempre declare el tipo de documento como HTML5 con <!DOCTYPE html>.
+- Blank Lines: Deje líneas en blanco después de bloques de gran longitud.
+- Quote Attribute Values: Utilice comillas dobles alrededor de los valores de los atributos.
+- Multimedia Fallback: Asegure acceso alternativo para multimedia y añada dimensiones a los elementos.
+- Never Skip the <tittle> Element: El título de la página es crucial para SEO y se muestra en los resultados de búsqueda.
+- HTML Line-Wrapping: Evite líneas de código extensas. Utilice espacios para diferenciar elementos hijos.
+###### CSS
+- Shorthand Properties: Utilice la menor cantidad de líneas posibles para declarar propiedades.
+- Declaration Stops: Ponga un punto y coma después de cada declaración.
+- Property Name Stops: Incluya un espacio después de los dos puntos en una declaración de propiedad.
+- Declaration Block Separation: Separe el nombre de un selector y el inicio de un bloque con un espacio.
+- CSS Quotation Marks: Utilice comillas simples para valores de atributos y selectores.
+###### JavaScript
+- Spaces around operators: Incluya un espacio alrededor de los operadores.
+- Simple Statement’s End: Finalice las declaraciones simples con un punto y coma.
+- Beginning and End of a Function: Coloque una llave al final de la primera línea de una función y la llave de cierre sola en la última línea.
+###### Gherkin
+- Discernible Given-When-Then Blocks: Utilice la sangría para identificar fácilmente los pasos de un escenario.
+- Step with Tables: Para los pasos que requieran valores, utilice tablas.
+- Reducing Noise: Use valores por defecto en los pasos y coloque valores "estándar" entre comillas simples.
+- Scenarios Separator: Separe escenarios con saltos de línea y comentarios para facilitar la visualización.
+###### Kotlin
+
+- UpperCamelCase para Clases y Objetos: Nombra clases, objetos, interfaces y tipos usando mayúscula inicial en cada palabra (por ejemplo, UserProfile, MainActivity).
+
+- lowerCamelCase para Variables y Funciones: Usa minúscula inicial seguida de mayúsculas para palabras intermedias (por ejemplo, userName, calculateTotal).
+
+- Constantes con UPPER_SNAKE_CASE: Declara constantes con letras mayúsculas y guiones bajos para separar palabras (por ejemplo, MAX_COUNT, API_BASE_URL).
+
+- Funciones Cortas con Expresión Única: Si la función contiene una sola expresión, omite las llaves y usa la sintaxis = (por ejemplo, fun sum(a: Int, b: Int) = a + b).
+
+- Uso de val por defecto: Prefiere val sobre var siempre que sea posible para garantizar inmutabilidad.
+
+- Visibilidad Explícita: Declara explícitamente la visibilidad (private, internal, public) en miembros no públicos.
+
+- Imports Organizados: No se utiliza import *, solo se importa lo necesario y organizado alfabéticamente.
+
+- Clases de Datos (data class): Utiliza data class para estructuras que almacenan datos, incluye todos los campos clave en el constructor primario..
+
+<div id='7.1.4.'><h4>6.4.4. Software Deployment Configuration</h4></div>
+
+- Para el desarrollo del Landing Page de OnControl se han utilizado las siguientes herramientas:
+    - Html: Es el lenguaje de marcado que estructuro nuestro Landing Page.
+      Evidencia: Archivos HTML, el principal es index.html donde todos los integrantes juntaron el contenido realizado en su rama individual.
+    - Css: Es aquel que nos ayudó con el diseño gráfico para que el Landing Page sea agradable e interactúable.
+      Evidencia: Se presenta el file styles.css, donde el grupo implemento el diseño de toda la estructura realizada con html.
+    - JS: Nos ayudó a desarrollar la lógica necesaria para el Landing Page.
+      Evidencia: Se muestra el documento main.js.
+
+- El despliegue del Landing Page de OnControl no pudo ser posible sin utilizar las siguientes tecnologías:
+    - Git: Sistema de control de versiones que está pensado en la eficiencia y compatibilidad de versiones, el cual nos ayudó a trabajar en equipo durante el desarrollo del Landing Page
+    - Github: Plataforma de desarrollo colaborativo
+    - Git Flow: Nos permitió controlar el avance de cada uno de nuestros integrantes con respecto al desarrollo del Landing Page
+    -  Git Hub Pages: Servicio de Github que nos permitió alojar nuestra Landing page.
+- Asimismo, se han realizado los siguientes pasos:
+    - Dirigirse al repositorio de la página: Dado que se ha empleado Github, debemos ir al repositorio creado en este sitio web para publicar el Landing Page que ha desarrollado el equipo. Desde aquí, se podrá iniciar la configuración del vínculo de la página dirigiéndonos al apartado de Settings.
+    - Ir a la opción de páginas: Una vez presentes la configuración del repositorio, debemos dirigirnos a la sección de Pages. Esto se debe a que ahí se encuentran todas las opciones de configuración de publicación de la página en un link o vínculo
+
+    -   Elección de rama y carpeta de guardado: Dentro de pages, se debe seleccionar la rama o branch que se va a publicar en el vínculo. De la misma manera, se tiene que elegir la carpeta donde se localizará esta publicación a realizar. Finalmente podremos acceder a nuestra página con el link que aparece en la parte superior de este apartado de configuración
+
+<div id='7.2.'><h4>7.2 Solution Implementation</h3></div>
+
+<div id='7.2.1.'><h4>7.2.1. Sprint 1</h4></div>
+
+<div id='7.2.1.1.'><h4>7.2.1.1. Sprint Planning 1</h5></div>
+
+<table>
+    <tr>
+        <th>Sprint 1</th>
+        <td>Sprint 1</td>
+    </tr>
+    <tr>
+        <th>Sprint Planning Date</th>
+        <td>2026-30-05</td>
+    </tr>
+    <tr>
+        <th>Time</th>
+        <td>8:00 PM</td>
+    </tr>
+    <tr>
+        <th>Location</th>
+        <td>Meet</td>
+    </tr>
+    <tr>
+        <th>Prepared By</th>
+        <td>Juan Pablo Ramos Mendoza</td>
+    </tr>
+    <tr>
+        <th>Attendees</th>
+        <td>Juan Pablo Ramos Mendoza / Ricardo Andree Barrutia Vaez / Fabiola Ximena Espinoza Inoñan / Hardie Alfonso Holguin Gamarra / Bryan Ronnald Espejo Gamarra</td>
+    </tr>
+    <tr>
+        <th>Sprint Goal</th>
+        <td>Implementar y demostrar la Landing Page (secciones: Inicio, Características, Beneficios, Problema, Acerca de, Testimonio, Contacto y Descarga/Footer) y avanzar el Frontend inicial (Inicio de Sesión, Registro de Oncólogo, Dashboard, Monitoreo de Signos Vitales, Lista de Pacientes, Perfil de Paciente, Administración de Tratamientos, Sistema de Alertas IoT, Centro de Notificaciones y Configuración de Perfil).</td>
+    </tr>
+    <tr>
+        <th>Sprint Velocity</th>
+        <td>5</td>
+    </tr>
+    <tr>
+        <th>Sum of Story Points</th>
+        <td>18</td>
+    </tr>
+</table>
+
+<br>
+
+<div id='7.2.1.2.'><h4>7.2.1.2. Sprint Backlog 1</h5></div>
+
+<br>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Épica</th>
+            <th>Responsable</th>
+            <th>Puntos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>US36</td>
+            <td>Visualizar landing page</td>
+            <td>Landing Page (EP07)</td>
+            <td>Williams Gongora Castillejos</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>US37</td>
+            <td>Acceso a la app</td>
+            <td>Landing Page (EP07)</td>
+            <td>Williams Gongora Castillejos</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>US38</td>
+            <td>Recibir información por correo</td>
+            <td>Landing Page (EP07)</td>
+            <td>Alejandro Eduardo Gray Hidalgo</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>US01</td>
+            <td>Registrar cuenta</td>
+            <td>Autenticación (EP01)</td>
+            <td>Piero Mendoza Pimentel</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>US03</td>
+            <td>Iniciar sesión</td>
+            <td>Autenticación (EP01)</td>
+            <td>Juan Pablo Ramos Mendoza</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>US04</td>
+            <td>Cerrar sesión</td>
+            <td>Autenticación (EP01)</td>
+            <td>Quispe Roldan Michael Fred</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>US05</td>
+            <td>Recuperación de cuenta</td>
+            <td>Autenticación (EP01)</td>
+            <td>Juan Pablo Ramos Mendoza</td>
+            <td>5</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+
+<table border="1">
+    <tr>
+        <th>Sprint #</th>
+        <th>User Story</th>
+        <th>Work-item/Task</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Estimation (Hours)</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+    </tr>
+    <!-- US36 -->
+    <tr>
+        <td rowspan="3">Sprint 1</td>
+        <td rowspan="3">US36: Visualizar landing page</td>
+        <td>TA01</td>
+        <td>#2025100801</td>
+        <td>Wireframe & Mockup (Figma)</td>
+        <td>Diseñar la landing (secciones principales) según el estilo del proyecto y dejar prototipo navegable.</td>
+        <td>6</td>
+        <td>OnControl Team</td>
+        <td>Done</td>
+    </tr>
+    <tr>
+        <td>TA02</td>
+        <td>#2025100802</td>
+        <td>Implementación responsive</td>
+        <td>Desarrollar la landing (HTML/CSS/JS) con cabecera, navegación por anclas y footer de contacto.</td>
+        <td>12</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td>TA03</td>
+        <td>#2025100803</td>
+        <td>SEO & Accesibilidad básica</td>
+        <td>Agregar meta tags, títulos, descripciones y mejoras de accesibilidad (alt, roles, focus).</td>
+        <td>6</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <!-- US37 -->
+    <tr>
+        <td rowspan="2">Sprint 1</td>
+        <td rowspan="2">US37: Acceso a la app</td>
+        <td>TA04</td>
+        <td>#2025100804</td>
+        <td>CTA “Acceder a la app”</td>
+        <td>Agregar botón/CTA que dirija a la sección de descarga/uso y explicar requisitos (Android/iOS).</td>
+        <td>4</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td>TA05</td>
+        <td>#2025100805</td>
+        <td>Sección Descarga/Acceso</td>
+        <td>Crear sección con enlaces y pasos para instalar/abrir la app (APK/TestFlight o guía).</td>
+        <td>6</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <!-- US38 -->
+    <tr>
+        <td rowspan="2">Sprint 1</td>
+        <td rowspan="2">US38: Recibir información por correo</td>
+        <td>TA06</td>
+        <td>#2025100806</td>
+        <td>Formulario de suscripción</td>
+        <td>Implementar formulario (email) en la landing con validación y confirmación visual.</td>
+        <td>6</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td>TA07</td>
+        <td>#2025100807</td>
+        <td>API de suscripciones (MVP)</td>
+        <td>Exponer endpoint simple para almacenar suscripciones y preparar documentación en Swagger.</td>
+        <td>8</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <!-- US01 -->
+    <tr>
+        <td rowspan="2">Sprint 1</td>
+        <td rowspan="2">US01: Registrar cuenta</td>
+        <td>TA08</td>
+        <td>#2025100808</td>
+        <td>POST /auth/register</td>
+        <td>Crear endpoint de registro con validaciones y manejo de errores (duplicados, 4xx).</td>
+        <td>10</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td>TA09</td>
+        <td>#2025100809</td>
+        <td>Pantalla Registro (Flutter)</td>
+        <td>Construir UI con validación de campos y flujo de éxito/error; integración con la API.</td>
+        <td>10</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <!-- US03 -->
+    <tr>
+        <td rowspan="2">Sprint 1</td>
+        <td rowspan="2">US03: Iniciar sesión</td>
+        <td>TA10</td>
+        <td>#2025100810</td>
+        <td>POST /auth/login</td>
+        <td>Crear endpoint de login con emisión de token y manejo de credenciales inválidas (401).</td>
+        <td>8</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td>TA11</td>
+        <td>#2025100811</td>
+        <td>Pantalla Login (Flutter)</td>
+        <td>Construir UI de login con almacenamiento seguro del token y estados de carga/errores.</td>
+        <td>8</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <!-- US04 -->
+    <tr>
+        <td>Sprint 1</td>
+        <td>US04: Cerrar sesión</td>
+        <td>TA12</td>
+        <td>#2025100812</td>
+        <td>Logout (Flutter)</td>
+        <td>Implementar limpieza de sesión (token/estado) y redirección al login.</td>
+        <td>4</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <!-- US05 -->
+    <tr>
+        <td rowspan="2">Sprint 1</td>
+        <td rowspan="2">US05: Recuperación de cuenta</td>
+        <td>TA13</td>
+        <td>#2025100813</td>
+        <td>POST /auth/forgot-password</td>
+        <td>Exponer endpoint para solicitar recuperación con envío de código/correo.</td>
+        <td>10</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td>TA14</td>
+        <td>#2025100814</td>
+        <td>Pantalla Recuperar cuenta (Flutter)</td>
+        <td>Crear flujo de ingreso de email/código y cambio de contraseña; manejo de errores.</td>
+        <td>8</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+</table>
+
+<div id='7.2.1.3.'><h4>7.2.1.3. Development Evidence for Sprint Review</h5></div>
+
+<table border="1">
+  <tr>
+    <th>Repository</th>
+    <th>Branch</th>
+    <th>Commit Id</th>
+    <th>Commit Message</th>
+    <th>Commit Message Body</th>
+    <th>Committed on</th>
+  </tr>
+
+  <!-- FRONT END -->
+  <tr>
+    <td>OnControl-Front</td>
+    <td>main</td>
+    <td>4b9e5d6</td>
+    <td>feat: Implement full component library and core application structure</td>
+    <td>Se crea la librería base de componentes (botones, formularios, cards) y la estructura núcleo de la app.</td>
+    <td>2026-06-06</td>
+  </tr>
+  <tr>
+    <td>OnControl-Front</td>
+    <td>main</td>
+    <td>8c27a1b</td>
+    <td>feat: Implement core hooks, libs, and styles structure</td>
+    <td>Organización de hooks, librerías compartidas y carpeta de estilos.</td>
+    <td>2026-06-06</td>
+  </tr>
+  <tr>
+    <td>OnControl-Front</td>
+    <td>main</td>
+    <td>511239f</td>
+    <td>feat: Implement base layout and index page</td>
+    <td>Layout principal, plantilla de página y punto de entrada index.</td>
+    <td>2026-06-06</td>
+  </tr>
+  <tr>
+    <td>OnControl-Front</td>
+    <td>main</td>
+    <td>3a64f24</td>
+    <td>feat: Add initial public assets and mock data</td>
+    <td>Assets públicos iniciales y datos mock para vistas.</td>
+    <td>2026-06-06</td>
+  </tr>
+  <tr>
+    <td>OnControl-Front</td>
+    <td>main</td>
+    <td>30fb656</td>
+    <td>feat: docs Update README.md for project description and sections</td>
+    <td>Actualización del README con descripción del proyecto y secciones.</td>
+    <td>2026-06-06</td>
+  </tr>
+  <tr>
+    <td>OnControl-Front</td>
+    <td>main</td>
+    <td>af5d657</td>
+    <td>feat: Initial commit structure of project</td>
+    <td>Estructura inicial del repositorio Front.</td>
+    <td>2026-06-06</td>
+  </tr>
+
+  <!-- LANDING PAGE -->
+  <tr>
+    <td>LandingPage</td>
+    <td>main</td>
+    <td>bdafe40</td>
+    <td>feat: Update navigation links in index.html</td>
+    <td>Actualiza enlaces de navegación y anclas en la landing.</td>
+    <td>2026-06-06</td>
+  </tr>
+  <tr>
+    <td>LandingPage</td>
+    <td>main</td>
+    <td>8f6d4cd</td>
+    <td>feat: structure of landing page</td>
+    <td>Estructura inicial de la landing (secciones, layout base).</td>
+    <td>2026-06-06</td>
+  </tr>
+</table>
+
+<div id='7.2.1.4.'><h4>7.2.1.4. Testing Suite Evidence for Sprint Review</h5></div>
+
+<table border="1">
+  <tr>
+    <th>Repository</th>
+    <th>Branch</th>
+    <th>Commit Id</th>
+    <th>Commit Message</th>
+    <th>Commit Message Body</th>
+    <th>Committed on</th>
+  </tr>
+
+  <!-- Acceptance Tests repo -->
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>7345ab2</td>
+    <td>Add feature file for mobile app access scenarios</td>
+    <td>US38 — escenarios BDD de acceso desde la Landing Page a la tienda (redirección y errores).</td>
+    <td>2026-10-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>089eadc</td>
+    <td>Add feature file for US37 landing page visualization</td>
+    <td>US37 — visualización de la Landing Page: secciones y navegación por navbar.</td>
+    <td>2026-10-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>3fd87e2</td>
+    <td>Add feature file for US36 Landing Page visualization</td>
+    <td>US36 — carga y visualización de secciones principales de la Landing.</td>
+    <td>2026-10-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>d6df2e6</td>
+    <td>Add feature for account recovery requests</td>
+    <td>US05 — solicitud de recuperación y validaciones (formato email, respuestas genéricas).</td>
+    <td>2026-10-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>420efabd</td>
+    <td>Add feature file for user logout functionality</td>
+    <td>US04 — cierre de sesión: invalidación de token y redirección.</td>
+    <td>2026-10-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>5382cb9</td>
+    <td>Add US03 feature for user login scenarios</td>
+    <td>US03 — inicio de sesión: credenciales válidas/ inválidas y mensajes de error.</td>
+    <td>2026-10-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>985da94</td>
+    <td>Delete README.md</td>
+    <td>Limpieza inicial del repositorio de pruebas de aceptación.</td>
+    <td>2026-10-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>5e98e06</td>
+    <td>Add user registration feature with scenarios</td>
+    <td>US01 — registro de usuario: casos de éxito y validaciones.</td>
+    <td>2026-10-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>67707d2</td>
+    <td>Initial commit</td>
+    <td>Estructura base para archivos .feature y documentación de Acceptance Tests.</td>
+    <td>2026-10-06</td>
+  </tr>
+</table>
+
+<div id='7.2.1.5.'><h4>7.2.1.5. Execution Evidence for Sprint Review</h5></div>
+
+* **Landing Page**
+
+#### Sección Inicio
+
+<img width="1321" height="936" alt="Captura de pantalla 2025-10-04 201058" src="https://github.com/user-attachments/assets/41ad3d5f-b51f-4514-9037-039e6d863512" />
+
+#### Sección Caracteristicas
+
+<img width="1580" height="921" alt="Captura de pantalla 2025-10-04 201200" src="https://github.com/user-attachments/assets/e709ec32-8568-4d0d-8513-2dfe3d9b1740" />
+
+#### Sección Beneficios
+
+<img width="1519" height="701" alt="Captura de pantalla 2025-10-04 201223" src="https://github.com/user-attachments/assets/71c11f0d-4555-4dd9-b9fa-520a7ce41051" />
+
+#### Sección Problema
+
+<img width="1429" height="834" alt="image" src="https://github.com/user-attachments/assets/6ec524cb-f028-4c68-9a01-b17ff68f5427" />
+
+#### Sección Acerca De
+
+<img width="1490" height="925" alt="image" src="https://github.com/user-attachments/assets/ec2081c8-e3d6-4e75-a4f2-1ea4ef31fee2" />
+
+#### Sección Testimonio
+
+<img width="1397" height="759" alt="image" src="https://github.com/user-attachments/assets/0ffc53a2-ee1e-416f-9352-7d1be148c360" />
+
+#### Sección Contacto
+
+<img width="1562" height="944" alt="Captura de pantalla 2025-10-04 201953" src="https://github.com/user-attachments/assets/352878c2-efae-478a-93ab-a89638a1b320" />
+
+#### Sección Descarga y Footer
+
+<img width="1439" height="943" alt="image" src="https://github.com/user-attachments/assets/2e02a41d-79cd-444a-bcd6-fc9b1cec3813" />
+
+* **Frontend**
+
+#### Sección Inicio de Sesión
+<img width="1499" height="941" alt="1" src="https://github.com/user-attachments/assets/d50bde98-cdcc-493f-b1b2-7699b9c2b2e6" />
+
+#### Sección Registro de Oncólogo
+<img width="1419" height="937" alt="2" src="https://github.com/user-attachments/assets/339155af-790f-45a2-9162-539fb7a27d5c" />
+
+#### Sección Dashboard Principal
+<img width="1512" height="951" alt="3" src="https://github.com/user-attachments/assets/d06c9408-58e5-4a33-b999-9db5dce4650e" />
+
+#### Sección Monitoreo de Signos Vitales
+<img width="1500" height="944" alt="5" src="https://github.com/user-attachments/assets/d83cac61-8920-4b8d-af9d-3a85225e6c65" />
+
+#### Sección Lista de Pacientes
+<img width="1400" height="915" alt="6" src="https://github.com/user-attachments/assets/31de480d-0826-403e-8714-cbd4fd8f760c" />
+
+#### Sección Perfil de Paciente de Signos Vitales
+<img width="1382" height="915" alt="9" src="https://github.com/user-attachments/assets/327f2f29-ea3e-47f1-a78c-aa6e78d602e3" />
+
+#### Sección Gestión de Citas
+<img width="1271" height="945" alt="13" src="https://github.com/user-attachments/assets/f0fba529-3082-47cb-bf38-eb3767e64380" />
+
+#### Sección Administración de Tratamientos
+<img width="1390" height="943" alt="17" src="https://github.com/user-attachments/assets/55d3c062-a96b-44bc-8c0c-5a583c6ebfc8" />
+
+#### Sección Sistema de Alertas IoT
+<img width="1479" height="945" alt="22" src="https://github.com/user-attachments/assets/cb09ee70-a23c-4ad9-813b-a9c22604691c" />
+
+#### Sección Centro de Notificaciones
+<img width="1330" height="944" alt="28" src="https://github.com/user-attachments/assets/c10f570f-4a87-4f04-af35-876b0f91757d" />
+
+#### Sección Configuración de Perfil
+<img width="1319" height="947" alt="24" src="https://github.com/user-attachments/assets/bdd90435-74ee-4cca-89e5-1b53190920fb" />
+
+<div id='7.2.1.6.'><h4>7.2.1.6. Services Documentation Evidence for Sprint Review</h5></div>
+
+En este sprint el alcance fue Landing Page y Front-End; por ello no se implementaron ni documentaron servicios backend.
+
+<div id='7.2.1.7.'><h4>7.2.1.7. Software Deployment Evidence for Sprint Review</h5></div>
+
+### Despliegue de Landing Page
+**Configuración de GitHub Pages:**
+
+### Paso 1: Acceder a la Configuración
+- Navega a tu repositorio en GitHub
+- Haz clic en la pestaña "Settings" (Configuración)
+- Desplázate hacia abajo hasta la sección "Pages" en el menú lateral
+
+### Paso 2: Seleccionar la Fuente
+En la sección "Source" (Fuente):
+- **Opción A:** Deploy from a branch
+- **Branch:** Selecciona la rama (generalmente main o gh-pages)
+- **Folder:** Elige `/` (root) o `/docs` según tu estructura
+- Es la opción más común y sencilla
+
+**Link de despliegue de landing page:** `https://oncontrol-iot.github.io/LandingPage/`
+
+### Despliegue del Frontend (Netlify)
+**Configuración en Netlify:**
+
+### Paso 1: Conectar Repositorio
+- Inicia sesión en Netlify y haz clic en "Add new site"
+- Selecciona "Import an existing project"
+- Conecta tu cuenta de GitHub y selecciona el repositorio ControlUPC/OnControl
+- Autoriza los permisos necesarios
+
+### Paso 2: Configurar el Proyecto
+- **Build Command:** `npm run build` 
+- **Publish Directory:** `out` (para Next.js export)
+- **Node Version:** `18` (configurado automáticamente)
+- **Framework:** Next.js (detectado automáticamente)
+
+### Paso 3: Variables de Entorno
+Agrega las variables de entorno necesarias:
+- `NEXT_PUBLIC_API_URL`: URL de tu backend desplegado
+- `NEXT_PUBLIC_APP_ENV`: `production`
+
+**Link de despliegue del frontend:** `http://oncontrol.netlify.app/`
+
+<img width="1874" height="713" alt="image" src="https://github.com/user-attachments/assets/8f51f7bc-3732-4537-a7bc-67a0888c2892" />
+
+
+## Configuración de Dominios Personalizados
+### Landing Page (GitHub Pages)
+- **Dominio principal:** `https://oncontrol-iot.github.io/LandingPage/`
+- **DNS:** Configuración automática de GitHub
+- **SSL:** Activado automáticamente
+
+### Frontend Application (Netlify)
+- **Dominio principal:** `http://oncontrol.netlify.app/`
+- **CDN:** Red global de Netlify
+- **SSL:** Certificado automático Let's Encrypt
+
+### Flujo de Despliegue Continuo
+
+### Para Landing Page (GitHub Pages)
+```bash
+# Commits a la rama main activan despliegue automático
+git add .
+git commit -m "feat: update landing content"
+git push origin main
+```
+
+<div id='7.3.'><h4>7.3 Validation Interviews</h3></div>
+
+<div id='7.2.1.'><h4>7.2.1. Diseño de Entrevistas</h4></div>
+
+*¿Podría presentarse con su nombre completo, edad, distrito de residencia y ocupación?*
+
+*Sobre el landing page, ¿la considera llamativa y visualmente interesante?*
+
+*¿Considera que la información proporcionada comunica de forma correcta las funciones de nuestra aplicación?*
+
+*¿Hay algo que considere deberíamos cambiar o eliminar en la página?*
+
+*Sobre la aplicación, ¿las herramientas son claras y de fácil lectura?*
+
+*¿Cree que nuestra aplicación le hubiera ayudado a tener mayor orden durante el proceso oncológico?*
+
+*¿Qué cambios propondría para mejorar los elementos visuales de nuestra aplicación?*
+
+*Si es que usara esta aplicación por primera vez sin una guía, ¿le parecería claro cómo utilizarla, o hay herramientas que no tienen un uso claro a simple vista?*
+
+*¿Hay alguna opción o herramienta que cree que le falta a nuestra aplicación?*
+
+*¿Recomendaría esta aplicación hacia médicos u otros pacientes oncológicos?*
+
+**Médicos:**
+*¿Considera que las herramientas brindadas mejorarían su orden con los pacientes?*
+ 
+*¿Utilizaría la aplicación para organizar los procesos médicos de cada uno de sus pacientes?*
+
+<div id='7.2.2.'><h4>7.2.2. Registro de Entrevistas</h4></div>
+
+Entrevista 1: Verónica Mendoza, 52, Chorrillos, profesora de tiempo completo en la upc ; familiar de paciente oncológico
+
+![Image](https://github.com/user-attachments/assets/72287442-0be9-452b-9a8e-d46d8c438d7e)
+
+<br>https://drive.google.com/file/d/1aMSpnoVOVk1TBoXqOUFQYVw73LOTRLD1/view?usp=sharing
+
+Resumen:
+
+La entrevistada tuvo una buena experiencia con el landing page, considerándolo bastante llamativo de forma visual pero con información clara, permitiendo conocer el objetivo y función de nuestra startup y aplicación realizada. El único detalle que sugirió como cambio es que nuestro logo sea más visible, quizás aumentando su tamaño o colocándolo en más lugares.
+Sobre la aplicación, la entrevistada también tuvo una buena experiencia con ella. Consideró que cada botón y enlace mostrado era bastante claro en su función, por lo que incluso podría utilizarla de forma correcta sin necesidad de una guía. Los únicos cambios que realizaría sobre la aplicación es que el calendario muestre más detalles sobre el mes y semana en la que se realizarán las citas, una sección que presenta noticias sobre tratamientos oncológicos recientes y simplemente que nuestro logo aparezca más visible.
+La entrevistada consideró que nuestra aplicación sería de mucha ayuda para personas pasando por los procesos oncológicos, además de que las herramientas para los médicos les ayudarían a mejorar su eficiencia y organización, además de que le hubiera gustado mucho tener esta aplicación mientras que su pariente se encontró en el proceso oncológico.
+
+<br>
+Entrevista 2: Manuel Luis Ramos, 52, San Luis, posición administrativa en resocentro ; familiar de paciente oncológico
+
+![Image](https://github.com/user-attachments/assets/6da53316-9263-469a-8576-f81e8c4775d5)
+
+<br>https://drive.google.com/file/d/1uc8FAaD1ArRYNPcP5_7kGPWF3bItJdF_/view?usp=sharing <br>
+
+Resumen:
+
+El entrevistado consideró la landing page impactante de forma visual, con la información en ella explicando claramente nuestra aplicación y objetivo al realizarla. Los únicos cambios que considera importantes son el uso de lazos de más colores, ya que solo utilizar un lazo rosado está vinculado a un solo tipo de cáncer y podría hacer creer a un usuario que solo nos enfocamos en ese tipo. Otro cambio que considera es cambiar el título de "Trabajando por tu salud" a uno más enfocado al cáncer y tratamientos oncológicos.
+Para la aplicación, el entrevistado considera que todo está claro y conciso y de fácil entendimiento, por lo que sí podría utilizarla aunque no tuviera a alguien que le explique como usarla. El único cambio que considera de gran importancia es que las aplicaciones no estén completamente vinculadas entre médicos y pacientes, es decir, si es que el médico no tenga la aplicación descargada, entonces el paciente debería poder registrar citas en su calendario personal. A parte de esto, la aplicación le parece de gran utilidad al entrevistado.
+
+<br>
+Entrevista 3: Eduard Travezaño, 20, San Juan de Lurigancho, Estudiante universitario ; familiar de paciente
+
+![Image](https://github.com/user-attachments/assets/be7f293c-62ad-4055-ac2c-8d794cc31285)
+
+<br>https://drive.google.com/file/d/13l0HOKYB5VeZ4CLpG4pVyeep5gKchQea/view?usp=sharing<br>
+
+Resumen:
+
+El entrevistado tuvo una buena experiencia con nuestro landing page, pareciéndole única y llamativa con los tonos de colores rosados y con información no abrumadora que cause confusión visual. La página muestra información que comunica fácilmente el uso de la aplicación, aunque desearía que nos enfocáramos a la salud en general, no solamente a tratamientos y médicos oncológicos, aunque entiende nuestra misión de enfocarnos en ellos.
+En términos de la aplicación, todo le parece entendible y claro al entrevistado y le agrada el calendario, aunque desearía que hubiera más información sobre las citas y pacientes o médicos además de su nombre y fecha, cosas como especialidad o razón de cita.
+Además, el entrevistado considera que la aplicación está bastante completa, pero una lista de visitas al paciente si es que estuviera internado sería de gran ayuda.
+
+<div id='7.2.3.'><h4>7.2.3. Evaluaciones según heurísticas</h4></div>
+
+#### UX Heuristics & Principles Evaluation
+
+#### Usability - Inclusive Design - Information Architecture
+
+* **CARRERA**: Ingeniería de Software
+* **CURSO**: Desarrollo de soluciones IOT
+* **SECCION**: 3414
+* **PROFESORES**: Todos
+* **AUDITOR**: EMSafe
+* **CLIENTE(S)**: Todos
+
+
+
+#### SITE O APP A EVALUAR:
+
+OnControl
+
+#### TAREAS A EVALUAR:
+
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+1. Registro y autenticación de usuarios (pacientes y doctores)
+
+2. Actualización de perfil y configuración de cuenta
+
+3. Visualización y aceptación de solicitudes de cita médica
+
+4. Registro de síntomas y seguimiento de tratamiento
+
+5. Visualización del calendario de procedimientos diarios
+
+6. Configuración de recordatorios y notificaciones
+
+7. Reprogramación o cancelación de citas
+
+8. Interacción básica en el módulo de mensajería clínica
+
+9. Visualización del historial de tratamientos
+
+
+#### ESCALA DE SEVERIDAD:
+
+Los errores serán puntuados tomando en cuenta la siguiente escala de severidad:
+
+| Nivel | Descripción |
+| :---- | :---------- |
+| 1     | Problema superficial: Puede ser fácilmente superado por el usuario y ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| 2     | Problema menor: Puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja resolverlo de cara al siguiente release. |
+| 3     | Problema mayor: Ocurre frecuentemente o los usuarios no son capaces de resolverlos. Es importante que sean corregidos y se les asigne una prioridad alta. |
+| 4     | Problema muy grave: Un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+
+#### TABLA RESUMEN:
+
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
+|:-:|:---------|:------------------:|:-------------------------------|
+| 1 | Mensaje de error genérico sin información específica sobre el fallo | 3 | Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de errores |
+| 2 | Falta de indicador de progreso visual en el proceso de registro de 3 pasos | 2 | Visibilidad del estado del sistema |
+| 3 | Botón "Finalize" habilitado incluso cuando hay errores de guardado | 4 | Prevención de errores |
+| 4 | Campos obligatorios no están claramente identificados | 2 | Prevención de errores |
+| 5 | Inconsistencia en el manejo de estados de la foto de perfil | 3 | Consistencia y estándares |
+
+#### Problema Detallado
+
+* **PROBLEMA #1:** Mensaje de error genérico sin información específica sobre el fallo
+**Severidad:** 3
+**Heurística violada:** Usability: Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de errores
+
+![Error saving profile](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6-Y35wL6ju2UYx03cDxAEbb2LJO5ANjC.png)
+
+**Problema:** En el paso final del registro de perfil, cuando ocurre un error al guardar la información, el sistema muestra únicamente el mensaje "Error saving your profile" sin proporcionar detalles específicos sobre qué causó el fallo. Esto deja al usuario sin información sobre cómo proceder para resolver el problema, generando frustración y posibles abandonos del proceso de registro. El usuario no puede determinar si el error se debe a problemas de conectividad, formato de datos, tamaño de imagen, o algún otro factor.
+
+**Recomendación:** Implementar mensajes de error específicos y descriptivos que indiquen la causa exacta del problema y las acciones que el usuario puede tomar para resolverlo. Por ejemplo: "Error al subir la imagen: El archivo es demasiado grande. Por favor, selecciona una imagen menor a 2MB" o "Error de conexión: Verifica tu conexión a internet e intenta nuevamente".
+
+ * **PROBLEMA #2:** Falta de indicador de progreso visual en el proceso de registro de 3 pasos
+**Severidad:** 2
+**Heurística violada:** Usability: Visibilidad del estado del sistema
+
+![Profile step 1](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-tCn9DXyZep8CW3hAFOl7DdjcY2dWfX.png)
+
+**Problema:** Durante el proceso de registro que consta de 3 pasos, aunque se indica textualmente "step X to 3" en el título, no existe un indicador visual de progreso como una barra de progreso o puntos indicadores. Esto hace que los usuarios no tengan una referencia clara y visual de su avance en el proceso, lo que puede generar incertidumbre sobre cuánto falta para completar el registro y puede llevar a abandonos prematuros del proceso.
+
+**Recomendación:** Implementar un indicador visual de progreso en la parte superior de cada pantalla del proceso de registro. Esto puede ser una barra de progreso horizontal, puntos indicadores (1●●○) o pasos numerados visualmente destacados que muestren claramente el paso actual y los pasos restantes.
+
+* **PROBLEMA #3:** Botón "Finalize" habilitado incluso cuando hay errores de guardado
+**Severidad:** 4
+**Heurística violada:** Usability: Prevención de errores
+
+![Finalize button with error](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6-Y35wL6ju2UYx03cDxAEbb2LJO5ANjC.png)
+
+**Problema:** En el paso final del registro, cuando se presenta el mensaje de error "Error saving your profile", el botón "Finalize" permanece habilitado y permite al usuario intentar finalizar el proceso nuevamente sin haber resuelto el error subyacente. Esto puede llevar a múltiples intentos fallidos, frustración del usuario y posible corrupción de datos. El sistema no previene que el usuario repita una acción que ya ha fallado sin antes corregir la causa del problema.
+
+**Recomendación:** Deshabilitar el botón "Finalize" cuando se detecten errores en el proceso de guardado y solo habilitarlo nuevamente cuando el error haya sido resuelto. Alternativamente, cambiar el texto del botón a "Retry" o "Try Again" para indicar claramente que se está reintentando una acción que falló previamente.
+
+* **PROBLEMA #4:** Campos obligatorios no están claramente identificados
+**Severidad:** 2
+**Heurística violada:** Usability: Prevención de errores
+
+![Profile form fields](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-lkdQpwcjK2xvMTxm2TwGyalLnlEGFF.png)
+
+**Problema:** En los formularios de registro, especialmente en los pasos 1 y 2 del proceso de completar el perfil, no hay indicadores visuales claros (como asteriscos *) que identifiquen cuáles campos son obligatorios y cuáles son opcionales. Esto puede llevar a que los usuarios envíen formularios incompletos, generando errores de validación inesperados y requiriendo que el usuario regrese a completar información faltante, aumentando el tiempo y esfuerzo necesario para completar el registro.
+
+**Recomendación:** Implementar indicadores visuales claros para campos obligatorios, como asteriscos rojos (*) junto al label del campo, o alternativamente, indicar claramente cuáles campos son opcionales con texto como "(opcional)". Además, implementar validación en tiempo real que muestre inmediatamente cuando un campo obligatorio está vacío.
+
+* **PROBLEMA #5:** Inconsistencia en el manejo de estados de la foto de perfil
+**Severidad:** 3  
+**Heurística violada:** Usability: Consistencia y estándares
+
+![No image state](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-2Ruz6HYQ7oqizdCQUrn2AMvbCo9pFC.png)
+
+**Problema:** En el paso 3 del registro, el manejo de la foto de perfil presenta inconsistencias en la presentación de estados. Cuando no hay imagen seleccionada, se muestra un círculo gris con "No image yet" y el texto "No image selected yet" debajo, creando redundancia. Además, no queda claro si la foto de perfil es obligatoria u opcional, ya que no hay opción visible para omitir este paso, pero tampoco se indica claramente que sea requerida.
+
+**Recomendación:** Estandarizar la presentación de estados de la foto de perfil eliminando la redundancia textual. Mostrar claramente si la foto es opcional agregando un enlace "Skip for now" o "Add later", o si es obligatoria, indicarlo explícitamente. Mantener consistencia visual entre el estado vacío y el estado con imagen seleccionada.
+
+
+<div id='7.4.'><h4>7.4 Video About-the-Product</h3></div>
+
+URL en youtube: [https://www.youtube.com/watch?v=qFvFEMXzqAc](https://www.youtube.com/watch?v=qFvFEMXzqAc)
+
+Duración: 7:04
+
+<div id='7.5.'><h2>7.5. Conclusiones</h2></div>
 
 
 1. **Ecosistema Integral con Modelo Sostenible:** OnControl trasciende una simple aplicación al integrar gestión médica, acompañamiento emocional y herramientas de autocontrol bajo un modelo freemium que balancea accesibilidad para pacientes con valor tangible para profesionales, asegurando viabilidad económica.
