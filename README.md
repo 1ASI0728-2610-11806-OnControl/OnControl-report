@@ -31,7 +31,7 @@ Producto: OnControl
 | Ramos Mendoza, Juan Pablo       | U202019545 |
 
 
-**Mayo del 2026**
+**Junio del 2026**
 
 </div>
 
@@ -46,6 +46,7 @@ El objetivo de esta sección es resumir las modificaciones relevantes que se rea
 |    0.0    |   12/04/26   |   Grupo   | Creación del repositorio |
 |    1.0    |   26/04/26   |   Grupo   | Desarrollo del TB1       |
 |    2.0    |   16/05/26   |   Grupo   | Desarrollo del TP y correcciones       |
+|    3.0    |   20/06/26   |   Grupo   | Desarrollo del TB2 y correcciones       |
 
 
 # Project Report Collaboration Insights
@@ -234,12 +235,15 @@ Github también presenta un timeline de las ramas principales y los procesos de 
       <strong>Ramos Mendoza, Juan Pablo</strong> <br>
       <strong>TB1:</strong> <p align="justify">He realizado diagramas fáciles de entender y explicar para que personas de cualquier nivel técnico puedan entender las indicaciones correctamente, lo que ayudó en las explicaciones previas a las entrevistas </p><br>
       <strong>TP:</strong> <p align="justify">Con la comunicación correcta entre mis compañeros he podido tomar las mejores decisiones en el proceso de diseño de nuestro proyecto.</p><br>
+      <strong>TB2:</strong> <p align="justify">He explicado y resumido todo lo obtenido en las entrevistas para su fácil entendimiento y correcto desarrollo de la aplicación, permitiendo trabajar en base a las quejas y recomendaciones.</p><br>
       </td>
       <td>
         <strong>TB1:</strong><br>
         Nos hemos enfocado en mantener una alta claridad en nuestros diseños y explicaciones, lo que ayudó en el desarrollo de los gráficos y en la comprensión general de la arquitectura tecnológica del proyecto.
         <strong>TP:</strong><br>
         Nos hemos enfocado en mantener la claridad y compresión durante toda la parte de nuestro trabajo, siempre teniendo un enfoque en la facilidad de compresión de nuestro proyecto.
+        <strong>TB2:</strong><br>
+        El grupo se ha enfocado en que el entendimiento del informe sea lo más importante, con gráficos, explicaciones y resumenes detallados pero sin estar llenos de información que pueda confundir.
       </td>
     </tr>
     <tr>
@@ -262,15 +266,18 @@ Github también presenta un timeline de las ramas principales y los procesos de 
          <strong>TB1:</strong> <p align="justify">Redacté la documentación correspondiente a los Software Architecture Container Level Diagrams y Software Architecture Deployment Diagrams. En esta parte describí los contenedores principales de OnControl, sus responsabilidades, sus relaciones y la forma en que se comunican entre sí. Además, documenté la vista de despliegue del sistema, explicando cómo se distribuyen los componentes en la infraestructura, incluyendo aplicaciones cliente, servicios backend, base de datos, servicios externos y dispositivos IoT, con el objetivo de que la arquitectura sea comprensible para lectores de diferentes niveles técnicos. </p><br>
          <strong>TP:</strong> <p align="justify"> Hemos tenido una facilidad de comunicar de forma clara las intenciones de nuestro proyecto gracias a la nueva redacción y revisión que he realizado basada en comentarios anteriores del profesor. </p><br>
          <strong>TB2:</strong> <p align="justify">Participé en la revisión y actualización de la documentación final de los diagramas de contenedores y despliegue de OnControl. Detallé las responsabilidades de los servicios, sus mecanismos de comunicación y la distribución de los componentes dentro de la infraestructura tecnológica, utilizando una redacción objetiva y ordenada para facilitar la comprensión de la arquitectura por parte del equipo y de los evaluadores.</p><br>
-         <strong>Ramos Mendoza, Juan Pablo</strong> <br>
+<strong>Ramos Mendoza, Juan Pablo</strong> <br>
          <strong>TB1:</strong> <p align="justify">Utilizando mis avances anteriores en este proyecto he podido explicar claramente mis visiones a mis compañeros.</p><br>
          <strong>TP:</strong> <p align="justify"> Con una explicación clara y al punto sobre las tomas de decisiones en los diseños, hemos podido realizar el landing page y mockups satisfactorios que se apegan a la visión principal. </p><br>
+         <strong>TB2:</strong> <p align="justify">Los resumenes concisos de las entrevistas le permiten a cualquier persona, sin importar su experiencia, a realizar avances en el proyecto para cumplir la visión del cliente.</p><br>
       </td>
       <td>
         <strong>TB1:</strong><br>
         A través de los resultados de nuestras pruebas y diseños anteriores hemos podido documentar y explicar el proceso de desarrollo de nuestro proyecto para tenerlo como base consolidada para todo el equipo.
         <strong>TP:</strong><br>
         Gracias al enfoque en la claridad de nuestras explicaciones y diagramas hemos podido tener una visión muy clara del objetivo que deseamos realizar através de este proyecto.
+        <strong>TB2:</strong><br>
+        Enfocándose en la claridad de nuestro proyecto y del sprint realizado hemos desarrollado el informe para una fácil y correcta revisión.
       </td>
     </tr>
   </tbody>
