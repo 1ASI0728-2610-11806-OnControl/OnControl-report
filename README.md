@@ -186,6 +186,15 @@ Github también presenta un timeline de las ramas principales y los procesos de 
    7.2.1.5. [Execution Evidence for Sprint Review.](#7.2.1.5.)<br>
    7.2.1.6. [Services Documentation Evidence for Sprint Review.](#7.2.1.6.)<br>
    7.2.1.7. [Software Deployment Evidence for Sprint Review.](#7.2.1.7.)<br>
+   7.2.2. [Sprint 2.](#7.2.2.)<br>
+   7.2.2.1. [Sprint Planning 2.](#7.2.2.1.)<br>
+   7.2.2.2. [Sprint Backlog 2.](#7.2.2.2.)<br>
+   7.2.2.3. [Development Evidence for Sprint Review.](#7.2.2.3.)<br>
+   7.2.2.4. [Testing Suite Evidence for Sprint Review.](#7.2.2.4.)<br>
+   7.2.2.5. [Execution Evidence for Sprint Review.](#7.2.2.5.)<br>
+   7.2.2.6. [Services Documentation Evidence for Sprint Review.](#7.2.2.6.)<br>
+   7.2.2.7. [Software Deployment Evidence for Sprint Review.](#7.2.2.7.)<br>
+   7.3. [Validation Interviews.](#7.3.)<br>
    7.3. [Validation Interviews.](#7.3.)<br>
    7.3.1. [Diseño de Entrevistas.](#7.3.1.)<br>
    7.3.2. [Registro de Entrevistas.](#7.3.2.)<br>
@@ -4907,15 +4916,15 @@ Esta sección muestra el mock-up de la landing page de EMSafe. A diferencia del 
 
 * **Sección Inicio**
 
-<img width="1321" height="936" alt="Captura de pantalla 2025-10-04 201058" src="https://github.com/user-attachments/assets/41ad3d5f-b51f-4514-9037-039e6d863512" />
+<img width="1321" height="936" src="https://github.com/user-attachments/assets/41ad3d5f-b51f-4514-9037-039e6d863512" />
 
 * **Sección Caracteristicas**
 
-<img width="1580" height="921" alt="Captura de pantalla 2025-10-04 201200" src="https://github.com/user-attachments/assets/e709ec32-8568-4d0d-8513-2dfe3d9b1740" />
+<img width="1580" height="921" src="https://github.com/user-attachments/assets/e709ec32-8568-4d0d-8513-2dfe3d9b1740" />
 
 * **Sección Beneficios**
 
-<img width="1519" height="701" alt="Captura de pantalla 2025-10-04 201223" src="https://github.com/user-attachments/assets/71c11f0d-4555-4dd9-b9fa-520a7ce41051" />
+<img width="1519" height="701" src="https://github.com/user-attachments/assets/71c11f0d-4555-4dd9-b9fa-520a7ce41051" />
 
 * **Sección Problema**
 
@@ -4931,7 +4940,7 @@ Esta sección muestra el mock-up de la landing page de EMSafe. A diferencia del 
 
 * **Sección Contacto**
 
-<img width="1562" height="944" alt="Captura de pantalla 2025-10-04 201953" src="https://github.com/user-attachments/assets/352878c2-efae-478a-93ab-a89638a1b320" />
+<img width="1562" height="944" src="https://github.com/user-attachments/assets/352878c2-efae-478a-93ab-a89638a1b320" />
 
 * **Sección Descarga y Footer**
 
@@ -5367,49 +5376,49 @@ getMedication(){}
             <td>US36</td>
             <td>Visualizar landing page</td>
             <td>Landing Page (EP07)</td>
-            <td>Williams Gongora Castillejos</td>
+            <td>OnControl Team</td>
             <td>8</td>
         </tr>
         <tr>
             <td>US37</td>
             <td>Acceso a la app</td>
             <td>Landing Page (EP07)</td>
-            <td>Williams Gongora Castillejos</td>
+            <td>OnControl Team</td>
             <td>3</td>
         </tr>
         <tr>
             <td>US38</td>
             <td>Recibir información por correo</td>
             <td>Landing Page (EP07)</td>
-            <td>Alejandro Eduardo Gray Hidalgo</td>
+            <td>OnControl Team</td>
             <td>3</td>
         </tr>
         <tr>
             <td>US01</td>
             <td>Registrar cuenta</td>
             <td>Autenticación (EP01)</td>
-            <td>Piero Mendoza Pimentel</td>
+            <td>OnControl Team</td>
             <td>5</td>
         </tr>
         <tr>
             <td>US03</td>
             <td>Iniciar sesión</td>
             <td>Autenticación (EP01)</td>
-            <td>Juan Pablo Ramos Mendoza</td>
+            <td>OnControl Team</td>
             <td>5</td>
         </tr>
         <tr>
             <td>US04</td>
             <td>Cerrar sesión</td>
             <td>Autenticación (EP01)</td>
-            <td>Quispe Roldan Michael Fred</td>
+            <td>OnControl Team</td>
             <td>3</td>
         </tr>
         <tr>
             <td>US05</td>
             <td>Recuperación de cuenta</td>
             <td>Autenticación (EP01)</td>
-            <td>Juan Pablo Ramos Mendoza</td>
+            <td>OnControl Team</td>
             <td>5</td>
         </tr>
     </tbody>
@@ -5434,7 +5443,7 @@ getMedication(){}
         <td rowspan="3">Sprint 1</td>
         <td rowspan="3">US36: Visualizar landing page</td>
         <td>TA01</td>
-        <td>#2025100801</td>
+        <td>#2026300501</td>
         <td>Wireframe & Mockup (Figma)</td>
         <td>Diseñar la landing (secciones principales) según el estilo del proyecto y dejar prototipo navegable.</td>
         <td>6</td>
@@ -5443,7 +5452,7 @@ getMedication(){}
     </tr>
     <tr>
         <td>TA02</td>
-        <td>#2025100802</td>
+        <td>#2026300502</td>
         <td>Implementación responsive</td>
         <td>Desarrollar la landing (HTML/CSS/JS) con cabecera, navegación por anclas y footer de contacto.</td>
         <td>12</td>
@@ -5452,7 +5461,7 @@ getMedication(){}
     </tr>
     <tr>
         <td>TA03</td>
-        <td>#2025100803</td>
+        <td>#2026300503</td>
         <td>SEO & Accesibilidad básica</td>
         <td>Agregar meta tags, títulos, descripciones y mejoras de accesibilidad (alt, roles, focus).</td>
         <td>6</td>
@@ -5464,7 +5473,7 @@ getMedication(){}
         <td rowspan="2">Sprint 1</td>
         <td rowspan="2">US37: Acceso a la app</td>
         <td>TA04</td>
-        <td>#2025100804</td>
+        <td>#2026300504</td>
         <td>CTA “Acceder a la app”</td>
         <td>Agregar botón/CTA que dirija a la sección de descarga/uso y explicar requisitos (Android/iOS).</td>
         <td>4</td>
@@ -5473,7 +5482,7 @@ getMedication(){}
     </tr>
     <tr>
         <td>TA05</td>
-        <td>#2025100805</td>
+        <td>#2026300505</td>
         <td>Sección Descarga/Acceso</td>
         <td>Crear sección con enlaces y pasos para instalar/abrir la app (APK/TestFlight o guía).</td>
         <td>6</td>
@@ -5485,7 +5494,7 @@ getMedication(){}
         <td rowspan="2">Sprint 1</td>
         <td rowspan="2">US38: Recibir información por correo</td>
         <td>TA06</td>
-        <td>#2025100806</td>
+        <td>#2026300506</td>
         <td>Formulario de suscripción</td>
         <td>Implementar formulario (email) en la landing con validación y confirmación visual.</td>
         <td>6</td>
@@ -5494,7 +5503,7 @@ getMedication(){}
     </tr>
     <tr>
         <td>TA07</td>
-        <td>#2025100807</td>
+        <td>#2026300507</td>
         <td>API de suscripciones (MVP)</td>
         <td>Exponer endpoint simple para almacenar suscripciones y preparar documentación en Swagger.</td>
         <td>8</td>
@@ -5506,7 +5515,7 @@ getMedication(){}
         <td rowspan="2">Sprint 1</td>
         <td rowspan="2">US01: Registrar cuenta</td>
         <td>TA08</td>
-        <td>#2025100808</td>
+        <td>#2026300508</td>
         <td>POST /auth/register</td>
         <td>Crear endpoint de registro con validaciones y manejo de errores (duplicados, 4xx).</td>
         <td>10</td>
@@ -5515,7 +5524,7 @@ getMedication(){}
     </tr>
     <tr>
         <td>TA09</td>
-        <td>#2025100809</td>
+        <td>#2026300509</td>
         <td>Pantalla Registro (Flutter)</td>
         <td>Construir UI con validación de campos y flujo de éxito/error; integración con la API.</td>
         <td>10</td>
@@ -5527,7 +5536,7 @@ getMedication(){}
         <td rowspan="2">Sprint 1</td>
         <td rowspan="2">US03: Iniciar sesión</td>
         <td>TA10</td>
-        <td>#2025100810</td>
+        <td>#2026300510</td>
         <td>POST /auth/login</td>
         <td>Crear endpoint de login con emisión de token y manejo de credenciales inválidas (401).</td>
         <td>8</td>
@@ -5536,7 +5545,7 @@ getMedication(){}
     </tr>
     <tr>
         <td>TA11</td>
-        <td>#2025100811</td>
+        <td>#2026300511</td>
         <td>Pantalla Login (Flutter)</td>
         <td>Construir UI de login con almacenamiento seguro del token y estados de carga/errores.</td>
         <td>8</td>
@@ -5548,7 +5557,7 @@ getMedication(){}
         <td>Sprint 1</td>
         <td>US04: Cerrar sesión</td>
         <td>TA12</td>
-        <td>#2025100812</td>
+        <td>#2026300512</td>
         <td>Logout (Flutter)</td>
         <td>Implementar limpieza de sesión (token/estado) y redirección al login.</td>
         <td>4</td>
@@ -5560,7 +5569,7 @@ getMedication(){}
         <td rowspan="2">Sprint 1</td>
         <td rowspan="2">US05: Recuperación de cuenta</td>
         <td>TA13</td>
-        <td>#2025100813</td>
+        <td>#2026300513</td>
         <td>POST /auth/forgot-password</td>
         <td>Exponer endpoint para solicitar recuperación con envío de código/correo.</td>
         <td>10</td>
@@ -5569,7 +5578,7 @@ getMedication(){}
     </tr>
     <tr>
         <td>TA14</td>
-        <td>#2025100814</td>
+        <td>#2026300514</td>
         <td>Pantalla Recuperar cuenta (Flutter)</td>
         <td>Crear flujo de ingreso de email/código y cambio de contraseña; manejo de errores.</td>
         <td>8</td>
@@ -5752,15 +5761,15 @@ getMedication(){}
 
 #### Sección Inicio
 
-<img width="1321" height="936" alt="Captura de pantalla 2025-10-04 201058" src="https://github.com/user-attachments/assets/41ad3d5f-b51f-4514-9037-039e6d863512" />
+<img width="1321" height="936" src="https://github.com/user-attachments/assets/41ad3d5f-b51f-4514-9037-039e6d863512" />
 
 #### Sección Caracteristicas
 
-<img width="1580" height="921" alt="Captura de pantalla 2025-10-04 201200" src="https://github.com/user-attachments/assets/e709ec32-8568-4d0d-8513-2dfe3d9b1740" />
+<img width="1580" height="921" src="https://github.com/user-attachments/assets/e709ec32-8568-4d0d-8513-2dfe3d9b1740" />
 
 #### Sección Beneficios
 
-<img width="1519" height="701" alt="Captura de pantalla 2025-10-04 201223" src="https://github.com/user-attachments/assets/71c11f0d-4555-4dd9-b9fa-520a7ce41051" />
+<img width="1519" height="701" src="https://github.com/user-attachments/assets/71c11f0d-4555-4dd9-b9fa-520a7ce41051" />
 
 #### Sección Problema
 
@@ -5776,7 +5785,7 @@ getMedication(){}
 
 #### Sección Contacto
 
-<img width="1562" height="944" alt="Captura de pantalla 2025-10-04 201953" src="https://github.com/user-attachments/assets/352878c2-efae-478a-93ab-a89638a1b320" />
+<img width="1562" height="944" src="https://github.com/user-attachments/assets/352878c2-efae-478a-93ab-a89638a1b320" />
 
 #### Sección Descarga y Footer
 
@@ -5886,9 +5895,498 @@ git commit -m "feat: update landing content"
 git push origin main
 ```
 
-<div id='7.3.'><h4>7.3 Validation Interviews</h3></div>
+<div id='7.2.2'><h3>7.2.2. Sprint 2</h3></div>
 
-<div id='7.2.1.'><h4>7.2.1. Diseño de Entrevistas</h4></div>
+<div id='7.2.2.1'><h4>7.2.2.1. Sprint Planning 2</h4></div>
+
+<table>
+    <tr>
+        <th>Sprint 2</th>
+        <td>Sprint 2</td>
+    </tr>
+    <tr>
+        <th>Sprint Planning Date</th>
+        <td>2026-06-29</td>
+    </tr>
+    <tr>
+        <th>Time</th>
+        <td>8:00 PM</td>
+    </tr>
+    <tr>
+        <th>Location</th>
+        <td>Meet</td>
+    </tr>
+    <tr>
+        <th>Prepared By</th>
+        <td>Juan Pablo Ramos Mendoza</td>
+    </tr>
+    <tr>
+        <th>Attendees</th>
+        <td>Juan Pablo Ramos Mendoza / Ricardo Andree Barrutia Vaez / Fabiola Ximena Espinoza Inoñan / Hardie Alfonso Holguin Gamarra / Bryan Ronnald Espejo Gamarra</td>
+    </tr>
+    <tr>
+        <th>Sprint Goal</th>
+        <td>Implementar el backend, crear los endpoints, mejorar el frontend y conectar ambos</td>
+    </tr>
+    <tr>
+        <th>Sprint Velocity</th>
+        <td>5</td>
+    </tr>
+    <tr>
+        <th>Sum of Story Points</th>
+        <td>18</td>
+    </tr>
+</table>
+<br>
+
+<div id='7.2.2.2'><h4>7.2.2.2. Sprint Backlog 2</h4></div>
+
+<br>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Épica</th>
+            <th>Responsable</th>
+            <th>Puntos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>US02</td>
+            <td>Configurar pagos</td>
+            <td>EP02</td>
+            <td>OnControl Team</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>US09</td>
+            <td>Mandar solicitud de cita</td>
+            <td>EP03</td>
+            <td>OnControl Team</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>US10</td>
+            <td>Aceptar cita</td>
+            <td>EP03</td>
+            <td>OnControl Team</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>US11</td>
+            <td>Cancelar cita</td>
+            <td>EP03</td>
+            <td>OnControl Team</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>US12</td>
+            <td>Reprogramar cita</td>
+            <td>EP03</td>
+            <td>OnControl Team</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>US13</td>
+            <td>Mandar solicitud de tratamiento</td>
+            <td>EP03</td>
+            <td>QOnControl Team</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>US14</td>
+            <td>Aceptar/Rechazar cambios en tratamiento</td>
+            <td>EP03</td>
+            <td>OnControl Team</td>
+            <td>5</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+
+<table border="1">
+    <tr>
+        <th>Sprint #</th>
+        <th>User Story</th>
+        <th>Work-item/Task</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Estimation (Hours)</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+    </tr>
+    <!-- US02 -->
+    <tr>
+        <td rowspan="3">Sprint 2</td>
+        <td rowspan="3">US02: Configurar pagos</td>
+        <td>TA15</td>
+        <td>#2026062901</td>
+        <td>Diseñar flujo de configuración de pagos</td>
+        <td>Definir pasos, escenarios y reglas para configurar métodos de pago (tarjeta, billeteras, etc.).</td>
+        <td>6</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td>TA16</td>
+        <td>#2026062902</td>
+        <td>UI Configuración de pagos</td>
+        <td>Implementar pantallas para agregar, editar y eliminar métodos de pago con validaciones básicas.</td>
+        <td>10</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td>TA17</td>
+        <td>#2026062903</td>
+        <td>API métodos de pago</td>
+        <td>Crear endpoints para registrar, actualizar y listar métodos de pago; documentar en Swagger.</td>
+        <td>8</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Sprint 2</td>
+        <td rowspan="2">US13: Mandar solicitud de tratamiento</td>
+        <td>TA27</td>
+        <td>#2026062913</td>
+        <td>Formulario solicitud de tratamiento</td>
+        <td>Crear formulario para que el paciente envíe solicitud de tratamiento con diagnóstico y objetivo.</td>
+        <td>8</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td>TA28</td>
+        <td>#2026062914</td>
+        <td>API solicitud de tratamiento</td>
+        <td>Implementar endpoint para registrar solicitudes de tratamiento asociadas a la historia clínica del paciente.</td>
+        <td>6</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <!-- US14 -->
+    <tr>
+        <td rowspan="2">Sprint 2</td>
+        <td rowspan="2">US14: Aceptar/Rechazar cambios en tratamiento</td>
+        <td>TA29</td>
+        <td>#2026062915</td>
+        <td>Gestión de cambios de tratamiento </td>
+        <td>Construir vista para revisar propuestas de cambio de tratamiento y mostrar detalles relevantes.</td>
+        <td>8</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+    <tr>
+        <td>TA30</td>
+        <td>#2026062916</td>
+        <td>API gestionar cambios de tratamiento</td>
+        <td>Implementar endpoint para aceptar o rechazar cambios, registrando comentarios y nuevo estado.</td>
+        <td>8</td>
+        <td>OnControl Team</td>
+        <td>To Do</td>
+    </tr>
+</table>
+
+
+<div id='7.2.2.3'><h4>7.2.2.3. Development Evidence for Sprint Review</h4></div>
+
+<table border="1">
+  <tr>
+    <th>Repository</th>
+    <th>Branch</th>
+    <th>Commit Id</th>
+    <th>Commit Message</th>
+    <th>Commit Message Body</th>
+    <th>Committed on</th>
+  </tr>
+
+  <tr>
+    <td>Oncontrol-Api</td>
+    <td>main</td>
+    <td>a1c3f2b</td>
+    <td>feat: Initial Flutter project setup</td>
+    <td>Se crea el proyecto base en Flutter, configuración inicial de paquetes y estructura mínima de carpetas.</td>
+    <td>2026-07-04</td>
+  </tr>
+  <tr>
+    <td>Oncontrol-Api</td>
+    <td>main</td>
+    <td>c7e91da</td>
+    <td>feat: Implement core navigation and routes</td>
+    <td>Configuración de navegación principal con rutas base para login, registro y home.</td>
+    <td>2026-07-04</td>
+  </tr>
+  <tr>
+    <td>Oncontrol-Api</td>
+    <td>main</td>
+    <td>f3b27e4</td>
+    <td>feat: Add authentication screens (login & register)</td>
+    <td>Implementación de pantallas de inicio de sesión y registro con validaciones básicas de formularios.</td>
+    <td>2026-07-04</td>
+  </tr>
+  <tr>
+    <td>Oncontrol-Api</td>
+    <td>main</td>
+    <td>9d52ac1</td>
+    <td>feat: Configure API client and environment setup</td>
+    <td>Se agrega cliente HTTP, manejo de variables de entorno y capa base de servicios.</td>
+    <td>2026-07-04</td>
+  </tr>
+  <tr>
+    <td>Oncontrol-Api</td>
+    <td>main</td>
+    <td>2e846b9</td>
+    <td>feat: Implement appointments basic UI</td>
+    <td>Pantallas iniciales para listar, crear y ver detalle de citas médicas (mock data).</td>
+    <td>2026-07-04</td>
+  </tr>
+  <tr>
+    <td>Oncontrol-Api</td>
+    <td>main</td>
+    <td>7b9c0e2</td>
+    <td>docs: Update README with setup and run instructions</td>
+    <td>Actualización del README con pasos para instalar dependencias, ejecutar la app y estructura del proyecto.</td>
+    <td>2026-07-04</td>
+  </tr>
+  <tr>
+    <td>Oncontrol-Api</td>
+    <td>main</td>
+    <td>5ac8d30</td>
+    <td>feat: Add state management base (provider)</td>
+    <td>Integración de Provider como gestor de estado para autenticación y datos de usuario.</td>
+    <td>2026-07-04</td>
+  </tr>
+  <!-- ESP32 -->
+  <tr>
+    <td>Oncontrol-ESP32</td>
+    <td>main</td>
+    <td>90203da</td>
+    <td>feat: Information sending</td>
+    <td>Simuladores de dispositivos inteligentes con los sensores MAX30102 y MLX90614 para enviar información al programa.</td>
+    <td>2026-07-04</td>
+  </tr>
+</table>
+
+
+<div id='7.2.2.4'><h4>7.2.2.4. Testing Suite Evidence for Sprint Review</h4></div>
+
+<table border="1">
+  <tr>
+    <th>Repository</th>
+    <th>Branch</th>
+    <th>Commit Id</th>
+    <th>Commit Message</th>
+    <th>Commit Message Body</th>
+    <th>Committed on</th>
+  </tr>
+
+  <!-- Acceptance Tests Sprint 2 -->
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>f3e1c2f</td>
+    <td>Add feature US14 for treatment change acceptance/rejection</td>
+    <td>US14 — escenarios BDD para la aceptación y rechazo de cambios en el tratamiento, incluyendo comentarios del profesional y actualización de estados.</td>
+    <td>2026-07-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>4f799df</td>
+    <td>Add US13 feature for treatment request submission</td>
+    <td>US13 — escenarios BDD para el envío de solicitudes de tratamiento: casos de éxito y validaciones de campos obligatorios.</td>
+    <td>2026-07-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>0a72b3f</td>
+    <td>Create US12.feature for appointment rescheduling</td>
+    <td>US12 — escenarios BDD de reprogramación de citas: selección de nueva fecha/hora y restricciones por anticipación mínima.</td>
+    <td>2026-07-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>0e627a2</td>
+    <td>Add feature for canceling appointments (US11)</td>
+    <td>US11 — escenarios BDD para cancelación de citas: cancelación dentro y fuera del plazo permitido, motivos y mensajes de error.</td>
+    <td>2026-07-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>8c5a7ab</td>
+    <td>Add feature file for US10 Aceptar cita</td>
+    <td>US10 — escenarios BDD para aceptación de citas pendientes por el profesional, con actualización de estado y notificación al paciente.</td>
+    <td>2026-07-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>70ddeaf</td>
+    <td>Add feature US09 for appointment request scenarios</td>
+    <td>US09 — escenarios BDD para el envío de solicitudes de cita: flujos de éxito y errores por datos incompletos o inválidos.</td>
+    <td>2026-07-06</td>
+  </tr>
+  <tr>
+    <td>Acceptance-Tests</td>
+    <td>main</td>
+    <td>403e7ac</td>
+    <td>Create US02.feature for payment method configuration</td>
+    <td>US02 — escenarios BDD para configuración de métodos de pago: registro exitoso y fallos por datos de tarjeta inválidos.</td>
+    <td>2026-07-06</td>
+  </tr>
+</table>
+
+
+<div id='7.2.2.5'><h4>7.2.2.5. Execution Evidence for Sprint Review</h4></div>
+
+En el marco de este Sprint 2 del proyecto, se ha consolidado la base técnica y comunicacional de la plataforma OnControl, logrando la implementación simultánea de los componentes de Landing Page, Frontend Web y Backend API RESTful.
+
+**OnControl Backend API - Swagger:**
+
+<img width="921" height="857" alt="image" src="https://github.com/user-attachments/assets/cb2043a6-2816-4763-89bf-ac59e973485f" />
+
+<img width="926" height="688" alt="image" src="https://github.com/user-attachments/assets/f69e630b-af23-412d-af30-758c1608a140" />
+
+<img width="926" height="823" alt="image" src="https://github.com/user-attachments/assets/3be392b8-5185-4c9e-83a3-b237c7eafb0e" />
+
+<img width="923" height="562" alt="image" src="https://github.com/user-attachments/assets/8f84ac21-0a75-482f-9b41-08e5b1fd6cd8" />
+
+<img width="929" height="453" alt="image" src="https://github.com/user-attachments/assets/96bffad2-ce9c-4543-979e-78a85a1563fe" />
+
+<img width="931" height="945" alt="image" src="https://github.com/user-attachments/assets/5be0cca6-c2a2-495d-a9d9-864b739ef959" />
+
+<div id='7.2.2.6'><h4>7.2.2.6. Services Documentation Evidence for Sprint Review</h4></div>
+
+La aplicación cuenta con documentación generada automáticamente mediante Swagger UI (OpenAPI), la cual permite explorar, probar y visualizar todos los endpoints disponibles en el backend de forma clara y estructurada. Esta documentación está disponible en la ruta: `/api-docs` y facilita tanto la comprensión del API como la integración por parte de otros desarrolladores o sistemas externos.
+
+### **Módulos y Endpoints Disponibles**
+
+#### **Authentication Module**
+- `POST /api/auth/register/organization` - Register a new organization
+- `POST /api/auth/login` - Login
+
+#### **Patients Module**
+- `GET /api/patients/{patientProfileId}/summary` - Get patient summary
+- `GET /api/patients/{patientProfileId}/dashboard` - Get patient dashboard
+
+#### **Treatments Module**
+- `GET /api/treatments/{treatmentId}` - Get treatment
+- `GET /api/treatments/{treatmentId}/sessions` - Get treatment sessions
+- `GET /api/treatments/patient/{patientProfileId}` - Get patient treatments
+- `GET /api/treatments/patient/{patientProfileId}/sessions/upcoming` - Get upcoming sessions
+- `GET /api/treatments/patient/{patientProfileId}/current` - Get current treatment
+- `GET /api/treatments/doctor/{doctorProfileId}` - Get doctor treatments
+- `GET /api/treatments/doctor/{doctorProfileId}/stats` - Get treatment statistics
+- `PATCH /api/treatments/{treatmentId}/status` - Update treatment status
+- `POST /api/treatments/{treatmentId}/sessions` - Register session
+- `POST /api/treatments/doctor/{doctorProfileId}/patient/{patientProfileId}` - Create treatment
+- `PUT /api/treatments/{treatmentId}` - Update treatment
+
+#### **Symptoms Module**
+- `GET /api/symptoms/patient/{patientProfileId}` - Get patient symptoms
+- `GET /api/symptoms/patient/{patientProfileId}/stats` - Get symptom statistics
+- `GET /api/symptoms/patient/{patientProfileId}/recent` - Get recent symptoms
+- `POST /api/symptoms/patient/{patientProfileId}` - Report symptom
+
+#### **Appointments Module**
+- `GET /api/appointments/{id}` - Get appointment by ID
+- `GET /api/appointments/patient/{patientProfileId}` - Get patient appointments
+- `GET /api/appointments/doctor/{doctorProfileId}` - Get doctor appointments
+- `PATCH /api/appointments/{id}/status` - Update appointment status
+- `PATCH /api/appointments/{id}/follow-up` - Add follow-up notes
+- `POST /api/appointments/doctor/{doctorProfileId}/patient/{patientProfileId}` - Create appointment
+
+#### **Doctors Module**
+- `GET /api/doctors/{doctorProfileId}/patients` - Get doctor patients
+- `GET /api/doctors/{doctorProfileId}/patients/{patientId}` - Get patient by ID
+- `GET /api/doctors/{doctorProfileId}/patients/{patientId}/symptoms` - Get patient symptoms
+- `GET /api/doctors/{doctorProfileId}/dashboard` - Get doctor dashboard
+- `POST /api/doctors/{doctorProfileId}/patients` - Create patient
+
+#### **Organizations Module**
+- `GET /api/organizations/{organizationId}/doctors` - Get organization doctors
+- `GET /api/organizations/{organizationId}/doctors/{doctorId}` - Get doctor by ID
+- `GET /api/organizations/{organizationId}/dashboard` - Get organization dashboard
+- `POST /api/organizations/{organizationId}/doctors` - Create doctor
+
+#### **Medications Module**
+- `DELETE /api/medications/{medicationId}` - Discontinue medication
+- `GET /api/medications/{medicationId}` - Get medication
+- `GET /api/medications/patient/{patientProfileId}` - Get patient medications
+- `GET /api/medications/patient/{patientProfileId}/upcoming-doses` - Get upcoming doses
+- `GET /api/medications/patient/{patientProfileId}/active` - Get active medications
+- `GET /api/medications/doctor/{doctorProfileId}` - Get doctor medications
+- `POST /api/medications/{medicationId}/mark-taken` - Mark dose as taken
+- `POST /api/medications/doctor/{doctorProfileId}/patient/{patientProfileId}` - Prescribe medication
+- `PUT /api/medications/{medicationId}` - Update medication
+
+#### **Medical History Module**
+- `DELETE /api/medical-history/allergies/{allergyId}` - Delete allergy
+- `GET /api/medical-history/patient/{patientProfileId}` - Get medical history
+- `GET /api/medical-history/patient/{patientProfileId}/allergies` - Get allergies
+- `GET /api/medical-history/patient/{patientProfileId}/type/{type}` - Get history by type
+- `GET /api/medical-history/patient/{patientProfileId}/date-range` - Get history by date range
+- `POST /api/medical-history/patient/{patientProfileId}` - Add history entry
+- `POST /api/medical-history/patient/{patientProfileId}/allergies` - Add allergy
+
+#### **Dashboard Module**
+- `GET /api/dashboard/patient/{patientProfileId}` - Get Patient Dashboard
+- `GET /api/dashboard/patient/{patientProfileId}/stats` - Get Patient Statistics
+- `GET /api/dashboard/organization/{organizationId}` - Get Organization Dashboard
+- `GET /api/dashboard/organization/{organizationId}/stats` - Get Organization Statistics
+- `GET /api/dashboard/organization/{organizationId}/filter/doctor/{doctorId}` - Get Organization Dashboard Filtered by Doctor
+- `GET /api/dashboard/doctor/{doctorProfileId}` - Get Doctor Dashboard
+- `GET /api/dashboard/doctor/{doctorProfileId}/stats` - Get Doctor Statistics
+- `GET /api/dashboard/doctor/{doctorProfileId}/filter/patient/{patientId}` - Get Doctor Dashboard Filtered by Patient
+
+#### **Reports Module**
+- `GET /api/reports/doctor/{doctorProfileId}/treatments-by-type` - Get treatments by type
+- `GET /api/reports/doctor/{doctorProfileId}/patients-by-month` - Get patients by month
+- `GET /api/reports/doctor/{doctorProfileId}/overview` - Get doctor reports
+- `GET /api/reports/doctor/{doctorProfileId}/appointments-by-day` - Get appointments by day
+
+#### **Health Check**
+- `GET /health` - Health check endpoint
+- `GET /` - Root endpoint
+
+<div id='7.2.2.7'><h4>7.2.2.7. Software Deployment Evidence for Sprint Review</h4></div>
+
+#### **Despliegue del Backend (Render/Railway)**
+
+**Configuración en Render:**
+- **Paso 1: Crear Servicio Web**
+  - Selecciona "New Web Service" en Render
+  - Conecta el repositorio ControlUPC/oncontrol-backend
+  - Configura el servicio como servicio web
+
+- **Paso 2: Configuración del Build**
+  - **Runtime:** Java
+  - **Build Command:** `./mvnw clean package -DskipTests`
+  - **Start Command:** `java -jar target/oncontrol-backend-1.0.0.jar`
+  - **Plan:** Free o según requerimientos
+
+- **Paso 3: Variables de Entorno**
+  - `SPRING_PROFILES_ACTIVE`: production
+  - `SPRING_DATASOURCE_URL`: URL de base de datos MySQL
+  - `JWT_SECRET`: Clave secreta para JWT
+  - `SERVER_PORT`: 8080
+
+**Link de despliegue del backend:** [https://oncontrol-backend.onrender.com/](https://oncontrol-backend.onrender.com/)
+
+![DeployBack](https://github.com/user-attachments/assets/93a47f72-4a18-46b0-be63-111a1f0cfab7)
+
+<div id='7.3.'><h4>7.3. Validation Interviews</h3></div>
+
+<div id='7.3.1.'><h4>7.3.1. Diseño de Entrevistas</h4></div>
 
 *¿Podría presentarse con su nombre completo, edad, distrito de residencia y ocupación?*
 
@@ -5915,7 +6413,7 @@ git push origin main
  
 *¿Utilizaría la aplicación para organizar los procesos médicos de cada uno de sus pacientes?*
 
-<div id='7.2.2.'><h4>7.2.2. Registro de Entrevistas</h4></div>
+<div id='7.3.2.'><h4>7.3.2. Registro de Entrevistas</h4></div>
 
 Entrevista 1: Verónica Mendoza, 52, Chorrillos, profesora de tiempo completo en la upc ; familiar de paciente oncológico
 
@@ -5954,7 +6452,7 @@ El entrevistado tuvo una buena experiencia con nuestro landing page, pareciéndo
 En términos de la aplicación, todo le parece entendible y claro al entrevistado y le agrada el calendario, aunque desearía que hubiera más información sobre las citas y pacientes o médicos además de su nombre y fecha, cosas como especialidad o razón de cita.
 Además, el entrevistado considera que la aplicación está bastante completa, pero una lista de visitas al paciente si es que estuviera internado sería de gran ayuda.
 
-<div id='7.2.3.'><h4>7.2.3. Evaluaciones según heurísticas</h4></div>
+<div id='7.3.3.'><h4>7.3.3. Evaluaciones según heurísticas</h4></div>
 
 #### UX Heuristics & Principles Evaluation
 
@@ -6081,7 +6579,7 @@ Duración: 7:04
 
 1. **Ecosistema Integral con Modelo Sostenible:** OnControl trasciende una simple aplicación al integrar gestión médica, acompañamiento emocional y herramientas de autocontrol bajo un modelo freemium que balancea accesibilidad para pacientes con valor tangible para profesionales, asegurando viabilidad económica.
 
-2. **Experiencia de Usuario Empática y Técnicamente Sólida:** El diseño prioriza interfaces intuitivas y reducción de carga cognitiva para pacientes oncológicos, respaldado por una arquitectura escalable con Flutter, microservicios en Spring Boot e infraestructura cloud que garantiza seguridad, rendimiento y cumplimiento normativo.
+2. **Experiencia de Usuario Empática y Técnicamente Sólida:** El diseño prioriza interfaces intuitivas y reducción de carga cognitiva para pacientes oncológicos, respaldado por una arquitectura escalable, microservicios en Spring Boot e infraestructura cloud que garantiza seguridad, rendimiento y cumplimiento normativo.
 
 3. **Desarrollo Ágil con Enfoque Estratégico:** La metodología Scrum permite entregas incrementales validadas continuamente, mientras que el backlog priorizado mediante story points asegura que el desarrollo avance sobre funcionalidades críticas primero, manteniendo flexibilidad y enfoque en el valor central.
 
