@@ -22,11 +22,11 @@
 
 <b>INTEGRANTES:</b>
 
-<b>Barruita Vaez, Ricardo Andree - U201714765</b>
-<b>Espinoza Inoñan, Fabiola Ximena - U202214784</b>
+<b>Barruita Vaez, Ricardo Andree - U201714765</b><br>
+<b>Espinoza Inoñan, Fabiola Ximena - U202214784</b><br>
 <b>Holguin Gamarra, Hardie Alfonso - U202220250</b>
-<b>Espejo Gamarra, Bryan Ronnald - U202213278</b>
-<b>Ramos Mendoza, Juan Pablo - U202019545</b>
+<b>Espejo Gamarra, Bryan Ronnald - U202213278</b><br>
+<b>Ramos Mendoza, Juan Pablo - U202019545</b><br>
 
 **JULIO - 2026**
 
