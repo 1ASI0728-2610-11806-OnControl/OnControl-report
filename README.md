@@ -1,41 +1,36 @@
 <div align="center">
 
-![Logo UPC](https://upload.wikimedia.org/wikipedia/commons/f/fc/UPC_logo_transparente.png)
+![Logo UPC](./assets/logo.png)
 
-Universidad Peruana de Ciencias Aplicadas
+<b>UNIVERSIDAD PERUANA DE CIENCIAS APLICADAS</b>
 
-Carrera: Ingeniería de Software
+<b>INGENIERÍA DE SOFTWARE</b>
 
-Ciclo: 2026-10
+<b>CICLO 8</b>
 
-Curso: Arquitecturas De Software Emergentes
+<b>CURSO:</b><br><b>1ASI0728 – ARQUITECTURAS DE SOFTWARE EN TECNOLOGIAS EMERGENTES</b><br><b>NRC: 2610-11806</b>
 
-Sección: 11806
+<b>PROFESOR(A): CHRISTIAN LUIS DE LOS RIOS FERNANDEZ</b>
 
-Profesor: Christian Luis De Los Rios Fernandez
+<b>INFORME DE TRABAJO FINAL</b>
 
-Informe de TP1 
+<b>CICLO: 2026-10</b>
 
-Startup: OnControl Team
+<b>STARTUP: OnControl Team</b>
 
-Producto: OnControl
+<b>PRODUCTO: OnControl</b>
 
-### Team Members:
+<b>INTEGRANTES:</b>
 
-| Member                          | Code       |
-|---------------------------------|------------|
-| Barrutia Vaez, Ricardo Andree   | U201714765 |
-| Espinoza Inoñan, Fabiola Ximena | U202214784 |
-| Holguin Gamarra, Hardie Alfonso | U202220250 |
-| Espejo Gamarra, Bryan Ronnald   | U202213278 |
-| Ramos Mendoza, Juan Pablo       | U202019545 |
+<b>Barruita Vaez, Ricardo Andree - U201714765</b>
+<b>Espinoza Inoñan, Fabiola Ximena - U202214784</b>
+<b>Holguin Gamarra, Hardie Alfonso - U202220250</b>
+<b>Espejo Gamarra, Bryan Ronnald - U202213278</b>
+<b>Ramos Mendoza, Juan Pablo - U202019545</b>
 
-
-**Junio del 2026**
+**JULIO - 2026**
 
 </div>
-
-
 
 # Registro de Versiones del Informe
 
