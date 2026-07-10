@@ -1,6 +1,6 @@
-<div align="center">
+<div align="center", style="page-break-after: always;">
 
-![Logo UPC](./assets/logo.png)
+<img width="217" height="150" alt="Image" src="https://github.com/user-attachments/assets/2cc0a8ae-be7c-4d3c-9819-453953769858" />
 
 <b>UNIVERSIDAD PERUANA DE CIENCIAS APLICADAS</b>
 
@@ -42,6 +42,7 @@ El objetivo de esta sección es resumir las modificaciones relevantes que se rea
 |    1.0    |   26/04/26   |   Grupo   | Desarrollo del TB1       |
 |    2.0    |   16/05/26   |   Grupo   | Desarrollo del TP y correcciones       |
 |    3.0    |   20/06/26   |   Grupo   | Desarrollo del TB2 y correcciones       |
+|    4.0    |   08/07/26   |   Grupo   | Desarrollo del TF1 y correcciones       |
 
 
 # Project Report Collaboration Insights
@@ -149,7 +150,7 @@ Github también presenta un timeline de las ramas principales y los procesos de 
    5.3.6.1. [Bounded Context Domain Layer Class Diagrams.](#5.3.6.1.)<br>
    5.3.6.2. [Bounded Context Database Design Diagram.](#5.3.6.2.)<br>
 
-6. [**Capítulo VI: Solution UX Design](#6.)<br>
+6. [**Capítulo VI: Solution UX Design**](#6.)<br>
    6.1. [Style Guidelines.](#6.1.)<br>
    6.2. [Information Architecture.](#6.2.)<br>
    6.2.1. [Labeling Systems.](#6.2.1.)<br>
@@ -166,7 +167,7 @@ Github también presenta un timeline de las ramas principales y los procesos de 
    6.4.4. [Applications User Flow Diagrams](#6.4.4.)<br>
    6.5. [Applications Prototyping](#6.5.)<br>
 
-7. [**Capítulo VII: Product Implementation, Validation & Deployment](#7.)<br>
+7. [**Capítulo VII: Product Implementation, Validation & Deployment**](#7.)<br>
    7.1. [Software Configuration Management.](#7.1.)<br>
    7.1.1. [Software Development Environment Configuration.](#7.1.1.)<br>
    7.1.2. [Source Code Management.](#7.1.2.)<br>
@@ -196,10 +197,8 @@ Github también presenta un timeline de las ramas principales y los procesos de 
    7.3.3. [Evaluaciones Según Heurísticas.](#7.3.3.)<br>
    7.4. [Video About-the-Product.](#7.4.)<br>
    7.5. [Conclusiones.](#7.5.)<br>
-
-7. [**Conclusiones.**](#7.)<br>
-8. [**Bibliografía.**](#8.)<br>
-9. [**Anexo.**](#9.)<br>
+   
+8. [**Bibliografía**](#8.)<br>
 
 # STUDENT OUTCOME
 
